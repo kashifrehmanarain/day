@@ -1,0 +1,23 @@
+# Required to run project under the correct environment.
+language: php
+
+# Versions of PHP to run with.
+php:
+  - 5.5
+
+# Commands to be run before environment runs.
+before_script:
+  - cp .env.travis .env
+  - mysql -e 'create database testing;'
+  - composer self-update
+  - composer install --no-interaction
+  - php artisan migrate
+  - php artisan db:seed
+
+# Commands you want to run that will verify build.
+script: php vendor/bin/phpunit
+
+# Customize when the notification emails are sent.
+notifications:
+    on_success: never
+    on_failure: always

@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    padding-top: 90px;
+}
+
+img {
+    max-width: 100%;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.post-options {
+    a {
+        margin-right: 8px;
+    }
+}
+
+.tags-list {
+    a {
+        margin-right: 8px;
+    }
+}
+
+.trumbowyg-dropdown {
+    z-index: 10000;
+}

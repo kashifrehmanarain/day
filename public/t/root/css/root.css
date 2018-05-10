@@ -1,0 +1,39 @@
+@-moz-document url-prefix() {
+  fieldset {
+    display: table-cell; } }
+
+.footer {
+  margin-top: 30px; }
+
+.brown-text {
+  color: #512800; }
+
+.highlight {
+  background: #fff3b4;
+  color: #222222; }
+
+body {
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding-top: 90px; }
+
+img {
+  max-width: 100%; }
+
+main {
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto; }
+
+.post-options a {
+  margin-right: 8px; }
+
+.tags-list a {
+  margin-right: 8px; }
+
+.trumbowyg-dropdown {
+  z-index: 10000; }
+
+/*# sourceMappingURL=root.css.map */
