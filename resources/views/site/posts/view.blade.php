@@ -1,4 +1,4 @@
-@extends('site.main')
+@extends('site.master')
 
 @section('body')
     <div class="container">

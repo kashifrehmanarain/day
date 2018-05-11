@@ -6,11 +6,11 @@ Route::group(['middleware' => 'web'], function () {
         'uses' => 'HomeController@index',
     ]);
 
-/*    Route::get('/', [
-        'as'   => 'index',
+    Route::get('/search', [
+        'as'   => 'search',
         'uses' => 'PostsController@index',
     ]);
-*/
+
 
     Route::get('/view/{slug}', [
         'as'   => 'view',

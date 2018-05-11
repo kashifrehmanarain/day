@@ -1,11 +1,10 @@
-@extends('site.main')
+@extends('site.master')
 
 @section('body')
     <div class="container pages">
-        <h1>Обо мне</h1>
+        <h1>About Us</h1>
         <div>
-            <p>Даже не знаю, что рассказать!</p>
-            <p>Просто проверю, как работают статические страницы</p>
+            <p>About US</p>
         </div>
     </div>
 @stop
