@@ -41,7 +41,7 @@ class PostsController extends Controller
         if (!empty($q)) {
         }
 
-        $posts = Posts::i()->getPostsByCategoryId($category_id, $q);
+        $posts = Posts::i()->getPostsByCategoryId($category_id, $q,10);
 
         $data = [
             'posts'    => $posts,
@@ -50,7 +50,7 @@ class PostsController extends Controller
             'title' => Title::renderr(' : ', true),
         ];
 
-        return view('site.posts.index', $data);
+        return view('site.search', $data);
     }
 
     public function view($slug)

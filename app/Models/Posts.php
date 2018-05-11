@@ -45,7 +45,21 @@ class Posts extends Model implements SluggableInterface
         return $this->belongsTo(Categories::class, 'category_id');
     }
 
-    public function getPostsByCategoryId($category_id, $str = null)
+    public function getLatestPosts($limit=12)
+    {
+        $posts = $this->with(['category', 'user']);
+        $posts->where('is_pinned', 0);
+        return $posts->active()->sort()->paginate($limit);
+    }
+
+    public function getLatestFeaturedPosts($limit=12)
+    {
+        $posts = $this->with(['category', 'user']);
+        $posts->where('is_pinned', 1);
+        return $posts->active()->sort()->paginate($limit);
+    }
+
+    public function getPostsByCategoryId($category_id, $str = null, $limit=12)
     {
         $posts = $this->with(['category', 'user']);
         if (!empty($category_id)) {
@@ -56,7 +70,7 @@ class Posts extends Model implements SluggableInterface
             $this->scopeSearch($posts, $str);
         }
 
-        return $posts->active()->sort()->paginate(10);
+        return $posts->active()->sort()->paginate($limit);
     }
 
     public function getPostsByTag($tag)

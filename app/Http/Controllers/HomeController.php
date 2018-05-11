@@ -41,10 +41,12 @@ class HomeController extends Controller
         if (!empty($q)) {
         }
 
-        $posts = Posts::i()->getPostsByCategoryId($category_id, $q);
+        $latest_posts = Posts::i()->getLatestPosts();
+        $featured_posts = Posts::i()->getLatestFeaturedPosts();
 
         $data = [
-            'posts'    => $posts,
+            'posts'    => $latest_posts,
+            'featured_posts'    => $featured_posts,
             'category' => $category,
             'q' => $q,
             'title' => Title::renderr(' : ', true),

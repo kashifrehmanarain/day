@@ -1,8 +1,8 @@
 <ul class="pagination">
     @if ($previous)
-        <li class="arrow"><a href="{{ $previous }}">Новые</a></li>
+        <li class="arrow"><a href="{{ $previous }}">Previous</a></li>
     @else
-        <li class="arrow unavailable"><a href="#!">Новые</a></li>
+        <li class="arrow unavailable"><a href="#!">Previous</a></li>
     @endif
     @foreach ($links as $page => $url)
         @if ($page == $current)
@@ -14,8 +14,8 @@
         @endif
     @endforeach
     @if ($next)
-        <li class="arrow"><a href="{{ $next }}">Старые</a></li>
+        <li class="arrow"><a href="{{ $next }}">Next</a></li>
     @else
-        <li class="arrow unavailable"><span>Старые</span></li>
+        <li class="arrow unavailable"><span>Next</span></li>
     @endif
 </ul>
