@@ -8,24 +8,9 @@
                         <div class="col-xs-12 col-md-4 col-lg-3">
                             <aside>
                                 <ul class="nav-coupon-category panel">
-                                    <li><a href="#"><i class="fa fa-cutlery"></i>Food &amp; Drink<span>40</span></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-calendar"></i>Events<span>42</span></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-female"></i>Beauty<span>48</span></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-bolt"></i>Fitness<span>33</span></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-image"></i>Furniture<span>50</span></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-umbrella"></i>Fashion<span>33</span></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-shopping-cart"></i>Shopping<span>37</span></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-home"></i>Home &amp; Graden<span>30</span></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-plane"></i>Travel<span>48</span></a>
-                                    </li>
+                                    @foreach($categories_with_count as $category)
+                                        <li><a href="{{ route('category', ['slug' => $category->slug]) }}"><i class="fa {{ $category->category_icon }}"></i>{{ $category->title }}<span>{{ $category->num }}</span></a></li>
+                                    @endforeach
                                     <li class="all-cat">
                                         <a class="font-14" href="#">All Categories</a>
                                     </li>
@@ -277,6 +262,9 @@
                             </div>
                         @endforeach
                     </div>
+                    @foreach($featured_posts as $post)
+                        @include('site.posts._post-popup', ['post' => $post])
+                    @endforeach
                 </section>
                 <section class="section latest-deals-area ptb-30">
                     <header class="panel ptb-15 prl-20 pos-r mb-30">
@@ -291,6 +279,9 @@
                             </div>
                         @endforeach
                     </div>
+                    @foreach($posts as $post)
+                        @include('site.posts._post-popup', ['post' => $post])
+                    @endforeach
                 </section>
                 <section class="section subscribe-area ptb-40 t-center">
                     <div class="newsletter-form">

@@ -90,7 +90,7 @@ class PostsController extends Controller
         $post->category_id = $request->get('category_id');
         $post->title = $request->get('title');
         $post->excerpt = $request->get('excerpt');
-        $post->content = $request->get('content');
+//        $post->content = $request->get('content');
         $post->seo_title = strip_tags($seo_title);
         $post->seo_description = strip_tags($request->get('seo_description'));
         $post->seo_keywords = mb_strtolower(strip_tags($request->get('seo_keywords')));

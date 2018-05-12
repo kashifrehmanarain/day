@@ -133,6 +133,21 @@ Route::group(['middleware' => 'web'], function () {
             'uses' => 'Root\TagsController@index',
         ]);
 
+        Route::get('/tags/new', [
+            'as'   => 'root-tags-new',
+            'uses' => 'Root\TagsController@newTag',
+        ]);
+
+        Route::get('/tags/edit/{tag_id}', [
+            'as'   => 'root-tags-edit',
+            'uses' => 'Root\TagsController@editTag',
+        ]);
+
+        Route::post('/tags/store/{category_id?}', [
+            'as'   => 'root-tags-store',
+            'uses' => 'Root\TagsController@store',
+        ]);
+
         Route::get('/tags/clear-orphaned', [
             'as'   => 'root-tags-clear-orphaned',
             'uses' => 'Root\TagsController@clearOrphaned',

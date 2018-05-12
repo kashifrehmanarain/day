@@ -43,11 +43,13 @@ class HomeController extends Controller
 
         $latest_posts = Posts::i()->getLatestPosts();
         $featured_posts = Posts::i()->getLatestFeaturedPosts();
+        $categories_with_count = Categories::i()->topWithPostsCount();
 
         $data = [
             'posts'    => $latest_posts,
             'featured_posts'    => $featured_posts,
             'category' => $category,
+            'categories_with_count' => $categories_with_count,
             'q' => $q,
             'title' => Title::renderr(' : ', true),
         ];

@@ -52,6 +52,19 @@ class Categories extends Model implements SluggableInterface
             ->get(['categories.*', DB::raw('COUNT(posts.id) as num')]);
     }
 
+    public function topWithPostsCount()
+    {
+        return static::leftJoin('posts', 'posts.category_id', '=', 'categories.id')
+            ->groupBy('categories.id')
+            ->get(['categories.*', DB::raw('COUNT(posts.id) as num')])
+            ->take(9)
+            ->sortByDesc(function($category)
+            {
+                return $category->num;
+            });
+;
+    }
+
     public function getBySlug($slug)
     {
         return static::where('slug', 'like', $slug)->first();

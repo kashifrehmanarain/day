@@ -21,7 +21,7 @@
                                     {{ route('view', ['slug' => $post->slug]) }}
                                 </a>
                             </div>
-                            <div>
+                            {{--<div>
                                 <hr />
                                 <div class="post-options">
                                     <a href="{{ route('view', ['slug' => $post->slug]) }}" target="_blank"
@@ -50,18 +50,20 @@
                                            class="brown-text">Pin</a>
                                     @endif
                                 </div>
-                            </div>
+                            </div>--}}
                         </div>
                     @endif
                     <div class="form-group">
-                        <label for="inputExcerpt">Excerpt</label>
+                        <label for="inputExcerpt">Description</label>
                         <textarea id="inputExcerpt"
                                   name="excerpt" class="form-control">{!! $post->excerpt or old('excerpt')  !!} </textarea>
                     </div>
+{{--
                     <div class="form-group">
                         <label for="inputContent">Content</label>
                         <textarea id="inputContent" name="content">{!! $post->content or old('content')  !!} </textarea>
                     </div>
+--}}
 
                     <div class="form-group">
                         <label for="inputSEOTitle">SEO Title</label>
