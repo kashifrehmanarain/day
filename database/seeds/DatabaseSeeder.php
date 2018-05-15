@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Posts::class, 20)->create();
+        factory(App\Models\Posts::class, 30)->create();
 /*        Model::unguard();
 
         $this->call(StoresTableSeeder::class);

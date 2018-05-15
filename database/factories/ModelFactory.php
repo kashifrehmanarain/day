@@ -23,6 +23,7 @@ $factory->define(\App\Models\Posts::class, function ($faker) {
         'img'              => $faker->imageUrl($width = 700, $height = 250),
         'slug'  => str_slug($title, '-'),
         'status'           => 'active',
+        'is_pinned'           => $faker->randomElement([1,0]),
         'published_at'     => $faker->dateTime(),
     ];
 });
