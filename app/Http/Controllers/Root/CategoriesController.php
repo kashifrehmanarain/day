@@ -76,6 +76,7 @@ class CategoriesController extends Controller
         Notifications::add('Category saved', 'success');
 
         return redirect()->route('root-categories-edit', ['category_id' => $category->id]);
+        return redirect()->route('root-categories-edit', ['category_id' => $category->id]);
     }
 
     public function remove($category_id)

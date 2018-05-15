@@ -30,6 +30,16 @@ class TopNavComposer
                 'blank' => false,
             ],
             [
+                'url'   => route('root-stores'),
+                'title' => 'Stores',
+                'route' => 'root-stores',
+                'item'  => 'stores',
+                'class' => '',
+                'icon'  => 'fa fa-building-o',
+                'id'    => '',
+                'blank' => false,
+            ],
+            [
                 'url'   => route('root-categories'),
                 'title' => 'Categories',
                 'route' => 'root-categories',

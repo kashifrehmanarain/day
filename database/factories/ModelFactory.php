@@ -11,6 +11,22 @@
 |
 */
 
+$factory->define(\App\Models\Posts::class, function ($faker) {
+    $title = $faker->realText(100, $indexSize = 2);
+    return [
+        'category_id'      => factory('App\Models\Categories')->create()->id,
+        'store_id'          => factory('App\Models\Stores')->create()->id,
+        'user_id'          => factory('App\Models\Users')->create()->id,
+        'title'            => $title,
+        'excerpt'          => $faker->paragraph(),
+        'content'          => $faker->realText(1000, $indexSize = 2),
+        'img'              => $faker->imageUrl($width = 700, $height = 250),
+        'slug'  => str_slug($title, '-'),
+        'status'           => 'active',
+        'published_at'     => $faker->dateTime(),
+    ];
+});
+
 $factory->define(\App\Models\Users::class, function ($faker) {
     return [
         'name'           => $faker->name,
@@ -20,26 +36,19 @@ $factory->define(\App\Models\Users::class, function ($faker) {
     ];
 });
 
-$factory->define(\App\Models\Categories::class, function ($faker) {
-    $title = $faker->text(30);
-
+$factory->define(\App\Models\Stores::class, function ($faker) {
+    $title = $faker->text(10);
     return [
         'title' => $title,
         'slug'  => str_slug($title, '-'),
     ];
 });
 
-$factory->define(\App\Models\Posts::class, function ($faker) {
+$factory->define(\App\Models\Categories::class, function ($faker) {
+    $title = $faker->text(10);
     return [
-        'category_id'      => 'factory:Categories',
-        'user_id'          => 'factory:Users',
-        'title'            => $faker->realText(100, $indexSize = 2),
-        'excerpt'          => $faker->paragraph(),
-        'content'          => $faker->realText(1000, $indexSize = 2),
-        'img'              => $faker->imageUrl($width = 700, $height = 250),
-        'meta_description' => $faker->paragraph(),
-        'meta_keywords'    => $faker->email,
-        'status'           => 'active',
-        'published_at'     => $faker->dateTime(),
+        'title' => $title,
+        'slug'  => str_slug($title, '-'),
+        'category_icon' => $faker->randomElement(['fa-cutlery', 'fa-calendar', 'fa-female', 'fa-bolt', 'fa-image', 'fa-umbrella', 'fa-shopping-cart', 'fa-home', 'fa-plane'])
     ];
 });

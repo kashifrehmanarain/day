@@ -67,7 +67,8 @@ class TagsController extends Controller
 
         Notifications::add('Tag saved', 'success');
 
-        return redirect()->route('root-tags-edit', ['tag_id' => $tag->id]);
+        //return redirect()->route('root-tags-edit', ['tag_id' => $tag->id]);
+        return redirect()->route('root-tags');
     }
 
 

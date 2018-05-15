@@ -27,6 +27,11 @@ Route::group(['middleware' => 'web'], function () {
         'uses' => 'PostsController@index',
     ]);
 
+    Route::get('/store/{slug?}', [
+        'as'   => 'store',
+        'uses' => 'PostsController@index',
+    ]);
+
 //=======AUTH=======//
     Route::get('/root/login', [
         'as'   => 'login',
@@ -124,6 +129,33 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('/categories/remove/{category_id}', [
             'as'   => 'root-categories-remove',
             'uses' => 'Root\CategoriesController@remove',
+        ]);
+
+        //=======STORES=======//
+
+        Route::get('/stores', [
+            'as'   => 'root-stores',
+            'uses' => 'Root\StoresController@index',
+        ]);
+
+        Route::get('/stores/new', [
+            'as'   => 'root-stores-new',
+            'uses' => 'Root\StoresController@newStore',
+        ]);
+
+        Route::get('/stores/edit/{store_id}', [
+            'as'   => 'root-stores-edit',
+            'uses' => 'Root\StoresController@editStore',
+        ]);
+
+        Route::post('/stores/store/{store_id?}', [
+            'as'   => 'root-stores-store',
+            'uses' => 'Root\StoresController@store',
+        ]);
+
+        Route::get('/stores/remove/{store_id}', [
+            'as'   => 'root-stores-remove',
+            'uses' => 'Root\StoresController@remove',
         ]);
 
         //=======TAGS=======//

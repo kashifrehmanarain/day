@@ -109,7 +109,8 @@ class PostsController extends Controller
 
         Notifications::add('Blog post saved', 'success');
 
-        return Redirect::route('root-post-edit', ['post_id' => $post->id]);
+        //return Redirect::route('root-post-edit', ['post_id' => $post->id]);
+        return Redirect::route('root-posts');
     }
 
     public function edit($post_id)

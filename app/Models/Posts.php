@@ -45,6 +45,11 @@ class Posts extends Model implements SluggableInterface
         return $this->belongsTo(Categories::class, 'category_id');
     }
 
+    public function store()
+    {
+        return $this->belongsTo(Stores::class, 'store_id');
+    }
+
     public function getLatestPosts($limit=12)
     {
         $posts = $this->with(['category', 'user']);
