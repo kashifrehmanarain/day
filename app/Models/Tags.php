@@ -26,14 +26,14 @@ class Tags extends Model
 
     public function coupons()
     {
-        return $this->belongsToMany(Coupons::class, 'coupons_tag', 'tag_id', 'coupons_id');
+        return $this->belongsToMany(Coupons::class, 'coupon_tag', 'tag_id', 'coupons_id');
     }
 
     public function allWithCouponsCount()
     {
-        return $this->leftJoin('coupons_tag', 'coupons_tag.tag_id', '=', 'tags.id')
+        return $this->leftJoin('coupon_tag', 'coupon_tag.tag_id', '=', 'tags.id')
             ->groupBy('tags.id')
             ->orderBy('tags.tag')
-            ->get(['tags.*', DB::raw('COUNT(coupons_tag.id) as num')]);
+            ->get(['tags.*', DB::raw('COUNT(coupon_tag.id) as num')]);
     }
 }
