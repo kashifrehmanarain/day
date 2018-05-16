@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-class PostTag extends Model
+class CouponTag extends Model
 {
-    protected $table = 'post_tag';
+    protected $table = 'coupon_tag';
     public static $_instance = null;
 
     public static function i()

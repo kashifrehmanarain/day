@@ -24,16 +24,16 @@ class Tags extends Model
         return $this->belongsTo(Users::class, 'user_id');
     }
 
-    public function posts()
+    public function coupons()
     {
-        return $this->belongsToMany(Posts::class, 'post_tag', 'tag_id', 'post_id');
+        return $this->belongsToMany(Coupons::class, 'coupons_tag', 'tag_id', 'coupons_id');
     }
 
-    public function allWithPostsCount()
+    public function allWithCouponsCount()
     {
-        return $this->leftJoin('post_tag', 'post_tag.tag_id', '=', 'tags.id')
+        return $this->leftJoin('coupons_tag', 'coupons_tag.tag_id', '=', 'tags.id')
             ->groupBy('tags.id')
             ->orderBy('tags.tag')
-            ->get(['tags.*', DB::raw('COUNT(post_tag.id) as num')]);
+            ->get(['tags.*', DB::raw('COUNT(coupons_tag.id) as num')]);
     }
 }

@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(\App\Models\Posts::class, function ($faker) {
+$factory->define(\App\Models\Coupons::class, function ($faker) {
     $title = $faker->realText(100, $indexSize = 2);
     return [
         'category_id'      => factory('App\Models\Categories')->create()->id,

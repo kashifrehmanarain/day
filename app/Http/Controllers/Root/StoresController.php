@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Root;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Stores;
-use App\Models\Posts;
+use App\Models\Coupons;
 use Notifications;
 use Title;
 
@@ -21,7 +21,7 @@ class StoresController extends Controller
         Title::prepend('Stores');
         $data = [
             'title'      => Title::renderr(' : ', true),
-            'stores' => Stores::i()->allWithPostsCount(),
+            'stores' => Stores::i()->allWithCouponsCount(),
         ];
 
         view()->share('menu_item_active', 'stores');
@@ -82,12 +82,12 @@ class StoresController extends Controller
     {
         $store = Stores::find($store_id);
         $store->delete();
-        if (request()->get('with_posts', '0') == '1') {
-            Posts::where('store_id', $store_id)->delete();
-            Notifications::success('Store removed with posts');
+        if (request()->get('with_coupons', '0') == '1') {
+            Coupons::where('store_id', $store_id)->delete();
+            Notifications::success('Store removed with coupons');
         } else {
-            Posts::where('store_id', $store_id)->update(['store_id' => '1']);
-            Notifications::success('Store removed. Posts moved to Uncategorized');
+            Coupons::where('store_id', $store_id)->update(['store_id' => '1']);
+            Notifications::success('Store removed. Coupons moved to Uncategorized');
         }
 
         return redirect()->route('root-stores');

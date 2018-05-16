@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Models\Posts;
+use App\Models\Coupons;
 use Conf;
 use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -30,9 +30,9 @@ class CreateSitemap extends Job implements SelfHandling, ShouldQueue
      */
     public function handle()
     {
-        $posts = Posts::active()->get();
+        $coupons = Coupons::active()->get();
         $fh = fopen(public_path(Conf::get('sitemap.filename', 'sitemap.xml', false)), 'w');
-        fwrite($fh, view('files.sitemap', compact('posts'))->render());
+        fwrite($fh, view('files.sitemap', compact('coupons'))->render());
         fclose($fh);
     }
 }

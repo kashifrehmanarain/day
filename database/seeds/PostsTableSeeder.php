@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Laracasts\TestDummy\Factory;
 
-class PostsTableSeeder extends Seeder
+class CouponsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        Factory::times(10)->create(App\Models\Posts::class);
+        Factory::times(10)->create(App\Models\Coupons::class);
     }
 }

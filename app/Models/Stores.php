@@ -28,35 +28,35 @@ class Stores extends Model implements SluggableInterface
         return static::$_instance;
     }
 
-    public function posts()
+    public function coupons()
     {
-        return $this->hasMany(Posts::class, 'store_id');
+        return $this->hasMany(Coupons::class, 'store_id');
     }
 
-    public function withPostsCount()
+    public function withCouponsCount()
     {
         $class = get_called_class();
 
-        return $class::leftJoin('posts', 'posts.store_id', '=', 'stores.id')
-            ->where('posts.status', 'active')
+        return $class::leftJoin('coupons', 'coupons.store_id', '=', 'stores.id')
+            ->where('coupons.status', 'active')
             ->groupBy('stores.id')
             ->orderBy('stores.title')
-            ->get(['stores.*', DB::raw('COUNT(posts.id) as num')]);
+            ->get(['stores.*', DB::raw('COUNT(coupons.id) as num')]);
     }
 
-    public function allWithPostsCount()
+    public function allWithCouponsCount()
     {
-        return static::leftJoin('posts', 'posts.store_id', '=', 'stores.id')
+        return static::leftJoin('coupons', 'coupons.store_id', '=', 'stores.id')
             ->groupBy('stores.id')
             ->orderBy('stores.title')
-            ->get(['stores.*', DB::raw('COUNT(posts.id) as num')]);
+            ->get(['stores.*', DB::raw('COUNT(coupons.id) as num')]);
     }
 
-    public function topWithPostsCount()
+    public function topWithCouponsCount()
     {
-        return static::leftJoin('posts', 'posts.store_id', '=', 'stores.id')
+        return static::leftJoin('coupons', 'coupons.store_id', '=', 'stores.id')
             ->groupBy('stores.id')
-            ->get(['stores.*', DB::raw('COUNT(posts.id) as num')])
+            ->get(['stores.*', DB::raw('COUNT(coupons.id) as num')])
             ->take(9)
             ->sortByDesc(function($store)
             {

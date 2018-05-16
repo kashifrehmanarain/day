@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Root;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Categories;
-use App\Models\Posts;
+use App\Models\Coupons;
 use Notifications;
 use Title;
 
@@ -22,7 +22,7 @@ class CategoriesController extends Controller
 
         $data = [
             'title'      => Title::renderr(' : ', true),
-            'categories' => Categories::i()->allWithPostsCount(),
+            'categories' => Categories::i()->allWithCouponsCount(),
         ];
 
         view()->share('menu_item_active', 'categories');
@@ -83,12 +83,12 @@ class CategoriesController extends Controller
     {
         $category = Categories::find($category_id);
         $category->delete();
-        if (request()->get('with_posts', '0') == '1') {
-            Posts::where('category_id', $category_id)->delete();
-            Notifications::success('Category removed with posts');
+        if (request()->get('with_coupons', '0') == '1') {
+            Coupons::where('category_id', $category_id)->delete();
+            Notifications::success('Category removed with coupons');
         } else {
-            Posts::where('category_id', $category_id)->update(['category_id' => '1']);
-            Notifications::success('Category removed. Posts moved to Uncategorized');
+            Coupons::where('category_id', $category_id)->update(['category_id' => '1']);
+            Notifications::success('Category removed. Coupons moved to Uncategorized');
         }
 
         return redirect()->route('root-categories');

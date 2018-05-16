@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
-use App\Models\Posts;
+use App\Models\Coupons;
 use Illuminate\Database\QueryException;
 use Title;
 use Conf;
@@ -41,13 +41,13 @@ class HomeController extends Controller
         if (!empty($q)) {
         }
 
-        $latest_posts = Posts::i()->getLatestPosts();
-        $featured_posts = Posts::i()->getLatestFeaturedPosts();
-        $categories_with_count = Categories::i()->topWithPostsCount();
+        $latest_coupons = Coupons::i()->getLatestCoupons();
+        $featured_coupons = Coupons::i()->getLatestFeaturedCoupons();
+        $categories_with_count = Categories::i()->topWithCouponsCount();
 
         $data = [
-            'posts'    => $latest_posts,
-            'featured_posts'    => $featured_posts,
+            'coupons'    => $latest_coupons,
+            'featured_coupons'    => $featured_coupons,
             'category' => $category,
             'categories_with_count' => $categories_with_count,
             'q' => $q,
@@ -59,7 +59,7 @@ class HomeController extends Controller
 
     public function view($slug)
     {
-        $post = Posts::i()->getBySlug($slug);
+        $post = Coupons::i()->getBySlug($slug);
         view()->share('seo_title', $post->seo_title);
         view()->share('seo_description', $post->seo_description);
         view()->share('seo_keywords', $post->seo_keywords);
@@ -74,7 +74,7 @@ class HomeController extends Controller
             //This is just for demo purposes.
         }
 
-        return view('site.posts.view', ['post' => $post]);
+        return view('site.coupons.view', ['post' => $post]);
     }
 
     public function tag($tag)
@@ -82,12 +82,12 @@ class HomeController extends Controller
         Title::prepend('Тэг: '.$tag);
 
         $data = [
-            'posts' => Posts::i()->getPostsByTag($tag),
+            'coupons' => Coupons::i()->getCouponsByTag($tag),
             'title' => Title::renderr(' : ', true),
             'q' => '',
         ];
         view()->share('seo_title', $data['title']);
 
-        return view('site.posts.index', $data);
+        return view('site.coupons.index', $data);
     }
 }

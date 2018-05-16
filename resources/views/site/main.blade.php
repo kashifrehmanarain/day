@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ elixir('plugins/bootstrap/css/bootstrap-0ez.css') }}">
     <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ elixir('t/site/css/site.css') }}">
+    <link href="/custom.css" rel="stylesheet">
     @yield('css')
     <link rel="stylesheet" href="/{{ config('files.theme_css') }}">
     @yield('js-top')

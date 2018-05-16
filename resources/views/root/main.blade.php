@@ -12,6 +12,7 @@
     {{--<link rel="stylesheet" href="/plugins/flat-ui/css/flat-ui.min.css">--}}
     <link rel="stylesheet" href="/plugins/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ elixir('t/root/css/root.css') }}">
+    <link href="/custom.css" rel="stylesheet">
     @yield('css')
     @yield('js-top')
 </head>

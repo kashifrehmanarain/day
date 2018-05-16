@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
-use App\Models\Posts;
+use App\Models\Coupons;
 use Illuminate\Database\QueryException;
 use Title;
 use Conf;
 
-class PostsController extends Controller
+class CouponsController extends Controller
 {
     public function __construct()
     {
@@ -41,10 +41,10 @@ class PostsController extends Controller
         if (!empty($q)) {
         }
 
-        $posts = Posts::i()->getPostsByCategoryId($category_id, $q,10);
+        $coupons = Coupons::i()->getCouponsByCategoryId($category_id, $q,10);
 
         $data = [
-            'posts'    => $posts,
+            'coupons'    => $coupons,
             'category' => $category,
             'q' => $q,
             'title' => Title::renderr(' : ', true),
@@ -55,22 +55,22 @@ class PostsController extends Controller
 
     public function view($slug)
     {
-        $post = Posts::i()->getBySlug($slug);
-        view()->share('seo_title', $post->seo_title);
-        view()->share('seo_description', $post->seo_description);
-        view()->share('seo_keywords', $post->seo_keywords);
+        $coupon = Coupons::i()->getBySlug($slug);
+        view()->share('seo_title', $coupon->seo_title);
+        view()->share('seo_description', $coupon->seo_description);
+        view()->share('seo_keywords', $coupon->seo_keywords);
 
-        Title::prepend($post->seo_title);
+        Title::prepend($coupon->seo_title);
 
         try {
-            if ($post->status == 'active') {
-                $post->increment('views');
+            if ($coupon->status == 'active') {
+                $coupon->increment('views');
             }
         } catch (QueryException $e) {
             //This is just for demo purposes.
         }
 
-        return view('site.posts.view', ['post' => $post]);
+        return view('site.coupons.view', ['coupon' => $coupon]);
     }
 
     public function tag($tag)
@@ -78,12 +78,12 @@ class PostsController extends Controller
         Title::prepend('Тэг: '.$tag);
 
         $data = [
-            'posts' => Posts::i()->getPostsByTag($tag),
+            'coupons' => Coupons::i()->getCouponsByTag($tag),
             'title' => Title::renderr(' : ', true),
             'q' => '',
         ];
         view()->share('seo_title', $data['title']);
 
-        return view('site.posts.index', $data);
+        return view('site.coupons.index', $data);
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Notifications;
 use Redirect;
 
-class StorePostRequest extends Request
+class StoreCouponRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.

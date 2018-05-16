@@ -1,3 +1,37 @@
+/* Pagination */
+.page-pagination {
+    font-size: 13px;
+    margin: 20px auto;
+    text-align: center;
+}
+.page-pagination li {
+    display: inline;
+}
+.page-pagination a.page-numbers,
+.page-pagination .page-numbers.current {
+    display: inline-block;
+    margin: 0 2px;
+    padding: 0 13px;
+    line-height: 32px;
+    height: 36px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    -webkit-transition: all 200ms ease-in-out;
+    -ms-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+.page-pagination a.page-numbers {
+    border-color: #d3d9dd;
+    color: #576366;
+}
+.page-pagination .page-numbers.current,
+.page-pagination a.page-numbers:hover {
+    border-color: #2ed87b;
+    background-color: #2ed87b;
+    color: #fff;
+}
+
 .line-clamp-1 {
     overflow: hidden;
     text-overflow: ellipsis;

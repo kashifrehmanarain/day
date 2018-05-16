@@ -31,9 +31,9 @@ AuthenticatableContract,
         return static::$_instance;
     }
 
-    public function posts()
+    public function coupons()
     {
-        return $this->hasMany(Posts::class, 'user_id');
+        return $this->hasMany(Coupons::class, 'user_id');
     }
 
     public function setPasswordAttribute($password)

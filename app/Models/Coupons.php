@@ -6,7 +6,7 @@ use Cache;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 
-class Posts extends Model implements SluggableInterface
+class Coupons extends Model implements SluggableInterface
 {
     use SluggableTrait;
 
@@ -16,7 +16,7 @@ class Posts extends Model implements SluggableInterface
         'unique'     => true,
     ];
 
-    protected $table = 'posts';
+    protected $table = 'coupons';
     protected $fillable = ['*'];
     public static $_instance = null;
 
@@ -37,7 +37,7 @@ class Posts extends Model implements SluggableInterface
 
     public function tags()
     {
-        return $this->belongsToMany(Tags::class, 'post_tag', 'post_id', 'tag_id');
+        return $this->belongsToMany(Tags::class, 'coupon_tag', 'coupon_id', 'tag_id');
     }
 
     public function category()
@@ -50,38 +50,38 @@ class Posts extends Model implements SluggableInterface
         return $this->belongsTo(Stores::class, 'store_id');
     }
 
-    public function getLatestPosts($limit=12)
+    public function getLatestCoupons($limit=12)
     {
-        $posts = $this->with(['category', 'user']);
-        $posts->where('is_pinned', 0);
-        return $posts->active()->sort()->paginate($limit);
+        $coupons = $this->with(['category', 'user']);
+        $coupons->where('is_pinned', 0);
+        return $coupons->active()->sort()->paginate($limit);
     }
 
-    public function getLatestFeaturedPosts($limit=12)
+    public function getLatestFeaturedCoupons($limit=12)
     {
-        $posts = $this->with(['category', 'user']);
-        $posts->where('is_pinned', 1);
-        return $posts->active()->sort()->paginate($limit);
+        $coupons = $this->with(['category', 'user']);
+        $coupons->where('is_pinned', 1);
+        return $coupons->active()->sort()->paginate($limit);
     }
 
-    public function getPostsByCategoryId($category_id, $str = null, $limit=12)
+    public function getCouponsByCategoryId($category_id, $str = null, $limit=12)
     {
-        $posts = $this->with(['category', 'user']);
+        $coupons = $this->with(['category', 'user']);
         if (!empty($category_id)) {
-            $posts->where('category_id', $category_id);
+            $coupons->where('category_id', $category_id);
         }
 
         if (!empty($str)) {
-            $this->scopeSearch($posts, $str);
+            $this->scopeSearch($coupons, $str);
         }
 
-        return $posts->active()->sort()->paginate($limit);
+        return $coupons->active()->sort()->paginate($limit);
     }
 
-    public function getPostsByTag($tag)
+    public function getCouponsByTag($tag)
     {
         $slug = str_slug($tag, '_');
-        $key = 'post_tag_'.$slug;
+        $key = 'coupon_tag_'.$slug;
         if (Cache::has($key)) {
             return Cache::get($key);
         } else {
@@ -91,11 +91,11 @@ class Posts extends Model implements SluggableInterface
                 return null;
             }
 
-            $posts = $tag->posts()->active()->paginate(10);
-            Cache::put($key, $posts, 5);
+            $coupons = $tag->coupons()->active()->paginate(10);
+            Cache::put($key, $coupons, 5);
         }
 
-        return $posts;
+        return $coupons;
     }
 
     public function getBySlug($slug)

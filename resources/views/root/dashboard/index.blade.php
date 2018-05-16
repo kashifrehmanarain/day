@@ -21,25 +21,25 @@
             <div class="col-sm-12 col-md-6 col-lg-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <a href="{{ route('root-posts') }}">Posts</a>
+                        <a href="{{ route('root-coupons') }}">Coupons</a>
                     </div>
                     <div class="panel-body">
                         <ul>
                             <li>
-                                <span class="text-muted"><a href="{{ route('root-posts') }}">Active</a>:</span>
-                                <span class="label label-success">{{ $posts_active }}</span>
+                                <span class="text-muted"><a href="{{ route('root-coupons') }}">Active</a>:</span>
+                                <span class="label label-success">{{ $coupons_active }}</span>
                             </li>
                             <li>
                                 <span class="text-muted">
-                                    <a href="{{ route('root-posts', ['status' => 'moderation']) }}">Moderation</a>:</span>
-                                <span class="label label-{{ ($posts_moderation > 0) ? 'danger' : 'success' }}">{{ $posts_moderation }}</span>
+                                    <a href="{{ route('root-coupons', ['status' => 'moderation']) }}">Moderation</a>:</span>
+                                <span class="label label-{{ ($coupons_moderation > 0) ? 'danger' : 'success' }}">{{ $coupons_moderation }}</span>
                             </li>
                             <li>
                                 <span class="text-muted">
-                                    <a href="{{ route('root-posts', ['status' => 'draft']) }}">Draft</a>:</span>
-                                <span class="label label-success">{{ $posts_draft }}</span>
+                                    <a href="{{ route('root-coupons', ['status' => 'draft']) }}">Draft</a>:</span>
+                                <span class="label label-success">{{ $coupons_draft }}</span>
                             </li>
-                            <li><span class="text-muted">Total:</span> <span class="label label-success">{{ $posts_total }}</span></li>
+                            <li><span class="text-muted">Total:</span> <span class="label label-success">{{ $coupons_total }}</span></li>
                         </ul>
                     </div>
                 </div>
@@ -63,11 +63,11 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><a href="{{ route('root-posts') }}">Latest Posts</a></div>
+                    <div class="panel-heading"><a href="{{ route('root-coupons') }}">Latest Coupons</a></div>
                         <ul class="list-group">
-                            @foreach($latest_posts as $latest)
+                            @foreach($latest_coupons as $latest)
                                 <li class="list-group-item">
-                                    <a href="{{ route('root-post-edit', ['post_id' => $latest->id]) }}" class="badge">
+                                    <a href="{{ route('root-coupon-edit', ['coupon_id' => $latest->id]) }}" class="badge">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <a href="{{ route('view', ['slug' => $latest->slug]) }}" target="_blank">
@@ -80,11 +80,11 @@
             </div>
             <div class="col-lg-6">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><a href="{{ route('root-posts') }}">Popular Posts</a></div>
+                    <div class="panel-heading"><a href="{{ route('root-coupons') }}">Popular Coupons</a></div>
                         <ul class="list-group">
-                            @foreach($popular_posts as $popular)
+                            @foreach($popular_coupons as $popular)
                                 <li class="list-group-item">
-                                    <a href="{{ route('root-post-edit', ['post_id' => $popular->id]) }}" class="badge">
+                                    <a href="{{ route('root-coupon-edit', ['coupon_id' => $popular->id]) }}" class="badge">
                                         <i class="fa fa-pencil"></i>
                                     </a>
                                     <span class="label label-danger">{{ $popular->views }}</span>

@@ -256,14 +256,14 @@
                     </header>
 
                     <div class="latest-coupons-slider owl-slider" data-autoplay-hover-pause="true" data-loop="true" data-autoplay="true" data-smart-speed="1000" data-autoplay-timeout="10000" data-margin="30" data-nav-speed="false" data-items="1" data-xxs-items="1" data-xs-items="2" data-sm-items="2" data-md-items="3" data-lg-items="4">
-                        @foreach($featured_posts as $post)
+                        @foreach($featured_coupons as $coupon)
                             <div class="coupon-item">
-                                @include('site.posts._post-grid', ['post' => $post])
+                                @include('site.coupons._coupon-grid', ['coupon' => $coupon])
                             </div>
                         @endforeach
                     </div>
-                    @foreach($featured_posts as $post)
-                        @include('site.posts._post-popup', ['post' => $post])
+                    @foreach($featured_coupons as $coupon)
+                        @include('site.coupons._coupon-popup', ['coupon' => $coupon])
                     @endforeach
                 </section>
                 <section class="section latest-deals-area ptb-30">
@@ -273,14 +273,14 @@
                     </header>
 
                     <div class="row row-masnory row-tb-20">
-                        @foreach($posts as $post)
+                        @foreach($coupons as $coupon)
                             <div class="col-sm-6 col-md-4 col-lg-3">
-                                @include('site.posts._post-grid', ['post' => $post])
+                                @include('site.coupons._coupon-grid', ['coupon' => $coupon])
                             </div>
                         @endforeach
                     </div>
-                    @foreach($posts as $post)
-                        @include('site.posts._post-popup', ['post' => $post])
+                    @foreach($coupons as $coupon)
+                        @include('site.coupons._coupon-popup', ['coupon' => $coupon])
                     @endforeach
                 </section>
                 <section class="section subscribe-area ptb-40 t-center">

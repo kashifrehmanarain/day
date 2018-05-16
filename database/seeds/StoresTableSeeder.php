@@ -12,6 +12,6 @@ class StoresTableSeeder extends Seeder
      */
     public function run()
     {
-        Factory::times(15)->create(App\Models\Posts::class);
+        Factory::times(15)->create(App\Models\Coupons::class);
     }
 }

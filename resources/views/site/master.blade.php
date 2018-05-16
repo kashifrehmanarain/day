@@ -64,7 +64,7 @@
     <!-- Template Stylesheet -->
     <link href="/f/assets/css/base.css" rel="stylesheet">
     <link href="/f/assets/css/style.css" rel="stylesheet">
-    <link href="custom.css" rel="stylesheet">
+    <link href="/custom.css" rel="stylesheet">
 
 </head>
 

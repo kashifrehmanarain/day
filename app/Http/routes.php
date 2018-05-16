@@ -8,28 +8,28 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/search', [
         'as'   => 'search',
-        'uses' => 'PostsController@index',
+        'uses' => 'CouponsController@index',
     ]);
 
 
     Route::get('/view/{slug}', [
         'as'   => 'view',
-        'uses' => 'PostsController@view',
+        'uses' => 'CouponsController@view',
     ]);
 
     Route::get('/tag/{tag}', [
         'as'   => 'tag',
-        'uses' => 'PostsController@tag',
+        'uses' => 'CouponsController@tag',
     ]);
 
     Route::get('/category/{slug?}', [
         'as'   => 'category',
-        'uses' => 'PostsController@index',
+        'uses' => 'CouponsController@index',
     ]);
 
     Route::get('/store/{slug?}', [
         'as'   => 'store',
-        'uses' => 'PostsController@index',
+        'uses' => 'CouponsController@index',
     ]);
 
 //=======AUTH=======//
@@ -54,55 +54,55 @@ Route::group(['middleware' => 'web'], function () {
             'uses' => 'Root\DashboardController@index',
         ]);
 
-        Route::get('/posts', [
-            'as'   => 'root-posts',
-            'uses' => 'Root\PostsController@index',
+        Route::get('/coupons', [
+            'as'   => 'root-coupons',
+            'uses' => 'Root\CouponsController@index',
         ]);
 
-        Route::get('/posts/new', [
-            'as'   => 'root-posts-new',
-            'uses' => 'Root\PostsController@newPost',
+        Route::get('/coupons/new', [
+            'as'   => 'root-coupons-new',
+            'uses' => 'Root\CouponsController@newCoupon',
         ]);
 
-        Route::get('/posts/edit/{post_id}', [
-            'as'             => 'root-post-edit',
-            'uses'           => 'Root\PostsController@edit',
-        ])->where(['post_id' => '[0-9]+']);
+        Route::get('/coupons/edit/{coupon_id}', [
+            'as'             => 'root-coupon-edit',
+            'uses'           => 'Root\CouponsController@edit',
+        ])->where(['coupon_id' => '[0-9]+']);
 
-        Route::post('/posts/store/{post_id?}', [
-            'as'             => 'root-posts-store',
-            'uses'           => 'Root\PostsController@store',
-        ])->where(['post_id' => '[0-9]+']);
+        Route::post('/coupons/store/{coupon_id?}', [
+            'as'             => 'root-coupons-store',
+            'uses'           => 'Root\CouponsController@store',
+        ])->where(['coupon_id' => '[0-9]+']);
 
-        Route::get('/posts/pin/{post_id}', [
-            'as'             => 'root-post-pin',
-            'uses'           => 'Root\PostsController@pin',
-        ])->where(['post_id' => '[0-9]+']);
+        Route::get('/coupons/pin/{coupon_id}', [
+            'as'             => 'root-coupon-pin',
+            'uses'           => 'Root\CouponsController@pin',
+        ])->where(['coupon_id' => '[0-9]+']);
 
-        Route::get('/posts/unpin/{post_id}', [
-            'as'             => 'root-post-unpin',
-            'uses'           => 'Root\PostsController@unpin',
-        ])->where(['post_id' => '[0-9]+']);
+        Route::get('/coupons/unpin/{coupon_id}', [
+            'as'             => 'root-coupon-unpin',
+            'uses'           => 'Root\CouponsController@unpin',
+        ])->where(['coupon_id' => '[0-9]+']);
 
-        Route::get('/posts/to-draft/{post_id}', [
-            'as'             => 'root-post-to-draft',
-            'uses'           => 'Root\PostsController@toDraft',
-        ])->where(['post_id' => '[0-9]+']);
+        Route::get('/coupons/to-draft/{coupon_id}', [
+            'as'             => 'root-coupon-to-draft',
+            'uses'           => 'Root\CouponsController@toDraft',
+        ])->where(['coupon_id' => '[0-9]+']);
 
-        Route::get('/posts/to-active/{post_id}', [
-            'as'             => 'root-post-to-active',
-            'uses'           => 'Root\PostsController@toActive',
-        ])->where(['post_id' => '[0-9]+']);
+        Route::get('/coupons/to-active/{coupon_id}', [
+            'as'             => 'root-coupon-to-active',
+            'uses'           => 'Root\CouponsController@toActive',
+        ])->where(['coupon_id' => '[0-9]+']);
 
-        Route::get('/posts/to-deleted/{post_id}', [
-            'as'             => 'root-post-to-deleted',
-            'uses'           => 'Root\PostsController@toDeleted',
-        ])->where(['post_id' => '[0-9]+']);
+        Route::get('/coupons/to-deleted/{coupon_id}', [
+            'as'             => 'root-coupon-to-deleted',
+            'uses'           => 'Root\CouponsController@toDeleted',
+        ])->where(['coupon_id' => '[0-9]+']);
 
-        Route::get('/posts/to-category/{post_id}/{category_id}', [
-            'as'             => 'root-post-to-category',
-            'uses'           => 'Root\PostsController@toCategory',
-        ])->where(['post_id' => '[0-9]+', 'category_id' => '[0-9]+']);
+        Route::get('/coupons/to-category/{coupon_id}/{category_id}', [
+            'as'             => 'root-coupon-to-category',
+            'uses'           => 'Root\CouponsController@toCategory',
+        ])->where(['coupon_id' => '[0-9]+', 'category_id' => '[0-9]+']);
 
         //=======CATEGORIES=======//
 

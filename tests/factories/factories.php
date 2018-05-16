@@ -21,7 +21,7 @@ $factory(App\Models\Categories::class, function ($faker) {
     ];
 });
 
-$factory(App\Models\Posts::class, function ($faker) {
+$factory(App\Models\Coupons::class, function ($faker) {
     $title = $faker->sentence(8);
 
     return [

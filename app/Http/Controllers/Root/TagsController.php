@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Root;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
-use App\Models\PostTag;
+use App\Models\CouponTag;
 use App\Models\Tags;
 use Notifications;
 use Title;
@@ -22,7 +22,7 @@ class TagsController extends Controller
 
         $data = [
             'title' => Title::renderr(' : ', true),
-            'tags'  => Tags::i()->allWithPostsCount(),
+            'tags'  => Tags::i()->allWithCouponsCount(),
         ];
 
         view()->share('menu_item_active', 'tags');
@@ -74,7 +74,7 @@ class TagsController extends Controller
 
     public function clearOrphaned()
     {
-        $tags = Tags::i()->allWithPostsCount();
+        $tags = Tags::i()->allWithCouponsCount();
         foreach ($tags as $tag) {
             if ($tag->num == 0) {
                 Tags::destroy($tag->id);
@@ -88,7 +88,7 @@ class TagsController extends Controller
     public function remove($tag_id)
     {
         Tags::destroy($tag_id);
-        PostTag::where(['tag_id' => $tag_id])->delete();
+        CouponTag::where(['tag_id' => $tag_id])->delete();
 
         Notifications::add('Tag removed', 'success');
 

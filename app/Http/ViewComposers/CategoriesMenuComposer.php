@@ -8,11 +8,11 @@ class CategoriesMenuComposer
 {
     public function compose(View $view)
     {
-        $categories = \App\Models\Categories::i()->withPostsCount();
-        $stores = \App\Models\Stores::i()->withPostsCount();
-        $posts_count = \App\Models\Posts::active()->count();
+        $categories = \App\Models\Categories::i()->withCouponsCount();
+        $stores = \App\Models\Stores::i()->withCouponsCount();
+        $coupons_count = \App\Models\Coupons::active()->count();
         $view->with('categories', $categories);
         $view->with('stores', $stores);
-        $view->with('posts_count', $posts_count);
+        $view->with('coupons_count', $coupons_count);
     }
 }
