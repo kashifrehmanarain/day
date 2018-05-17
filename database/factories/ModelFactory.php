@@ -14,16 +14,20 @@
 $factory->define(\App\Models\Coupons::class, function ($faker) {
     $title = $faker->realText(100, $indexSize = 2);
     return [
-        'category_id'      => factory('App\Models\Categories')->create()->id,
-        'store_id'          => factory('App\Models\Stores')->create()->id,
-        'user_id'          => factory('App\Models\Users')->create()->id,
         'title'            => $title,
         'excerpt'          => $faker->paragraph(),
         'content'          => $faker->realText(1000, $indexSize = 2),
-        'img'              => $faker->imageUrl($width = 700, $height = 250),
+        'coupon_type'      => $faker->randomElement(['code','deal']),
+        'code'             => str_random(10),
+        'url'              => 'https://www.google.com/',
+        'img'              => $faker->imageUrl($width = 600, $height = 400),
         'slug'  => str_slug($title, '-'),
+        'category_id'      => factory('App\Models\Categories')->create()->id,
+        'store_id'          => factory('App\Models\Stores')->create()->id,
+        'user_id'          => factory('App\Models\Users')->create()->id,
         'status'           => 'active',
         'is_pinned'           => $faker->randomElement([1,0]),
+        'expiry_date'     => $faker->dateTimeBetween('+1 week', '+1 month'),
         'published_at'     => $faker->dateTime(),
     ];
 });

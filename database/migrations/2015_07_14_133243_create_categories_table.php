@@ -19,7 +19,7 @@ class CreateCategoriesTable extends Migration
             $table->string('seo_keywords', 255);
             $table->string('seo_description', 512);
             $table->string('slug', 512);
-            $table->string('category_icon', 33)->default('fa-shopping-cart');;
+            $table->string('category_icon', 33)->default('fa-shopping-cart');
             $table->timestamps();
         });
         $category = new \App\Models\Categories();
