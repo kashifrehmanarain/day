@@ -20,9 +20,20 @@ class CategoriesController extends Controller
     {
         Title::prepend('Categories');
 
+        $q = request()->get('q', null);
+        $categories = Categories::i();
+
+        if (!empty($q)) {
+            Title::prepend('Search: ' . $q);
+            $categories = $categories->where('title', 'LIKE', '%' . $q . '%');
+        }
+
         $data = [
             'title'      => Title::renderr(' : ', true),
-            'categories' => Categories::i()->allWithCouponsCount(),
+            'categories' => $categories->sort()->paginate(20),
+            //'url_params' => request()->except(['q']),
+            'url_params' => [],
+            'q' => $q,
         ];
 
         view()->share('menu_item_active', 'categories');

@@ -11,7 +11,7 @@
                     <input type="text" name="tag" value="{{ $tag->tag or old('tag', '') }}" class="form-control" id="inputTitle">
                 </div>
                 <div class="text-right">
-                    <a href="{{ route('root-categories') }}" class="btn btn-default">Cancel</a>
+                    <a href="{{ route('root-tags') }}" class="btn btn-default">Cancel</a>
                     <input type="submit" value="Save" class="btn btn-success">
                 </div>
             </form>

@@ -3,20 +3,22 @@
 @section('body')
     <div class="container">
         <h1>{{ $title }}</h1>
+        <br/>
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-2">
                 <div class="sidebar-nav">
                     <a href="{{ route('root-coupons-new') }}" class="btn btn-block btn-success">New Coupon</a>
-                    <br />
+                    <br/>
                     <div>
                         <form method="GET" action="{{ route('root-coupons') }}">
                             @foreach($url_params as $url_key=>$url_param)
-                                <input type="hidden" name="{{ $url_key }}" value="{{ $url_param }}" />
+                                <input type="hidden" name="{{ $url_key }}" value="{{ $url_param }}"/>
                             @endforeach
-                            <input type="text" name="q" value="{{ $q }}" placeholder="Fast search..." class="form-control" />
+                            <input type="text" name="q" value="{{ $q }}" placeholder="Search Coupon..."
+                                   class="form-control"/>
                         </form>
                     </div>
-                    <br />
+                    <br/>
                     <ul class="nav nav-pills nav-stacked">
                         <li class="{{ $status == 'all' ? 'active' : '' }}">
                             <a href="{{ route('root-coupons') }}">All Coupons</a>
@@ -24,15 +26,17 @@
                         <li class="{{ $status == 'draft' ? 'active' : '' }}">
                             <a href="{{ route('root-coupons', ['status' => 'draft']) }}">Drafts</a>
                         </li>
-                        <li class="{{ $status == 'moderation' ? 'active' : '' }}">
-                            <a href="{{ route('root-coupons', ['status' => 'moderation']) }}">Moderation</a>
-                        </li>
-                        <li class="{{ $status == 'refused' ? 'active' : '' }}">
-                            <a href="{{ route('root-coupons', ['status' => 'refused']) }}">Refused</a>
-                        </li>
-                        <li class="{{ $status == 'deleted' ? 'active' : '' }}">
-                            <a href="{{ route('root-coupons', ['status' => 'deleted']) }}">Deleted</a>
-                        </li>
+                        {{--
+                                                <li class="{{ $status == 'moderation' ? 'active' : '' }}">
+                                                    <a href="{{ route('root-coupons', ['status' => 'moderation']) }}">Moderation</a>
+                                                </li>
+                                                <li class="{{ $status == 'refused' ? 'active' : '' }}">
+                                                    <a href="{{ route('root-coupons', ['status' => 'refused']) }}">Refused</a>
+                                                </li>
+                                                <li class="{{ $status == 'deleted' ? 'active' : '' }}">
+                                                    <a href="{{ route('root-coupons', ['status' => 'deleted']) }}">Deleted</a>
+                                                </li>
+                        --}}
                     </ul>
                 </div>
             </div>

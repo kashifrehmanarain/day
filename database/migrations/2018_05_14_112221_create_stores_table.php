@@ -15,17 +15,15 @@ class CreateStoresTable extends Migration
         Schema::create('stores', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title', 255);
+            $table->text('description');
+            $table->string('store_logo', 255);
+            $table->string('store_url', 255);
             $table->string('seo_title', 255);
             $table->string('seo_keywords', 255);
             $table->string('seo_description', 512);
             $table->string('slug', 512);
             $table->timestamps();
         });
-        $store = new \App\Models\Stores();
-        $store->id = 1;
-        $store->title = 'Store 1';
-        $store->slug = 'store-1';
-        $store->save();
     }
 
     /**

@@ -58,17 +58,34 @@
                         <textarea id="inputExcerpt"
                                   name="excerpt" class="form-control">{!! $coupon->excerpt or old('excerpt')  !!} </textarea>
                     </div>
-{{--
                     <div class="form-group">
-                        <label for="inputContent">Content</label>
-                        <textarea id="inputContent" name="content">{!! $coupon->content or old('content')  !!} </textarea>
+                        <label for="inputCategory">Coupon Type</label>
+                        <select name="coupon_type" id="inputType" class="form-control">
+                            <option value="code" {{ (!empty($coupon) && $coupon->coupon_type == "code") ? 'selected' : '' }}>Code</option>
+                            <option value="deal" {{ (!empty($coupon) && $coupon->coupon_type == "deal") ? 'selected' : '' }}>Deal</option>
+                        </select>
                     </div>
---}}
+                    <div class="form-group">
+                        <label for="inputContent">Code</label>
+                        <input id="inputCodeTitle" type="text" value="{{ $coupon->code or old('code') }}" class="form-control" name="code">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputContent">URL</label>
+                        <input id="inputUrlTitle" type="text" value="{{ $coupon->url or old('url') }}" class="form-control" name="url">
+                    </div>
 
                     <div class="form-group">
                         <label for="inputSEOTitle">SEO Title</label>
                         <input id="inputSEOTitle" type="text" value="{{ $coupon->seo_title or old('seo_title') }}" class="form-control" name="seo_title">
                     </div>
+                    @if(!is_null($coupon))
+                        <div class="checkbox">
+                            <label>
+                                <input name="update_slug" type="checkbox"> Update URL too
+                            </label>
+                        </div>
+                        <br/>
+                    @endif
                     <div class="form-group">
                         <label for="inputSEODescription">SEO Description</label>
                         <textarea id="inputSEODescription" name="seo_description" class="form-control">{{ $coupon->seo_description or old('seo_description') }}</textarea>
@@ -91,28 +108,30 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
+                   {{-- <div class="form-group">
                         <label for="inputImg">Miniature</label>
                         @if(!empty($coupon) && !empty($coupon->img))
                             <br />
                             <img src="/upload/{{ $coupon->img }}" alt="">
                         @endif
                         <input type="file" id="inputImg" name="img" class="" >
-                    </div>
+                    </div>--}}
                     <div class="form-group">
                         <label for="inputStatus">Status</label>
                         <select name="status" id="inputStatus" class="form-control">
-                            <option value="draft" {{ (!empty($coupon) && $coupon->status == 'draft') ? 'selected' : '' }}>Draft</option>
                             <option value="active" {{ (!empty($coupon) && $coupon->status == 'active') ? 'selected' : '' }}>Active</option>
+                            <option value="draft" {{ (!empty($coupon) && $coupon->status == 'draft') ? 'selected' : '' }}>Draft</option>
+{{--
                             <optgroup label="Additional">
                                 <option value="moderation" {{ (!empty($coupon) && $coupon->status == 'moderation') ? 'selected' : '' }}>Moderation</option>
                                 <option value="deleted" {{ (!empty($coupon) && $coupon->status == 'deleted') ? 'selected' : '' }}>Deleted</option>
                                 <option value="refused" {{ (!empty($coupon) && $coupon->status == 'refused') ? 'selected' : '' }}>Refused</option>
                             </optgroup>
+--}}
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="inputPublishedAt">Published at</label>
+                        <label for="inputPublishedAt">Published Date</label>
 
                         <div class="input-group">
                             <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
@@ -120,6 +139,19 @@
                                    id="inputPublishedAt"
                                    value="{{ (!empty($coupon) ? $coupon->published_at : date('Y-m-d H:i:s')) }}"
                                    name="published_at"
+                                   class="form-control">
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPublishedAt">Expiry Date</label>
+
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                            <input type="text"
+                                   id="inputExpiryDate"
+                                   value="{{ (!empty($coupon) ? $coupon->expiry_date : date('Y-m-d H:i:s')) }}"
+                                   name="expiry_date"
                                    class="form-control">
                         </div>
 
@@ -133,7 +165,7 @@
                                class="form-control">
 
                         <div class="well well-sm tags-list">
-                            <a class="btn btn-link" onclick="$('#popularTags').slideToggle(100);">Popular Tags</a>
+                            <a class="btn btn-link" onclick="$('#popularTags').slideToggle(100);">Select Tags</a>
                             <div id="popularTags" style="display:none;">
                                 @foreach($tags as $tag)
                                     <a href="#{{ $tag->tag }}" class="add-tag" data-tag="{{ $tag->tag }}">{{ $tag->tag }}</a>
@@ -143,9 +175,15 @@
                     </div>
                     <div class="checkbox">
                         <label>
+                            <input type="checkbox" name="is_pinned" value="1" {{ isset($coupon->is_pinned) && $coupon->is_pinned==1 ? 'checked' : '' }}> Featured?
+                        </label>
+                    </div>
+{{--                    <div class="checkbox">
+                        <label>
                             <input type="checkbox" name="ping" value="1"> Ping Blog Services
                         </label>
                     </div>
+--}}
                     <hr/>
                     <div>
                         <input type="submit" value="Save" class="btn btn-block btn-success" >

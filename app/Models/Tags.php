@@ -3,9 +3,19 @@
 namespace App\Models;
 
 use DB;
+use Cviebrock\EloquentSluggable\SluggableInterface;
+use Cviebrock\EloquentSluggable\SluggableTrait;
 
-class Tags extends Model
+class Tags extends Model implements SluggableInterface
 {
+    use SluggableTrait;
+
+    protected $sluggable = [
+        'build_from' => 'tag',
+        'save_to'    => 'slug',
+        'unique'     => true,
+    ];
+
     protected $table = 'tags';
     public static $_instance = null;
 
@@ -36,4 +46,10 @@ class Tags extends Model
             ->orderBy('tags.tag')
             ->get(['tags.*', DB::raw('COUNT(coupon_tag.id) as num')]);
     }
+
+    public function scopeSort($query)
+    {
+        return $query->orderBy('id', 'desc');
+    }
+
 }

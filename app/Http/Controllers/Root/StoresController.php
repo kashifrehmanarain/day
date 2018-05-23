@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Stores;
 use App\Models\Coupons;
+use Intervention\Image\Facades\Image;
 use Notifications;
 use Title;
 
@@ -19,9 +20,20 @@ class StoresController extends Controller
     public function index()
     {
         Title::prepend('Stores');
+        $q = request()->get('q', null);
+        $stores = Stores::i();
+
+        if (!empty($q)) {
+            Title::prepend('Search: ' . $q);
+            $stores = $stores->where('title', 'LIKE', '%' . $q . '%');
+        }
+
         $data = [
             'title'      => Title::renderr(' : ', true),
-            'stores' => Stores::i()->allWithCouponsCount(),
+            'stores' => $stores->sort()->paginate(20),
+            //'url_params' => request()->except(['q']),
+            'url_params' => [],
+            'q' => $q,
         ];
 
         view()->share('menu_item_active', 'stores');
@@ -61,7 +73,15 @@ class StoresController extends Controller
     public function store(Requests\StoreStoreRequest $request, $store_id = null)
     {
         $store = Stores::findOrNew($store_id);
+
+        if ($request->hasFile('store_logo')) {
+            $filename = $this->_uploadMiniature($request->file('store_logo'));
+            $store->store_logo = $filename;
+        }
+
         $store->title = strip_tags($request->get('title'));
+        $store->description = $request->get('description');
+        $store->store_url = $request->get('store_url');
         $seo_title = strip_tags($request->get('seo_title'));
         $store->seo_title = (trim($seo_title) == '') ? $store->title : $seo_title;
         $store->seo_description = strip_tags($request->get('seo_description'));
@@ -92,4 +112,20 @@ class StoresController extends Controller
 
         return redirect()->route('root-stores');
     }
+
+    private function _uploadMiniature($file)
+    {
+        $path = public_path('upload');
+        $thumb_path = public_path('upload/thumb');
+        $filename = generate_filename($path, $file->getClientOriginalExtension());
+//        $thumbfilename = generate_filename($thumb_path, $file->getClientOriginalExtension());
+        $file->move($path, $filename);
+
+        $img = Image::make(sprintf($path.'/%s', $filename));
+        $img->resize(600, 400);
+        $img->save(sprintf($thumb_path.'/%s', $filename));
+
+        return $filename;
+    }
+
 }

@@ -20,7 +20,6 @@ $factory->define(\App\Models\Coupons::class, function ($faker) {
         'coupon_type'      => $faker->randomElement(['code','deal']),
         'code'             => str_random(10),
         'url'              => 'https://www.google.com/',
-        'img'              => $faker->imageUrl($width = 600, $height = 400),
         'slug'  => str_slug($title, '-'),
         'category_id'      => factory('App\Models\Categories')->create()->id,
         'store_id'          => factory('App\Models\Stores')->create()->id,
@@ -45,6 +44,9 @@ $factory->define(\App\Models\Stores::class, function ($faker) {
     $title = $faker->text(10);
     return [
         'title' => $title,
+        'description' => $faker->paragraph(),
+        'store_logo' => $faker->imageUrl($width = 600, $height = 400),
+        'store_url' => 'https://www.google.com/',
         'slug'  => str_slug($title, '-'),
     ];
 });
@@ -56,4 +58,11 @@ $factory->define(\App\Models\Categories::class, function ($faker) {
         'slug'  => str_slug($title, '-'),
         'category_icon' => $faker->randomElement(['fa-cutlery', 'fa-calendar', 'fa-female', 'fa-bolt', 'fa-image', 'fa-umbrella', 'fa-shopping-cart', 'fa-home', 'fa-plane'])
     ];
+});
+
+$factory->define(\App\Models\Tags::class, function ($faker) {
+    $title = $faker->text(10);
+    return [
+        'tag' => $title,
+        'slug'  => str_slug($title, '-')    ];
 });

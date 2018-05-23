@@ -62,11 +62,16 @@ class Categories extends Model implements SluggableInterface
             {
                 return $category->num;
             });
-;
     }
 
     public function getBySlug($slug)
     {
         return static::where('slug', 'like', $slug)->first();
     }
+
+    public function scopeSort($query)
+    {
+        return $query->orderBy('id', 'desc');
+    }
+
 }

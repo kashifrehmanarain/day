@@ -22,7 +22,8 @@
         "gaaarfild/laravel-notifications": "~1.0",
         "gaaarfild/laravel-pinger": "~1.0",
         "gaaarfild/laravel-title": "1.*",
-        "cviebrock/eloquent-sluggable": "^3.0"
+        "cviebrock/eloquent-sluggable": "^3.0",
+        "symfony/var-dumper": "^4.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -31,8 +32,7 @@
         "symfony/dom-crawler": "~3.0",
         "symfony/css-selector": "~3.0",
         "phpspec/phpspec": "~2.1",
-        "graham-campbell/exceptions": "^8.3",
-        "filp/whoops": "^2.0"
+        "graham-campbell/exceptions": "^8.3"
     },
     "autoload": {
         "classmap": [

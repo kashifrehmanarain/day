@@ -9,7 +9,7 @@ $('#inputTags').on('tokenfield:createtoken', function (event) {
 
 //DateTimePicker
 $(function () {
-    $('#inputPublishedAt').datetimepicker({
+    $('#inputPublishedAt, #inputExpiryDate').datetimepicker({
         locale: 'en',
         format: 'YYYY-MM-DD HH:mm:ss'
     });

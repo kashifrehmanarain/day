@@ -20,9 +20,20 @@ class TagsController extends Controller
     {
         Title::prepend('Tags');
 
+        $q = request()->get('q', null);
+        $tags = Tags::i();
+
+        if (!empty($q)) {
+            Title::prepend('Search: ' . $q);
+            $tags = $tags->where('tag', 'LIKE', '%' . $q . '%');
+        }
+
         $data = [
             'title' => Title::renderr(' : ', true),
-            'tags'  => Tags::i()->allWithCouponsCount(),
+            'tags'  => $tags->sort()->paginate(20),
+            //'url_params' => request()->except(['q']),
+            'url_params' => [],
+            'q' => $q,
         ];
 
         view()->share('menu_item_active', 'tags');
@@ -63,6 +74,7 @@ class TagsController extends Controller
     {
         $tag = Tags::findOrNew($tag_id);
         $tag->tag = strip_tags($request->get('tag'));
+        $tag->resluggify();
         $tag->save();
 
         Notifications::add('Tag saved', 'success');

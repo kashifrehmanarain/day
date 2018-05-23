@@ -20,7 +20,6 @@ class CreateCouponsTable extends Migration
             $table->enum('coupon_type', ['code','deal']);
             $table->string('code');
             $table->string('url');
-            $table->string('img', 255);
             $table->string('slug', 512);
             $table->integer('category_id')->unsigned();
             $table->integer('store_id')->unsigned();

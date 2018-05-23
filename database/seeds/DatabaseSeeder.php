@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         factory(App\Models\Coupons::class, 30)->create();
+        factory(App\Models\Tags::class, 10)->create();
 /*        Model::unguard();
 
         $this->call(StoresTableSeeder::class);

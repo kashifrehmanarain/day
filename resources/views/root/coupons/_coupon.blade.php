@@ -30,11 +30,12 @@
                     @endif
                     @if($coupon->status != 'deleted')
                         <a href="{{ route('root-coupon-to-deleted', ['coupon_id' => $coupon->id]) }}"
-                           class="brown-text">Delete</a>
+                           class="brown-text" onclick="return confirm('Are you sure?');">Delete</a>
                     @else
                         <a href="{{ route('root-coupon-to-draft', ['coupon_id' => $coupon->id]) }}"
                            class="brown-text">Recover</a>
                     @endif
+{{--
                     @if($coupon->is_pinned)
                         <a href="{{ route('root-coupon-unpin', ['coupon_id' => $coupon->id]) }}"
                            class="brown-text">Unpin</a>
@@ -42,24 +43,7 @@
                         <a href="{{ route('root-coupon-pin', ['coupon_id' => $coupon->id]) }}"
                            class="brown-text">Pin</a>
                     @endif
-                </div>
-            </div>
-            <div class="col-md-6 text-right">
-                <div class="post-category text-muted pull-right">
-                    <div class="dropdown">
-                        <a id="drop3" class="dropdown-toggle btn btn-xs btn-{{ ($coupon->category_id == '1' ? 'danger' : 'info') }}"
-                           aria-expanded="false" aria-haspopup="true"
-                           role="button" data-toggle="dropdown" href="#">
-                            {{ $coupon->category->title }}
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="dLabel">
-                            @foreach($categories as $category)
-                                <?php if($category->id == $coupon->category_id) continue; ?>
-                                <li><a href="{{ route('root-coupon-to-category', ['coupon_id' => $coupon->id, 'category_id' => $category->id]) }}">{{ $category->title }}</a></li>
-                            @endforeach
-                        </ul>
-                    </div>
+--}}
                 </div>
             </div>
         </div>

@@ -24,7 +24,6 @@ class CouponsController extends Controller
     public function index()
     {
         $coupons = Coupons::with('category');
-
         if (request()->has('status')) {
             $coupons->byStatus(request('status'));
         } else {
@@ -90,12 +89,16 @@ class CouponsController extends Controller
         $coupon->category_id = $request->get('category_id');
         $coupon->title = $request->get('title');
         $coupon->excerpt = $request->get('excerpt');
-//        $coupon->content = $request->get('content');
+        $coupon->coupon_type = $request->get('coupon_type');
+        $coupon->code = $request->get('code');
+        $coupon->url = $request->get('url');
         $coupon->seo_title = strip_tags($seo_title);
         $coupon->seo_description = strip_tags($request->get('seo_description'));
         $coupon->seo_keywords = mb_strtolower(strip_tags($request->get('seo_keywords')));
         $coupon->status = $request->get('status');
+        $coupon->is_pinned = $request->has('is_pinned');
         $coupon->published_at = $request->get('published_at');
+        $coupon->expiry_date = $request->get('expiry_date');
         if ($request->has('update_slug')) {
             $coupon->resluggify();
         }
@@ -107,7 +110,7 @@ class CouponsController extends Controller
             Pinger::pingAll($coupon->title, route('view', ['slug' => $coupon->slug]));
         }
 
-        Notifications::add('Blog coupon saved', 'success');
+        Notifications::add('Coupon saved', 'success');
 
         //return Redirect::route('root-coupon-edit', ['coupon_id' => $coupon->id]);
         return Redirect::route('root-coupons');
@@ -116,7 +119,6 @@ class CouponsController extends Controller
     public function edit($coupon_id)
     {
         $coupon = Coupons::with('tags')->find($coupon_id);
-
         Title::prepend('Edit Coupon');
         Title::prepend($coupon->id);
 

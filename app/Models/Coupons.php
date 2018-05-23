@@ -110,7 +110,8 @@ class Coupons extends Model implements SluggableInterface
 
     public function scopeSort($query)
     {
-        return $query->orderBy('is_pinned', 'desc')->orderBy('published_at', 'desc');
+        //return $query->orderBy('is_pinned', 'desc')->orderBy('published_at', 'desc');
+        return $query->orderBy('id', 'desc');
     }
 
     public function scopeByStatus($query, $statuses)
