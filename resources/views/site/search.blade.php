@@ -29,14 +29,14 @@
                             </header>
                             <!-- End Page Control -->
                             <div class="row row-masnory row-tb-20">
-                                @foreach($posts as $post)
+                                @foreach($coupons as $coupon)
                                     <div class="col-xs-12">
-                                        @include('site.posts._post-list', ['post' => $post])
+                                        @include('site.coupons._coupon-list', ['coupon' => $coupon])
                                     </div>
                                 @endforeach
                             </div>
-                            @if($posts->lastPage() > 1)
-                            {!! $posts->render() !!}
+                            @if($coupons->lastPage() > 1)
+                            {!! $coupons->render() !!}
                             @endif
                         </section>
                     </div>

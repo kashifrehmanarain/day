@@ -122,8 +122,18 @@ class StoresController extends Controller
         $file->move($path, $filename);
 
         $img = Image::make(sprintf($path.'/%s', $filename));
+
         $img->resize(600, 400);
-        $img->save(sprintf($thumb_path.'/%s', $filename));
+        $img->save(sprintf($thumb_path.'/600/%s', $filename));
+
+        $img->resize(300, 200);
+        $img->save(sprintf($thumb_path.'/300/%s', $filename));
+
+        $img->resize(150, 100);
+        $img->save(sprintf($thumb_path.'/150/%s', $filename));
+
+        $img->resize(222, 148);
+        $img->save(sprintf($thumb_path.'/222/%s', $filename));
 
         return $filename;
     }

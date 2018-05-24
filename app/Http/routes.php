@@ -22,14 +22,24 @@ Route::group(['middleware' => 'web'], function () {
         'uses' => 'CouponsController@tag',
     ]);
 
+    Route::get('/categories', [
+        'as'   => 'categories',
+        'uses' => 'CategoriesController@index',
+    ]);
+
     Route::get('/category/{slug?}', [
         'as'   => 'category',
         'uses' => 'CouponsController@index',
     ]);
 
+    Route::get('/stores', [
+        'as'   => 'stores',
+        'uses' => 'StoresController@index',
+    ]);
+
     Route::get('/store/{slug?}', [
         'as'   => 'store',
-        'uses' => 'CouponsController@index',
+        'uses' => 'StoresController@view',
     ]);
 
 //=======AUTH=======//

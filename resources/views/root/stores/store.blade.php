@@ -28,7 +28,7 @@
                      <label for="inputImg">Store Logo</label>
                      @if(!empty($store) && !empty($store->store_logo))
                          <br />
-                         <img src="/upload/thumb/{{ $store->store_logo }}" alt="">
+                         <img src="/upload/thumb/222/{{ $store->store_logo }}" alt="">
                      @endif
                      <input type="file" id="inputImg" name="store_logo" class="" >
                  </div>

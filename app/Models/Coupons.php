@@ -66,7 +66,7 @@ class Coupons extends Model implements SluggableInterface
 
     public function getCouponsByCategoryId($category_id, $str = null, $limit=12)
     {
-        $coupons = $this->with(['category', 'user']);
+        $coupons = $this;
         if (!empty($category_id)) {
             $coupons->where('category_id', $category_id);
         }

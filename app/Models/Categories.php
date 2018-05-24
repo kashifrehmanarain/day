@@ -64,6 +64,11 @@ class Categories extends Model implements SluggableInterface
             });
     }
 
+    public function allWithAlpha()
+    {
+        return static::orderBy('categories.title', 'asc')->get([DB::raw('LEFT(title , 1) as alpha, title, slug')])->all();
+    }
+
     public function getBySlug($slug)
     {
         return static::where('slug', 'like', $slug)->first();
@@ -72,6 +77,11 @@ class Categories extends Model implements SluggableInterface
     public function scopeSort($query)
     {
         return $query->orderBy('id', 'desc');
+    }
+
+    public function scopeAsort($query)
+    {
+        return $query->orderBy('title', 'asc');
     }
 
 }

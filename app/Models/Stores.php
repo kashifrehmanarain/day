@@ -73,4 +73,9 @@ class Stores extends Model implements SluggableInterface
     {
         return $query->orderBy('id', 'desc');
     }
+
+    public function scopeAsort($query)
+    {
+        return $query->orderBy('title', 'asc');
+    }
 }
