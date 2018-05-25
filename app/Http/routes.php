@@ -29,7 +29,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/category/{slug?}', [
         'as'   => 'category',
-        'uses' => 'CouponsController@index',
+        'uses' => 'CouponsController@category',
     ]);
 
     Route::get('/stores', [

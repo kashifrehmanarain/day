@@ -36,7 +36,7 @@ class Tags extends Model implements SluggableInterface
 
     public function coupons()
     {
-        return $this->belongsToMany(Coupons::class, 'coupon_tag', 'tag_id', 'coupons_id');
+        return $this->belongsToMany(Coupons::class, 'coupon_tag', 'tag_id', 'coupon_id');
     }
 
     public function allWithCouponsCount()
@@ -50,6 +50,11 @@ class Tags extends Model implements SluggableInterface
     public function scopeSort($query)
     {
         return $query->orderBy('id', 'desc');
+    }
+
+    public function getBySlug($slug)
+    {
+        return static::where('slug', 'like', $slug)->first();
     }
 
 }

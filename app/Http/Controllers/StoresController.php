@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Coupons;
 use App\Models\Stores;
 use Illuminate\Database\QueryException;
 use Title;
@@ -40,11 +41,15 @@ class StoresController extends Controller
 
         Title::prepend($store->seo_title);
 
+        $coupons = Coupons::i()->where('store_id',$store->id);
+
         $data = [
+            'coupons' => $coupons->active()->sort()->paginate(20),
             'store'    => $store,
             'store_id'    => $store_id,
             'title' => Title::renderr(' : ', true),
-        ];
+            'q' => '',
+            ];
 
         return view('site.stores.view', $data);
     }

@@ -64,7 +64,16 @@ class Coupons extends Model implements SluggableInterface
         return $coupons->active()->sort()->paginate($limit);
     }
 
-    public function getCouponsByCategoryId($category_id, $str = null, $limit=12)
+    public function getCouponsByCategoryId($category_id)
+    {
+        if (!empty($category_id)) {
+            $this->where('category_id', $category_id);
+        }
+
+        return $this;
+    }
+
+    public function getCouponsBysearchCategoryId($category_id, $str = null, $limit=12)
     {
         $coupons = $this;
         if (!empty($category_id)) {
@@ -78,29 +87,16 @@ class Coupons extends Model implements SluggableInterface
         return $coupons->active()->sort()->paginate($limit);
     }
 
-    public function getCouponsByTag($tag)
-    {
-        $slug = str_slug($tag, '_');
-        $key = 'coupon_tag_'.$slug;
-        if (Cache::has($key)) {
-            return Cache::get($key);
-        } else {
-            $tag = Tags::where('tag', 'like', $tag)->first();
-
-            if (is_null($tag)) {
-                return null;
-            }
-
-            $coupons = $tag->coupons()->active()->paginate(10);
-            Cache::put($key, $coupons, 5);
-        }
-
-        return $coupons;
-    }
-
     public function getBySlug($slug)
     {
-        return $this->with(['user', 'category', 'tags'])->where('slug', $slug)->first();
+        return $this->with(['category', 'tags'])->where('slug', $slug)->first();
+    }
+
+    public function getCouponsByTag($tag_id, $paginate)
+    {
+        $tag = Tags::where('id', $tag_id)->first();
+        $coupons = $tag->coupons()->active()->sort()->paginate($paginate);
+        return $coupons;
     }
 
     public function scopeActive($query)

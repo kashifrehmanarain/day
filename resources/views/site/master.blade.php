@@ -139,16 +139,7 @@
                                 <a href="/">Home</a>
                             </li>
                             <li>
-                                <a href="/store-single">Single Store</a>
-                            </li>
-                            <li>
-                                <a href="/stores">Stores List</a>
-                            </li>
-                            <li>
-                                <a href="/coupon-single">Single Coupon</a>
-                            </li>
-                            <li>
-                                <a href="/coupons">Coupons List</a>
+                                <a href="/stores">Stores</a>
                             </li>
                             <li>
                                 <a href="/categories">Categories</a>
