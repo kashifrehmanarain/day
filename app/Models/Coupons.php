@@ -52,14 +52,14 @@ class Coupons extends Model implements SluggableInterface
 
     public function getLatestCoupons($limit=12)
     {
-        $coupons = $this->with(['category', 'user']);
+        $coupons = $this->with(['category', 'store']);
         $coupons->where('is_pinned', 0);
         return $coupons->active()->sort()->paginate($limit);
     }
 
     public function getLatestFeaturedCoupons($limit=12)
     {
-        $coupons = $this->with(['category', 'user']);
+        $coupons = $this->with(['category', 'store']);
         $coupons->where('is_pinned', 1);
         return $coupons->active()->sort()->paginate($limit);
     }

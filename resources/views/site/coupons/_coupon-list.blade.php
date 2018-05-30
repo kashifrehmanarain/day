@@ -7,7 +7,7 @@
     <div class="row row-sm-cell row-tb-0 row-rl-0">
         <div class="col-sm-5">
             <figure class="p-15">
-                <img class="store-logo" src="/f/assets/images/coupons/coupon_01.jpg" alt="">
+                <img class="store-logo" src="{{ starts_with($coupon->store->store_logo, ['http://', 'https://']) ? '' : '/upload/thumb/222/' }}{{ $coupon->store->store_logo }}" alt="{{$coupon->store->title}} Logo">
             </figure>
         </div>
         <!-- end col -->

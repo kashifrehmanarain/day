@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="text-center p-20">
-                <img class="store-logo" src="/f/assets/images/coupons/coupon_01.jpg" alt="">
+                <img class="store-logo" src="{{ starts_with($coupon->store->store_logo, ['http://', 'https://']) ? '' : '/upload/thumb/222/' }}{{ $coupon->store->store_logo }}" alt="{{$coupon->store->title}} Logo">
             </div>
             <!-- end media -->
         </div>

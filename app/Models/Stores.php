@@ -78,4 +78,10 @@ class Stores extends Model implements SluggableInterface
     {
         return $query->orderBy('title', 'asc');
     }
+
+    public function scopeFeatured()
+    {
+        return $this->where('is_pinned', 1);
+    }
+
 }

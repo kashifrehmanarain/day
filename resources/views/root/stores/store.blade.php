@@ -33,6 +33,11 @@
                      <input type="file" id="inputImg" name="store_logo" class="" >
                  </div>
                 <div class="form-group">
+                    <label>
+                        <input type="checkbox" name="is_pinned" value="1" {{ isset($store->is_pinned) && $store->is_pinned==1 ? 'checked' : '' }}> Featured?
+                    </label>
+                </div>
+                <div class="form-group">
                     <label for="inputSeoTitle">SEO Title</label>
                     <input type="text" name="seo_title" value="{{ $store->seo_title or old('seo_title', '') }}" class="form-control" id="inputSeoTitle">
                 </div>

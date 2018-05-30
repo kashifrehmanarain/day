@@ -12,10 +12,8 @@
                                 <a href="{{ route('store', ['slug' => $store->slug]) }}" class="panel is-block">
                                     <div class="embed-responsive embed-responsive-4by3">
                                         <div class="store-logo">
-                                            {{--
-                                                 <img src="{{ starts_with($store->store_logo, ['http://', 'https://']) ? '' : '/upload/thumb/222/' }}{{ $store->store_logo }}" alt="{{$store->title}}">
-                                            --}}
-                                            <img src="/f/assets/images/brands/brand_01.jpg">
+                                            <img src="{{ starts_with($store->store_logo, ['http://', 'https://']) ? '' : '/upload/thumb/150/' }}{{ $store->store_logo }}" alt="{{$store->title}} Logo">
+                                            {{--<img src="/f/assets/images/brands/brand_01.jpg">--}}
                                         </div>
                                     </div>
                                     <h6 class="store-name ptb-10">{{$store->title}}</h6>

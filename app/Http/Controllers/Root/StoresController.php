@@ -82,6 +82,7 @@ class StoresController extends Controller
         $store->title = strip_tags($request->get('title'));
         $store->description = $request->get('description');
         $store->store_url = $request->get('store_url');
+        $store->is_pinned = $request->has('is_pinned');
         $seo_title = strip_tags($request->get('seo_title'));
         $store->seo_title = (trim($seo_title) == '') ? $store->title : $seo_title;
         $store->seo_description = strip_tags($request->get('seo_description'));

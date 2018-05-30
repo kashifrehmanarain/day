@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Coupons;
+use App\Models\Stores;
 use Illuminate\Database\QueryException;
 use Title;
 use Conf;
@@ -42,12 +43,14 @@ class HomeController extends Controller
         }
 
         $latest_coupons = Coupons::i()->getLatestCoupons();
+        //echo "<pre>"; print_r($latest_coupons); echo "</pre>";die;
         $featured_coupons = Coupons::i()->getLatestFeaturedCoupons();
         $categories_with_count = Categories::i()->topWithCouponsCount();
-
+        $featured_stores = Stores::i()->featured()->get();
         $data = [
             'coupons'    => $latest_coupons,
             'featured_coupons'    => $featured_coupons,
+            'featured_stores'  => $featured_stores,
             'category' => $category,
             'categories_with_count' => $categories_with_count,
             'q' => $q,

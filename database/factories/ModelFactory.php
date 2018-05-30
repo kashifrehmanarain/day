@@ -48,6 +48,7 @@ $factory->define(\App\Models\Stores::class, function ($faker) {
         'store_logo' => $faker->imageUrl($width = 600, $height = 400),
         'store_url' => 'https://www.google.com/',
         'slug'  => str_slug($title, '-'),
+        'is_pinned'           => $faker->randomElement([1,0]),
     ];
 });
 

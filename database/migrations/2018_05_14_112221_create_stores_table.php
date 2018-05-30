@@ -22,6 +22,7 @@ class CreateStoresTable extends Migration
             $table->string('seo_keywords', 255);
             $table->string('seo_description', 512);
             $table->string('slug', 512);
+            $table->boolean('is_pinned')->default(0);
             $table->timestamps();
         });
     }
