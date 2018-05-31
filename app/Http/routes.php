@@ -126,7 +126,7 @@ Route::group(['middleware' => 'web'], function () {
             'as'             => 'root-coupon-to-deleted',
             'uses'           => 'Root\CouponsController@toDeleted',
             'middleware' => 'roles',
-            'roles' => ['author','admin']
+            'roles' => ['admin']
         ])->where(['coupon_id' => '[0-9]+']);
 
         Route::get('/coupons/to-category/{coupon_id}/{category_id}', [
@@ -170,7 +170,7 @@ Route::group(['middleware' => 'web'], function () {
             'as'   => 'root-categories-remove',
             'uses' => 'Root\CategoriesController@remove',
             'middleware' => 'roles',
-            'roles' => ['author','admin']
+            'roles' => ['admin']
         ]);
 
         //=======STORES=======//
@@ -207,7 +207,7 @@ Route::group(['middleware' => 'web'], function () {
             'as'   => 'root-stores-remove',
             'uses' => 'Root\StoresController@remove',
             'middleware' => 'roles',
-            'roles' => ['author','admin']
+            'roles' => ['admin']
         ]);
 
         //=======TAGS=======//
@@ -244,14 +244,14 @@ Route::group(['middleware' => 'web'], function () {
             'as'   => 'root-tags-clear-orphaned',
             'uses' => 'Root\TagsController@clearOrphaned',
             'middleware' => 'roles',
-            'roles' => ['author','admin']
+            'roles' => ['admin']
         ]);
 
         Route::get('/tags/remove/{tag_id}', [
             'as'            => 'root-tags-remove',
             'uses'          => 'Root\TagsController@remove',
             'middleware' => 'roles',
-            'roles' => ['author','admin']
+            'roles' => ['admin']
         ])->where(['tag_id' => '[0-9]+']);
 
         //=======SETTINGS=======//
