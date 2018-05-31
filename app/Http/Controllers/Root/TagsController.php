@@ -74,7 +74,15 @@ class TagsController extends Controller
     {
         $tag = Tags::findOrNew($tag_id);
         $tag->tag = strip_tags($request->get('tag'));
-        $tag->resluggify();
+        $seo_title = strip_tags($request->get('seo_title'));
+        $tag->seo_title = (trim($seo_title) == '') ? $tag->tag : $seo_title;
+        $tag->seo_description = strip_tags($request->get('seo_description'));
+        $tag->seo_keywords = strip_tags($request->get('seo_keywords'));
+
+        if ($request->has('update_slug')) {
+            $tag->resluggify();
+        }
+//        $tag->resluggify();
         $tag->save();
 
         Notifications::add('Tag saved', 'success');

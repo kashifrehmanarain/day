@@ -15,7 +15,8 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 @foreach($menu_items_left as $left)
-                    <li class="{{ isset($menu_item_active) && $left['item'] == $menu_item_active ? 'active' : '' }}">
+                    @if( Auth::User()->hasRole($left['role_required']))
+                        <li class="{{ isset($menu_item_active) && $left['item'] == $menu_item_active ? 'active' : '' }}">
                         <a href="{{ $left['url'] }}"
                             class="{{ $left['class'] }}"
                             id="{{ $left['id'] }}"
@@ -30,6 +31,7 @@
                             @endif
                         </a>
                     </li>
+                    @endif
                 @endforeach
             </ul>
             <ul class="nav navbar-nav navbar-right">

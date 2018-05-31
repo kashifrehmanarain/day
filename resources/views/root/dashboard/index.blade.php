@@ -12,6 +12,7 @@
                     <div class="panel-body">
                         <ul>
                             <li><span class="text-muted">Name: </span> <span>{{ auth()->user()->name }}</span></li>
+                            <li><span class="text-muted">Role: </span> <span>{{ auth()->user()->role }}</span></li>
                             <li><span class="text-muted">Registered: </span> <span>{{ auth()->user()->created_at }}</span></li>
                             <li><span class="text-muted">Your IP: </span> <span>{{ Request::ip() }}</span></li>
                         </ul>

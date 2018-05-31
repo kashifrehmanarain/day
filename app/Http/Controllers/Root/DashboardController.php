@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Root;
 use App\Http\Controllers\Controller;
 use App\Models\Coupons;
 use App\Models\Users;
+use Illuminate\Support\Facades\Auth;
 use Title;
 
 class DashboardController extends Controller
@@ -16,6 +17,7 @@ class DashboardController extends Controller
 
     public function index()
     {
+//        echo "<pre>"; print_r(Auth::user()->role); echo "</pre>";die;
         view()->share('menu_item_active', 'index');
         Title::prepend('Dashboard');
 

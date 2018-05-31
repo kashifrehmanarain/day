@@ -98,7 +98,18 @@
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-4">
                     <div class="form-group">
-                        <label for="inputCategory">Categories</label>
+                        <label for="inputCategory">Store</label>
+                        <select name="store_id" id="inputStore" class="form-control">
+                            @foreach($stores as $store)
+                                <option value="{{ $store->id }}"
+                                        {{ (!empty($coupon) && $coupon->store_id == $store->id) ? 'selected' : '' }}>
+                                    {{ $store->title }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCategory">Category</label>
                         <select name="category_id" id="inputCategory" class="form-control">
                             @foreach($categories as $category)
                                 <option value="{{ $category->id }}"

@@ -18,6 +18,7 @@ class TopNavComposer
                 'icon'  => 'fa fa-dashboard',
                 'id'    => '',
                 'blank' => false,
+                'role_required' => ['user', 'author','admin'],
             ],
             [
                 'url'   => route('root-coupons'),
@@ -28,6 +29,7 @@ class TopNavComposer
                 'icon'  => 'fa fa-newspaper-o',
                 'id'    => '',
                 'blank' => false,
+                'role_required' => ['user', 'author','admin'],
             ],
             [
                 'url'   => route('root-stores'),
@@ -38,6 +40,7 @@ class TopNavComposer
                 'icon'  => 'fa fa-building-o',
                 'id'    => '',
                 'blank' => false,
+                'role_required' => ['user', 'author','admin'],
             ],
             [
                 'url'   => route('root-categories'),
@@ -48,6 +51,7 @@ class TopNavComposer
                 'icon'  => 'fa fa-folder-o',
                 'id'    => '',
                 'blank' => false,
+                'role_required' => ['user', 'author','admin'],
             ],
             [
                 'url'   => route('root-tags'),
@@ -58,6 +62,7 @@ class TopNavComposer
                 'icon'  => 'fa fa-tags',
                 'id'    => '',
                 'blank' => false,
+                'role_required' => ['user', 'author','admin'],
             ],
             [
                 'url'   => route('root-menu'),
@@ -68,6 +73,7 @@ class TopNavComposer
                 'icon'  => 'fa fa-bars',
                 'id'    => '',
                 'blank' => false,
+                'role_required' => ['superadmin'],
             ],
             [
                 'url'   => route('root-users'),
@@ -78,6 +84,7 @@ class TopNavComposer
                 'icon'  => 'fa fa-users',
                 'id'    => '',
                 'blank' => false,
+                'role_required' => ['admin'],
             ],
             [
                 'url'   => route('root-settings'),
@@ -88,6 +95,7 @@ class TopNavComposer
                 'icon'  => 'fa fa-wrench',
                 'id'    => '',
                 'blank' => false,
+                'role_required' => ['superadmin'],
             ],
         ];
 

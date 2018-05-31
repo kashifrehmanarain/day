@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Models\Categories;
 use App\Models\Coupons;
 use App\Models\CouponTag;
+use App\Models\Stores;
 use App\Models\Tags;
 use Notifications;
 use Pinger;
@@ -59,6 +60,7 @@ class CouponsController extends Controller
 
         $data = [
             'categories' => Categories::all(),
+            'stores' => Stores::all(),
             'title'      => Title::renderr(' : ', true),
             'coupon'       => null,
             'save_url'   => route('root-coupons-store'),
@@ -87,6 +89,7 @@ class CouponsController extends Controller
 
         $coupon->user_id = auth()->user()->id;
         $coupon->category_id = $request->get('category_id');
+        $coupon->store_id = $request->get('store_id');
         $coupon->title = $request->get('title');
         $coupon->excerpt = $request->get('excerpt');
         $coupon->coupon_type = $request->get('coupon_type');
@@ -124,6 +127,7 @@ class CouponsController extends Controller
 
         $data = [
             'categories' => Categories::all(),
+            'stores' => Stores::all(),
             'coupon'       => $coupon,
             'title'      => Title::renderr(' : ', true),
             'save_url'   => route('root-coupons-store', ['coupon_id' => $coupon_id]),

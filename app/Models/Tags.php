@@ -11,7 +11,7 @@ class Tags extends Model implements SluggableInterface
     use SluggableTrait;
 
     protected $sluggable = [
-        'build_from' => 'tag',
+        'build_from' => 'seo_title',
         'save_to'    => 'slug',
         'unique'     => true,
     ];
