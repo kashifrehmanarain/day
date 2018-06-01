@@ -329,6 +329,11 @@
 <!-- Custom Template JavaScript                   -->
 <!-- ––––––––––––––––––––––––––––––––––––––––– -->
 <script type="text/javascript" src="/f/assets/js/main.js"></script>
+@if(request()->get('cp'))
+<script type="text/javascript">
+    $( "#trigger_{{request()->get('cp')}}" ).trigger( "click" );
+</script>
+@endif
 </body>
 
 </html>

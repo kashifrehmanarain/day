@@ -26,12 +26,12 @@
                 <p class="mb-15 color-muted mb-20 font-12"><i class="lnr lnr-clock mr-10"></i>Expires On {{date('jS \of F Y', strtotime($coupon->expiry_date))}}</p>
                 @if($coupon->coupon_type == "code")
                     <div class="showcode" {{--data-toggle-class="coupon-showen" data-toggle-event="click"--}}>
-                        <button class="show-code btn btn-sm btn-block copy-button" data-toggle="modal" data-target="#coupon_{{$coupon->id}}" data-clipboard-target="#clip_{{$coupon->id}}">Get Coupon Code</button>
+                        <button id="trigger_{{$coupon->id}}" class="show-code btn btn-sm btn-block copy-button" data-toggle="modal" data-target="#coupon_{{$coupon->id}}" data-clipboard-target="#clip_{{$coupon->id}}">Get Coupon Code</button>
                         <div class="coupon-hide" id="clip_{{$coupon->id}}">{{$coupon->code}}</div>
                     </div>
                 @else
                     <div class="showcode">
-                        <button class="btn btn-sm btn-block" data-toggle="modal" data-target="#coupon_{{$coupon->id}}">Get Deal</button>
+                        <button id="trigger_{{$coupon->id}}" class="btn btn-sm btn-block" data-toggle="modal" data-target="#coupon_{{$coupon->id}}">Get Deal</button>
                     </div>
                 @endif
             </div>
