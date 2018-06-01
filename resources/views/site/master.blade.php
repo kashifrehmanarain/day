@@ -324,7 +324,7 @@
 
 <!-- Coutdown -->
 <script type="text/javascript" src="/f/assets/vendors/countdown/jquery.countdown.js"></script>
-
+<script src="/f/assets/js/clipboard.min.js"></script>
 <!-- ––––––––––––––––––––––––––––––––––––––––– -->
 <!-- Custom Template JavaScript                   -->
 <!-- ––––––––––––––––––––––––––––––––––––––––– -->

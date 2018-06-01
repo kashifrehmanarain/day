@@ -6,20 +6,42 @@
                 </button>
                 <div class="row row-v-10">
                     <div class="col-md-10 col-md-offset-1">
-                        <img src="/f/assets/images/brands/store_logo.jpg" alt="">
-                        <h3 class="mb-20">Save 30% off New Domains Names</h3>
-                        <p class="color-mid">Not applicable to ICANN fees, taxes, transfers,or gift cards. Cannot be used in conjunction with any other offer, sale, discount or promotion. After the initial purchase term.</p>
+                        <img src="{{ starts_with($coupon->store->store_logo, ['http://', 'https://']) ? '' : '/upload/thumb/150/' }}{{ $coupon->store->store_logo }}"
+                             alt="{{$coupon->store->title}} Logo">
+                        <h3 class="mb-20">{!! highlight_str($coupon->title, $q) !!}</h3>
+                        <p class="color-mid">{!! nl2br(highlight_str(strip_tags($coupon->excerpt), $q)) !!}</p>
                     </div>
+                    @if($coupon->coupon_type == "code")
                     <div class="col-md-10 col-md-offset-1">
-                        <a href="#" class="btn btn-link">Visit Our Store</a>
+                        <h6 class="color-mid t-uppercase">Below is your coupon code</h6>
+                        <div class="input-group">
+                            <input id="clip_{{$coupon->id}}" type="text" value="{{$coupon->code}}" class="form-control bg-white mb-10">
+                            <button class="btn btn-primary copy-button" data-clipboard-target="#clip_{{$coupon->id}}" type="button">Copy Code</button>
+                            <a href="{{ $coupon->url}}" target="_blank" class="btn btn-primary">Go to Store</a>
+                        </div>
                     </div>
-                    <div class="col-md-10 col-md-offset-1">
-                        <h6 class="color-mid t-uppercase">Click below to get your coupon code</h6>
-                        <a href="#" target="_blank" class="coupon-code">X455-17GT-OL58</a>
-                    </div>
+                    @else
+                        <a href="{{ $coupon->url}}" target="_blank" class="btn btn-primary">Go to Store</a>
+                    @endif
+                </div>
+            </div>
+            <div class="modal-footer footer-info t-center prl-30">
+                <div class="col-md-6">
+                    <h4 class="mb-15">Subscribe to Mail</h4>
+                    {{--<p class="color-mid mb-20">Get our Daily email newsletter with Special Services, Updates, Offers and more!</p>--}}
+                    <form method="post" action="#">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-white" placeholder="Your Email Address" required="required">
+                            <span class="input-group-btn">
+                            <button class="btn" type="submit">Sign Up</button>
+                        </span>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="mb-15">Share this Coupon</h4>
                     <div class="col-md-10 col-md-offset-1">
                         <div class="like-report mb-10">
-                            <span>Share this coupon :</span>
                             <ul class="list-inline social-icons social-icons--colored mt-10">
                                 <li class="social-icons__item">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
@@ -37,18 +59,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer footer-info t-center ptb-40 prl-30">
-                <h4 class="mb-15">Subscribe to Mail</h4>
-                <p class="color-mid mb-20">Get our Daily email newsletter with Special Services, Updates, Offers and more!</p>
-                <form method="post" action="#">
-                    <div class="input-group">
-                        <input type="text" class="form-control bg-white" placeholder="Your Email Address" required="required">
-                                                <span class="input-group-btn">
-                <button class="btn" type="submit">Sign Up</button>
-            </span>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

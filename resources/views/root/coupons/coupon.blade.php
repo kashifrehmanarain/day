@@ -65,12 +65,12 @@
                             <option value="deal" {{ (!empty($coupon) && $coupon->coupon_type == "deal") ? 'selected' : '' }}>Deal</option>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label for="inputContent">Code</label>
+                    <div class="form-group" id="inputCodeSection" @if(!is_null($coupon) && $coupon->coupon_type == "deal") style="display: none" @endif>
+                        <label for="inputCodeTitle">Code</label>
                         <input id="inputCodeTitle" type="text" value="{{ $coupon->code or old('code') }}" class="form-control" name="code">
                     </div>
                     <div class="form-group">
-                        <label for="inputContent">URL</label>
+                        <label for="inputUrlTitle">URL</label>
                         <input id="inputUrlTitle" type="text" value="{{ $coupon->url or old('url') }}" class="form-control" name="url">
                     </div>
 
@@ -207,8 +207,19 @@
         </form>
     </div>
 @stop
-
 @section('js-bottom')
+    <script>
+        $(function() {
+            //$('#row_dim').hide();
+            $('#inputType').change(function(){
+                if($(this).val() == 'code') {
+                    $('#inputCodeSection').show();
+                } else {
+                    $('#inputCodeSection').hide();
+                }
+            });
+        });
+    </script>
     <script src="/plugins/moment/moment.min.js"></script>
     <script src="/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
     <script src="/plugins/bootstrap-tokenfield/bootstrap-tokenfield.min.js"></script>

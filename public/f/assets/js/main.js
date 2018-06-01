@@ -19,6 +19,8 @@
 
 (function($) {
 
+    new ClipboardJS('.copy-button');
+
     "use strict";
 
     $.fn.hasAttr = function(attr) {  

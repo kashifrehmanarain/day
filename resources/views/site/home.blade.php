@@ -12,7 +12,7 @@
                                         <li><a href="{{ route('category', ['slug' => $category->slug]) }}"><i class="fa {{ $category->category_icon }}"></i>{{ $category->title }}<span>{{ $category->num }}</span></a></li>
                                     @endforeach
                                     <li class="all-cat">
-                                        <a class="font-14" href="#">All Categories</a>
+                                        <a class="font-14" href="{{ route('categories')}}">All Categories</a>
                                     </li>
                                 </ul>
                             </aside>
@@ -59,7 +59,7 @@
                                                             </span>
                                                     </div>
                                                     <h3 class="deal-title mb-10 ">
-                                                        <a href="deal_single.html" class="color-light color-h-lighter">The Crash Bad Instant Folding Twin Bed</a>
+                                                        <a href="{{ route('static-page','coupon-single')}}" class="color-light color-h-lighter">The Crash Bad Instant Folding Twin Bed</a>
                                                     </h3>
                                                 </div>
                                             </figure>
@@ -104,7 +104,7 @@
                                                             </span>
                                                     </div>
                                                     <h3 class="deal-title mb-10 ">
-                                                        <a href="deal_single.html" class="color-light color-h-lighter">Western Digital USB 3.0 Hard Drives</a>
+                                                        <a href="{{ route('static-page','coupon-single')}}" class="color-light color-h-lighter">Western Digital USB 3.0 Hard Drives</a>
                                                     </h3>
                                                 </div>
                                             </figure>
@@ -149,7 +149,7 @@
                                                             </span>
                                                     </div>
                                                     <h3 class="deal-title mb-10 ">
-                                                        <a href="deal_single.html" class="color-light color-h-lighter">Hampton Bay LED Light Ceiling Exhaust Fan</a>
+                                                        <a href="{{ route('static-page','coupon-single')}}" class="color-light color-h-lighter">Hampton Bay LED Light Ceiling Exhaust Fan</a>
                                                     </h3>
                                                 </div>
                                             </figure>
@@ -164,7 +164,7 @@
                 <section class="section stores-area stores-area-v1 ptb-30">
                     <header class="panel ptb-15 prl-20 pos-r mb-30">
                         <h3 class="section-title font-18">Popular Stores</h3>
-                        <a href="stores_01.html" class="btn btn-o btn-xs pos-a right-10 pos-tb-center">All Stores</a>
+                        <a href="{{ route('stores')}}" class="btn btn-o btn-xs pos-a right-10 pos-tb-center">All Stores</a>
                     </header>
                     <div class="popular-stores-slider owl-slider" data-loop="true" data-autoplay="true" data-smart-speed="1000" data-autoplay-timeout="10000" data-margin="20" data-items="2" data-xxs-items="2" data-xs-items="2" data-sm-items="3" data-md-items="5" data-lg-items="6">
                         @foreach($featured_stores as $store)
