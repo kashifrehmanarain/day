@@ -25,14 +25,18 @@
                     <div class="panel-body">
                         @foreach($stores as $store)
                             <div class="row">
-                                <div class="col-lg-5">
+                                <div class="col-lg-2">
+                                    @if(!empty($store) && !empty($store->store_logo))
+                                        <img src="/upload/thumb/150/{{ $store->store_logo }}">
+                                    @else
+                                        <img src="/f/assets/images/brands/store_logo.jpg">
+                                    @endif
+                                </div>
+                                <div class="col-lg-8">
                                     <div><h4>{{ $store->title }} <span
                                                     class="label label-{{ $store->num == 0 ? 'danger' : 'success' }}">{{ $store->num }}</span>
                                         </h4></div>
                                     <div>{{ route('store', ['slug' => $store->slug]) }}</div>
-                                </div>
-                                <div class="col-lg-5">
-
                                 </div>
                                 <div class="col-lg-2 text-right">
                                     <a href="{{ route('root-stores-edit', ['store_id' => $store->id]) }}"

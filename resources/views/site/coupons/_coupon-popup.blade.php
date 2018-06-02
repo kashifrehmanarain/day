@@ -14,9 +14,9 @@
                     @if($coupon->coupon_type == "code")
                     <div class="col-md-10 col-md-offset-1">
                         <h6 class="color-mid t-uppercase">Below is your coupon code</h6>
-                        <div class="input-group">
-                            <input id="clip_{{$coupon->id}}" type="text" value="{{$coupon->code}}" class="form-control bg-white mb-10">
-                            <button class="btn btn-primary copy-button" data-clipboard-target="#clip_{{$coupon->id}}" type="button">Copy Code</button>
+                        <div>
+                            <input id="clip_{{$coupon->id}}" type="text" value="{{$coupon->code}}" class="col-md-6 form-control bg-white mb-10">
+                            <button class="btn btn-primary copy-popup-button" data-clipboard-target="#clip_{{$coupon->id}}" type="button">Copy Code</button>
                             <a href="{{ $coupon->url}}" target="_blank" class="btn btn-primary">Go to Store</a>
                         </div>
                     </div>

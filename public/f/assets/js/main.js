@@ -19,7 +19,22 @@
 
 (function($) {
 
-    new ClipboardJS('.copy-button');
+    new ClipboardJS('.copy-popup-button');
+
+    var clipboard = new ClipboardJS('.copy-button');
+
+    clipboard.on('success', function(e) {
+        window.open(e.trigger.getAttribute('data-ref-url'), '_self');
+        window.open(e.trigger.getAttribute('data-href'), '_blank');
+        e.clearSelection();
+    });
+
+    $('.click-button').click(function(event){
+        if ( event.originalEvent !== undefined ) {
+            window.open($(this).data('ref-url'),'_self');
+            window.open($(this).data('href'), '_blank');
+        }
+    });
 
     "use strict";
 

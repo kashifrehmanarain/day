@@ -10,7 +10,11 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <figure class="pt-10 pl-10">
-                                        <img src="{{ starts_with($store->store_logo, ['http://', 'https://']) ? '' : '/upload/thumb/222/' }}{{ $store->store_logo }}" alt="{{$store->title}}">
+                                        @if(!empty($store) && !empty($store->store_logo))
+                                            <img src="{{ starts_with($store->store_logo, ['http://', 'https://']) ? '' : '/upload/thumb/150/' }}{{ $store->store_logo }}" alt="{{$store->title}} Logo">
+                                        @else
+                                            <img src="/f/assets/images/brands/store_logo.jpg">
+                                        @endif
                                     </figure>
                                 </div>
                                 <div class="col-xs-12">
