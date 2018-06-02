@@ -11,171 +11,6 @@
                                 @include('site.coupons._coupon-list', ['coupon' => $coupon])
                             </div>
                             <div class="col-xs-12">
-                                <div class="posted-review panel p-30">
-                                    <h3 class="h-title">16 Review</h3>
-                                    <div class="review-single pt-30">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <img class="media-object mr-10 radius-4"
-                                                     src="/f/assets/images/avatars/avatar_01.jpg" width="90" alt="">
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="review-wrapper clearfix">
-                                                    <ul class="list-inline">
-                                                        <li>
-                                                            <span class="review-holder-name h5">John Doe</span>
-                                                        </li>
-                                                        <li>
-                                                            <div class="rating">
-                                                                    <span class="rating-stars" data-rating="5">
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                    </span>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                    <p class="review-date mb-5">September 9, 2016</p>
-                                                    <p class="copy">Ut velit mauris, egestas sed, gravida nec, ornare
-                                                        ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla
-                                                        sollicitudin. Fusce varius, ligula non tempus aliquam.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="review-single pt-30">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <img class="media-object mr-10 radius-4"
-                                                     src="/f/assets/images/avatars/avatar_02.jpg" width="90" alt="">
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="review-wrapper clearfix">
-                                                    <ul class="list-inline">
-                                                        <li>
-                                                            <span class="review-holder-name h5">John Doe</span>
-                                                        </li>
-                                                        <li>
-                                                            <div class="rating">
-                                                                    <span class="rating-stars" data-rating="2">
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                    </span>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                    <p class="review-date mb-5">September 9, 2016</p>
-                                                    <p class="copy">Ut velit mauris, egestas sed, gravida nec, ornare
-                                                        ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla
-                                                        sollicitudin. Fusce varius, ligula non tempus aliquam.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="review-single pt-30">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <img class="media-object mr-10 radius-4"
-                                                     src="/f/assets/images/avatars/avatar_03.jpg" width="90" alt="">
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="review-wrapper clearfix">
-                                                    <ul class="list-inline">
-                                                        <li>
-                                                            <span class="review-holder-name h5">John Doe</span>
-                                                        </li>
-                                                        <li>
-                                                            <div class="rating">
-                                                                    <span class="rating-stars" data-rating="3">
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                    </span>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                    <p class="review-date mb-5">September 9, 2016</p>
-                                                    <p class="copy">Ut velit mauris, egestas sed, gravida nec, ornare
-                                                        ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla
-                                                        sollicitudin. Fusce varius, ligula non tempus aliquam.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="review-single pt-30">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <img class="media-object mr-10 radius-4"
-                                                     src="/f/assets/images/avatars/avatar_04.jpg" width="90" alt="">
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="review-wrapper clearfix">
-                                                    <ul class="list-inline">
-                                                        <li>
-                                                            <span class="review-holder-name h5">John Doe</span>
-                                                        </li>
-                                                        <li>
-                                                            <div class="rating">
-                                                                    <span class="rating-stars" data-rating="4">
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                    </span>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                    <p class="review-date mb-5">September 9, 2016</p>
-                                                    <p class="copy">Ut velit mauris, egestas sed, gravida nec, ornare
-                                                        ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla
-                                                        sollicitudin. Fusce varius, ligula non tempus aliquam.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="review-single pt-30">
-                                        <div class="media">
-                                            <div class="media-left">
-                                                <img class="media-object mr-10 radius-4"
-                                                     src="/f/assets/images/avatars/avatar_05.jpg" width="90" alt="">
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="review-wrapper clearfix">
-                                                    <ul class="list-inline">
-                                                        <li>
-                                                            <span class="review-holder-name h5">John Doe</span>
-                                                        </li>
-                                                        <li>
-                                                            <div class="rating">
-                                                                    <span class="rating-stars" data-rating="5">
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                        <i class="fa fa-star-o"></i>
-										                    </span>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                    <p class="review-date mb-5">September 9, 2016</p>
-                                                    <p class="copy">Ut velit mauris, egestas sed, gravida nec, ornare
-                                                        ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla
-                                                        sollicitudin. Fusce varius, ligula non tempus aliquam.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12">
                                 <div class="post-review panel p-20">
                                     <h3 class="h-title">Post Review</h3>
                                     <form class="horizontal-form pt-30" action="#">
@@ -250,33 +85,22 @@
                                         <h3 class="widget-title h-title">About Seller</h3>
                                         <div class="widget-body t-center">
                                             <figure class="mt-20 pb-10">
-                                                <img src="/f/assets/images/brands/store_logo.jpg" alt="">
+                                                @if(!empty($coupon) && !empty($coupon->store->store_logo))
+                                                    <img class="store-logo" src="{{ starts_with($coupon->store->store_logo, ['http://', 'https://']) ? '' : '/upload/thumb/222/' }}{{ $coupon->store->store_logo }}" alt="{{$coupon->store->title}} Logo">
+                                                @else
+                                                    <img src="/f/assets/images/coupons/coupon_02.jpg">
+                                                @endif
                                             </figure>
                                             <div class="store-about mb-20">
-                                                <h3 class="mb-10">Amazon Store</h3>
-                                                <div class="rating mb-10">
-                                                        <span class="rating-stars rate-allow" data-rating="3">
-                                                    		<i class="fa fa-star-o"></i>
-                                                    		<i class="fa fa-star-o"></i>
-                                                    		<i class="fa fa-star-o star-active"></i>
-                                                    		<i class="fa fa-star-o"></i>
-                                                    		<i class="fa fa-star-o"></i>
-                                                    	</span>
-                                                    <span class="rating-reviews">
-            		                                      ( <span class="rating-count">205</span> rates )
-                                                        </span>
-                                                </div>
-                                                <p class="mb-15">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                    elit. Distinctio officiis at accusantium ducimus excepturi cumque ad
-                                                    commodi libero nihil rem voluptatibus veniam ipsa ullam esse quia
-                                                    quae fuga, quidem iusto.</p>
-                                                <button class="btn btn-info">FOLLOW</button>
+                                                <h3 class="mb-10">{{$coupon->store->title}}</h3>
+                                                <p class="mb-15">{{$coupon->store->description}}</p>
+                                                <a class="btn btn-info" target="_blank" href="{{!empty($coupon->store->store_url)?$coupon->store->store_url:"#"}}">Go To Store</a>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- End Recent Posts -->
                                 </div>
-                                <div class="col-xs-12">
+                               {{-- <div class="col-xs-12">
                                     <!-- Subscribe Widget -->
                                     <div class="widget subscribe-widget panel pt-20 prl-20">
                                         <h3 class="widget-title h-title">Subscribe to mail</h3>
@@ -284,7 +108,7 @@
 
                                             <p class="color-mid mb-20">Get our Daily email newsletter with Special
                                                 Services, Updates, Offers and more!</p>
-                                            <form method="post" action="#">
+                                            <form method="post" action="">
                                                 <div class="input-group">
                                                     <input type="email" class="form-control"
                                                            placeholder="Your Email Address" required="required">
@@ -297,7 +121,21 @@
                                         </div>
                                     </div>
                                     <!-- End Subscribe Widget -->
+                                </div>--}}
+                                <div class="col-xs-12">
+                                    <!-- Contact Us Widget -->
+                                    <div class="widget contact-us-widget panel pt-20 prl-20">
+                                        <h3 class="widget-title h-title">Got any questions?</h3>
+                                        <div class="widget-body ptb-30">
+                                            <p class="mb-20 color-mid">If you are having any questions, please feel free
+                                                to ask.</p>
+                                            <a href="{{route('static-page', 'contact')}}" class="btn btn-block"><i
+                                                        class="mr-10 font-15 fa fa-envelope-o"></i>Drop Us a Line</a>
+                                        </div>
+                                    </div>
+                                    <!-- End Contact Us Widget -->
                                 </div>
+{{--
                                 <div class="col-xs-12">
                                     <!-- Latest Deals Widegt -->
                                     <div class="widget latest-deals-widget panel prl-20">
@@ -640,19 +478,7 @@
                                     </div>
                                     <!-- Best Rated Deals -->
                                 </div>
-                                <div class="col-xs-12">
-                                    <!-- Contact Us Widget -->
-                                    <div class="widget contact-us-widget panel pt-20 prl-20">
-                                        <h3 class="widget-title h-title">Got any questions?</h3>
-                                        <div class="widget-body ptb-30">
-                                            <p class="mb-20 color-mid">If you are having any questions, please feel free
-                                                to ask.</p>
-                                            <a href="contact_us_01.html" class="btn btn-block"><i
-                                                        class="mr-10 font-15 fa fa-envelope-o"></i>Drop Us a Line</a>
-                                        </div>
-                                    </div>
-                                    <!-- End Contact Us Widget -->
-                                </div>
+--}}
                             </div>
                         </aside>
                         <!-- End Blog Sidebar -->

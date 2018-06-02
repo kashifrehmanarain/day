@@ -20,18 +20,6 @@
                                 <div class="col-xs-12">
                                     <div class="store-about ptb-30 prl-10">
                                         <h3 class="mb-10">{{$store->title}}</h3>
-                                        <div class="rating mb-10">
-                                                <span class="rating-stars rate-allow" data-rating="3">
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o star-active"></i>
-                                        <i class="fa fa-star-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </span>
-                                            <span class="rating-reviews">
-                                        ( <span class="rating-count">205</span> rates )
-                                                </span>
-                                        </div>
                                         <p class="mb-15">{{$store->description}}</p>
                                         <a class="btn btn-info" target="_blank" href="{{!empty($store->store_url)?$store->store_url:"#"}}">Go To Store</a>
                                     </div>
@@ -68,6 +56,19 @@
                                         </footer>
                                     </div>
                                 </div>
+                                <div class="col-xs-12">
+                                    <!-- Contact Us Widget -->
+                                    <div class="widget contact-us-widget panel pt-20 prl-20">
+                                        <h3 class="widget-title h-title">Got any questions?</h3>
+                                        <div class="widget-body ptb-30">
+                                            <p class="mb-20 color-mid">If you are having any questions, please feel free
+                                                to ask.</p>
+                                            <a href="{{route('static-page', 'contact')}}" class="btn btn-block"><i
+                                                        class="mr-10 font-15 fa fa-envelope-o"></i>Drop Us a Line</a>
+                                        </div>
+                                    </div>
+                                    <!-- End Contact Us Widget -->
+                                </div>
                             </div>
                         </aside>
                     </div>
@@ -78,9 +79,9 @@
                             <header class="page-control panel ptb-15 prl-20 pos-r mb-30">
                                 <!-- List Control View -->
                                 <ul class="list-control-view list-inline">
-                                    <li><a href="coupons_list.html"><i class="fa fa-bars"></i></a>
+                                    <li><i class="fa fa-bars"></i>
                                     </li>
-                                    <li><a href="coupons_grid.html"><i class="fa fa-th"></i></a>
+                                    <li><i class="fa fa-th"></i>
                                     </li>
                                 </ul>
                                 <!-- End List Control View -->

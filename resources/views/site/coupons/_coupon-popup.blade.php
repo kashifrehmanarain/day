@@ -6,8 +6,12 @@
                 </button>
                 <div class="row row-v-10">
                     <div class="col-md-10 col-md-offset-1">
-                        <img src="{{ starts_with($coupon->store->store_logo, ['http://', 'https://']) ? '' : '/upload/thumb/150/' }}{{ $coupon->store->store_logo }}"
+                        @if(!empty($coupon) && !empty($coupon->store->store_logo))
+                            <img src="{{ starts_with($coupon->store->store_logo, ['http://', 'https://']) ? '' : '/upload/thumb/150/' }}{{ $coupon->store->store_logo }}"
                              alt="{{$coupon->store->title}} Logo">
+                        @else
+                            <img src="/f/assets/images/coupons/coupon_02.jpg" width="150">
+                        @endif
                         <h3 class="mb-20">{!! highlight_str($coupon->title, $q) !!}</h3>
                         <p class="color-mid">{!! nl2br(highlight_str(strip_tags($coupon->excerpt), $q)) !!}</p>
                     </div>
