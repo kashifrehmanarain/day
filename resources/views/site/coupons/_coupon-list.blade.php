@@ -27,7 +27,7 @@
                     <li class="color-green"><i class="ico lnr lnr-checkmark-circle mr-5"></i>Verifed</li>
                     <li class="color-muted"><a href="{{ route('store', ['slug' => $coupon->store->slug]) }}"><i class="ico lnr lnr-cart mr-5"></i>{{$coupon->store->title}}</a></li>
                     @foreach($coupon->tags as $tag)
-                        <li class="color-muted"><a href="{{ route('store', ['slug' => $coupon->store->slug]) }}"><i class="ico lnr lnr-tag mr-5"></i>{{$coupon->store->title}}</a></li>
+                        <li class="color-muted"><a href="{{ route('tag', ['slug' => $tag->slug]) }}"><i class="ico lnr lnr-tag mr-5"></i>{{$tag->tag}}</a></li>
                     @endforeach
                     <li class="color-muted"><i class="ico lnr lnr-clock mr-5"></i>Expires on {{date('jS \of F Y', strtotime($coupon->expiry_date))}}</li>
                 </ul>

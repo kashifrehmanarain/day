@@ -24,7 +24,7 @@ class CouponsController extends Controller
             abort(404);
         }
 
-        $coupons = Coupons::i()->search($q)->active()->sort()->paginate(20);
+        $coupons = Coupons::i()->search($q)->active()->sort()->paginate(10);
 
         $data = [
             'coupons'    => $coupons,
@@ -69,7 +69,7 @@ class CouponsController extends Controller
         view()->share('seo_description', $tag->seo_description);
         view()->share('seo_keywords', $tag->seo_keywords);
 
-        $coupons = Coupons::i()->getCouponsByTag($tag->id,20);
+        $coupons = Coupons::i()->getCouponsByTag($tag->id,10);
 
         $data = [
             'coupons' => $coupons,
@@ -100,7 +100,7 @@ class CouponsController extends Controller
         $coupons = Coupons::i()->where('category_id',$category->id);
 
         $data = [
-            'coupons' => $coupons->active()->sort()->paginate(20),
+            'coupons' => $coupons->active()->sort()->paginate(10),
             'title' => Title::renderr(' : ', true),
             'q' => '',
         ];
@@ -109,4 +109,31 @@ class CouponsController extends Controller
 
         return view('site.search', $data);
     }
+
+    public function coupons()
+    {
+        $coupons = Coupons::i()->typeCoupons()->active()->sort()->paginate(10);
+
+        $data = [
+            'coupons'    => $coupons,
+            'q' => '',
+            'title' => Title::renderr(' : ', true),
+        ];
+
+        return view('site.search', $data);
+    }
+
+    public function deals()
+    {
+        $coupons = Coupons::i()->typeDeals()->active()->sort()->paginate(10);
+
+        $data = [
+            'coupons'    => $coupons,
+            'q' => '',
+            'title' => Title::renderr(' : ', true),
+        ];
+
+        return view('site.search', $data);
+    }
+
 }

@@ -11,6 +11,16 @@ Route::group(['middleware' => 'web'], function () {
         'uses' => 'CouponsController@index',
     ]);
 
+    Route::get('/coupons', [
+        'as'   => 'coupons',
+        'uses' => 'CouponsController@coupons',
+    ]);
+
+    Route::get('/deals', [
+        'as'   => 'deals',
+        'uses' => 'CouponsController@deals',
+    ]);
+
 
     Route::get('/view/{slug}', [
         'as'   => 'view',
