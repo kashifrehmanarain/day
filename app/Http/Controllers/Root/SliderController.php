@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Root;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use App\Models\Slider;
-use App\Models\Coupons;
+use Intervention\Image\Facades\Image;
 use Notifications;
 use Title;
 
@@ -63,6 +63,13 @@ class SliderController extends Controller
     {
         $image = Slider::findOrNew($image_id);
         $image->title = strip_tags($request->get('title'));
+        $image->description = $request->get('description');
+        $image->url = $request->get('url');
+        $image->sort = $request->has('sort');
+        if ($request->hasFile('image')) {
+            $filename = $this->_uploadMiniature($request->file('image'));
+            $image->image = $filename;
+        }
         $image->save();
 
         Notifications::add('Image saved', 'success');
@@ -74,14 +81,25 @@ class SliderController extends Controller
     {
         $image = Slider::find($image_id);
         $image->delete();
-        if (request()->get('with_coupons', '0') == '1') {
-            Coupons::where('image_id', $image_id)->delete();
-            Notifications::success('Image removed with coupons');
-        } else {
-            Coupons::where('image_id', $image_id)->update(['image_id' => '1']);
-            Notifications::success('Image removed. Coupons moved to Uncategorized');
-        }
-
-        return redirect()->route('root-slider');
+        return redirect()->route('root-slider-images');
     }
+
+    private function _uploadMiniature($file)
+    {
+        $path = public_path('upload');
+        $thumb_path = public_path('upload/thumb');
+        $filename = generate_filename($path, $file->getClientOriginalExtension());
+        $file->move($path, $filename);
+
+        $img = Image::make(sprintf($path.'/%s', $filename));
+
+        $img->resize(800, 500);
+        $img->save(sprintf($thumb_path.'/800/%s', $filename));
+
+        $img->resize(150, 100);
+        $img->save(sprintf($thumb_path.'/150/%s', $filename));
+
+        return $filename;
+    }
+
 }
