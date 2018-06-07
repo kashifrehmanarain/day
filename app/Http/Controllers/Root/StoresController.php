@@ -87,6 +87,11 @@ class StoresController extends Controller
         $store->seo_title = (trim($seo_title) == '') ? $store->title : $seo_title;
         $store->seo_description = strip_tags($request->get('seo_description'));
         $store->seo_keywords = strip_tags($request->get('seo_keywords'));
+        $store->facebook_url = $request->get('facebook_url');
+        $store->twitter_url = $request->get('twitter_url');
+        $store->google_url = $request->get('google_url');
+        $store->instagram_url = $request->get('instagram_url');
+        $store->pinterest_url = $request->get('pinterest_url');
 
         if ($request->has('update_slug')) {
             $store->resluggify();

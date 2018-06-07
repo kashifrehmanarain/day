@@ -42,11 +42,15 @@ class StoresController extends Controller
         Title::prepend($store->seo_title);
 
         $coupons = Coupons::i()->where('store_id',$store->id);
+        $deal_count = Coupons::i()->where('store_id',$store->id)->typeDeals()->count();
+        $coupon_count = Coupons::i()->where('store_id',$store->id)->typeCoupons()->count();
 
         $data = [
             'coupons' => $coupons->active()->sort()->paginate(20),
             'store'    => $store,
             'store_id'    => $store_id,
+            'coupon_count' => $coupon_count,
+            'deal_count' => $deal_count,
             'title' => Title::renderr(' : ', true),
             'q' => '',
             ];

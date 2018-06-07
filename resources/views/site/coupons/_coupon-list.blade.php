@@ -1,3 +1,5 @@
+
+
 <div class="coupon-single panel t-center t-sm-left">
     @if($coupon->is_pinned == '1')
     <div class="ribbon-wrapper is-hidden-xs-down">
@@ -24,12 +26,13 @@
                     <a class="line-clamp-2" href="{{ route('view', ['slug' => $coupon->slug]) }}">{!! highlight_str($coupon->excerpt, $q) !!}</a>
                 </h5>
                 <ul class="deal-meta list-inline mb-10">
-                    <li class="color-green"><i class="ico lnr lnr-checkmark-circle mr-5"></i>Verifed</li>
-                    <li class="color-muted"><a href="{{ route('store', ['slug' => $coupon->store->slug]) }}"><i class="ico lnr lnr-cart mr-5"></i>{{$coupon->store->title}}</a></li>
+                    <li title="Verified" class="color-green"><i class="ico lnr lnr-checkmark-circle mr-5"></i>Verifed</li>
+                    <li title="Store" class="color-muted"><a href="{{ route('store', ['slug' => $coupon->store->slug]) }}"><i class="ico lnr lnr-cart mr-5"></i>{{$coupon->store->title}}</a></li>
                     @foreach($coupon->tags as $tag)
-                        <li class="color-muted"><a href="{{ route('tag', ['slug' => $tag->slug]) }}"><i class="ico lnr lnr-tag mr-5"></i>{{$tag->tag}}</a></li>
+                        <li title="Tag" class="color-muted"><a href="{{ route('tag', ['slug' => $tag->slug]) }}"><i class="ico lnr lnr-tag mr-5"></i>{{$tag->tag}}</a></li>
                     @endforeach
-                    <li class="color-muted"><i class="ico lnr lnr-clock mr-5"></i>Expires on {{date('jS \of F Y', strtotime($coupon->expiry_date))}}</li>
+                    <li title="Expiry" class="color-muted"><i class="ico lnr lnr-clock mr-5"></i>Expires on {{date('jS \of F Y', strtotime($coupon->expiry_date))}}</li>
+                    <li title="Used" class="color-muted"><i class="ico lnr lnr-users mr-5"></i>{{$coupon->views}}</li>
                 </ul>
                 {{--<p class="mb-15 color-muted font-12"><i class="lnr lnr-clock mr-10"></i>Expires on {{date('jS \of F Y', strtotime($coupon->expiry_date))}}</p>--}}
                 @if($coupon->coupon_type == "code")

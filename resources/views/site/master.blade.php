@@ -158,6 +158,7 @@
 @if(request()->get('cp'))
 <script type="text/javascript">
     $( "#trigger_{{request()->get('cp')}}" ).trigger( "click" );
+    $.ajax({url: "{{ route('increment', ['id' => request()->get('cp')]) }}"});
 </script>
 @endif
 @yield('js-bottom')

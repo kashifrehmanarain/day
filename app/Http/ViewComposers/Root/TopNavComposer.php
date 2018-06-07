@@ -65,6 +65,17 @@ class TopNavComposer
                 'role_required' => ['user', 'author','admin'],
             ],
             [
+                'url'   => route('root-slider-images'),
+                'title' => 'Slider Images',
+                'route' => 'root-slider-images',
+                'item'  => 'slider-images',
+                'class' => '',
+                'icon'  => 'fa fa-images-o',
+                'id'    => '',
+                'blank' => false,
+                'role_required' => ['user', 'author','admin'],
+            ],
+            [
                 'url'   => route('root-menu'),
                 'title' => 'Menu',
                 'route' => 'root-menu',

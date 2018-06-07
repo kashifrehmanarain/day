@@ -29,29 +29,47 @@
                                         <header class="left-splitter-header prl-10 ptb-20 bg-lighter">
                                             <div class="row">
                                                 <div class="col-xs-6">
-                                                    <h2>282</h2>
+                                                    <h2>{{$deal_count}}</h2>
                                                     <p>Deals</p>
                                                 </div>
                                                 <div class="col-xs-6">
-                                                    <h2>122</h2>
+                                                    <h2>{{$coupon_count}}</h2>
                                                     <p>Coupons</p>
                                                 </div>
                                             </div>
                                         </header>
                                         <footer class="left-splitter-social prl-20 ptb-20">
                                             <ul class="list-inline social-icons social-icons--colored t-center">
+                                                @if(!empty($store->facebook_url))
                                                 <li class="social-icons__item">
-                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                    <a target="_blank" href="{{$store->facebook_url}}"><i class="fa fa-facebook"></i></a>
                                                 </li>
+                                                @endif
+
+                                                @if(!empty($store->twitter_url))
                                                 <li class="social-icons__item">
-                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                    <a target="_blank" href="{{$store->twitter_url}}"><i class="fa fa-twitter"></i></a>
                                                 </li>
+                                                @endif
+
+                                                @if(!empty($store->google_url))
                                                 <li class="social-icons__item">
-                                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                                    <a target="_blank" href="{{$store->google_url}}"><i class="fa fa-google-plus"></i></a>
                                                 </li>
+                                                @endif
+
+                                                @if(!empty($store->pinterest_url))
+                                                    <li class="social-icons__item">
+                                                        <a target="_blank" href="{{$store->pinterest_url}}"><i class="fa fa-pinterest"></i></a>
+                                                    </li>
+                                                @endif
+
+                                                @if(!empty($store->instagram_url))
                                                 <li class="social-icons__item">
-                                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                                    <a target="_blank" href="{{$store->instagram_url}}"><i class="fa fa-instagram"></i></a>
                                                 </li>
+                                                @endif
+
                                             </ul>
                                         </footer>
                                     </div>

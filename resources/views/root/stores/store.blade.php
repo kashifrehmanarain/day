@@ -22,7 +22,7 @@
                 </div>
                 <div class="form-group">
                     <label for="inputTitle">Store URL</label>
-                    <input type="text" name="store_url" value="{{ $store->store_url or old('store_url', '') }}" class="form-control" id="inputTitle">
+                    <input type="url" name="store_url" value="{{ $store->store_url or old('store_url', '') }}" class="form-control" id="inputTitle">
                 </div>
                  <div class="form-group">
                      <label for="inputImg">Store Logo</label>
@@ -56,6 +56,26 @@
                 <div class="form-group">
                     <label for="inputSeoKeywords">SEO Keywords</label>
                     <input type="text" name="seo_keywords" value="{{ $store->seo_keywords or old('seo_keywords', '') }}" class="form-control" id="inputSeoKeywords">
+                </div>
+                <div class="form-group">
+                    <label for="inputFacebookUrl">Facebook</label>
+                    <input type="url" name="facebook_url" value="{{ $store->facebook_url or old('facebook_url', '') }}" class="form-control" id="inputFacebookUrl">
+                </div>
+                <div class="form-group">
+                    <label for="TwitterUrl">Twitter</label>
+                    <input type="url" name="twitter_url" value="{{ $store->twitter_url or old('twitter_url', '') }}" class="form-control" id="TwitterUrl">
+                </div>
+                <div class="form-group">
+                    <label for="GoogleUrl">Google</label>
+                    <input type="url" name="google_url" value="{{ $store->google_url or old('google_url', '') }}" class="form-control" id="GoogleUrl">
+                </div>
+                <div class="form-group">
+                    <label for="InstagramUrl">Instagram</label>
+                    <input type="url" name="instagram_url" value="{{ $store->instagram_url or old('instagram_url', '') }}" class="form-control" id="InstagramUrl">
+                </div>
+                <div class="form-group">
+                    <label for="PinterestUrl">Pinterest</label>
+                    <input type="url" name="pinterest_url" value="{{ $store->pinterest_url or old('pinterest_url', '') }}" class="form-control" id="PinterestUrl">
                 </div>
                 <div class="text-right">
                     <a href="{{ route('root-stores') }}" class="btn btn-default">Cancel</a>

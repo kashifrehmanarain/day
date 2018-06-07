@@ -44,14 +44,6 @@ class CouponsController extends Controller
 
         Title::prepend($coupon->seo_title);
 
-        try {
-            if ($coupon->status == 'active') {
-                $coupon->increment('views');
-            }
-        } catch (QueryException $e) {
-            //This is just for demo purposes.
-        }
-
         return view('site.coupons.view', ['coupon' => $coupon,'q' => '']);
     }
 
@@ -134,6 +126,11 @@ class CouponsController extends Controller
         ];
 
         return view('site.search', $data);
+    }
+
+    public function increment($id){
+        $coupon = Coupons::find($id);
+        $coupon->increment('views');
     }
 
 }

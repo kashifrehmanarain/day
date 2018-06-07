@@ -27,6 +27,11 @@ Route::group(['middleware' => 'web'], function () {
         'uses' => 'CouponsController@view',
     ]);
 
+    Route::get('/increment/{id}', [
+        'as'   => 'increment',
+        'uses' => 'CouponsController@increment',
+    ]);
+
     Route::get('/tag/{tag}', [
         'as'   => 'tag',
         'uses' => 'CouponsController@tag',
@@ -263,6 +268,44 @@ Route::group(['middleware' => 'web'], function () {
             'middleware' => 'roles',
             'roles' => ['admin']
         ])->where(['tag_id' => '[0-9]+']);
+
+
+        //=======SLIDER=======//
+
+        Route::get('/slider-images', [
+            'as'   => 'root-slider-images',
+            'uses' => 'Root\SliderController@index',
+            'middleware' => 'roles',
+            'roles' => ['user', 'author','admin']
+        ]);
+
+        Route::get('/slider-images/new', [
+            'as'   => 'root-slider-images-new',
+            'uses' => 'Root\SliderController@newImage',
+            'middleware' => 'roles',
+            'roles' => ['author','admin']
+        ]);
+
+        Route::get('/slider-images/edit/{image_id}', [
+            'as'   => 'root-slider-images-edit',
+            'uses' => 'Root\SliderController@editImage',
+            'middleware' => 'roles',
+            'roles' => ['author','admin']
+        ]);
+
+        Route::post('/slider-images/store/{image_id?}', [
+            'as'   => 'root-slider-images-store',
+            'uses' => 'Root\SliderController@store',
+            'middleware' => 'roles',
+            'roles' => ['author','admin']
+        ]);
+
+        Route::get('/slider-images/remove/{image_id}', [
+            'as'   => 'root-slider-images-remove',
+            'uses' => 'Root\SliderController@remove',
+            'middleware' => 'roles',
+            'roles' => ['admin']
+        ]);
 
         //=======SETTINGS=======//
 
