@@ -65,7 +65,7 @@ class SliderController extends Controller
         $image->title = strip_tags($request->get('title'));
         $image->description = $request->get('description');
         $image->url = $request->get('url');
-        $image->sort = $request->has('sort');
+        $image->sort = $request->get('sort');
         if ($request->hasFile('image')) {
             $filename = $this->_uploadMiniature($request->file('image'));
             $image->image = $filename;

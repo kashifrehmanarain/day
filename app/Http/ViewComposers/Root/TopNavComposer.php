@@ -70,7 +70,7 @@ class TopNavComposer
                 'route' => 'root-slider-images',
                 'item'  => 'slider-images',
                 'class' => '',
-                'icon'  => 'fa fa-images-o',
+                'icon'  => 'fa fa-image',
                 'id'    => '',
                 'blank' => false,
                 'role_required' => ['user', 'author','admin'],

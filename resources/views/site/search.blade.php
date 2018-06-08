@@ -10,9 +10,9 @@
                             <header class="page-control panel ptb-15 prl-20 pos-r mb-30">
                                 <!-- List Control View -->
                                 <ul class="list-control-view list-inline">
-                                    <li><a href="coupons_list.html"><i class="fa fa-bars"></i></a>
+                                    <li><a href="#"><i class="fa fa-bars"></i></a>
                                     </li>
-                                    <li><a href="coupons_grid.html"><i class="fa fa-th"></i></a>
+                                    <li><a href="#"><i class="fa fa-th"></i></a>
                                     </li>
                                 </ul>
                                 <!-- End List Control View -->
@@ -22,8 +22,6 @@
                                         <option>Newest items</option>
                                         <option>Best sellers</option>
                                         <option>Best rated</option>
-                                        <option>Price: low to high</option>
-                                        <option>Price: high to low</option>
                                     </select>
                                 </div>
                             </header>
@@ -36,7 +34,7 @@
                                 @endforeach
                             </div>
                             @if($coupons->lastPage() > 1)
-                            {!! $coupons->render() !!}
+                            {!! $coupons->appends(['q' => $q])->render() !!}
                             @endif
                         </section>
                     </div>

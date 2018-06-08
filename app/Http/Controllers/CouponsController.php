@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Coupons;
+use App\Models\Stores;
 use App\Models\Tags;
 use Illuminate\Database\QueryException;
 use Title;

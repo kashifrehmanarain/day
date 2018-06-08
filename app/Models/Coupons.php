@@ -123,9 +123,15 @@ class Coupons extends Model implements SluggableInterface
     {
         $str = '%' . $str . '%';
 
-        return $query->where('title', 'like', $str)
+        $query->where('title', 'like', $str)
             ->orWhere('excerpt', 'like', $str)
-            ->orWhere('content', 'like', $str);
+            ->orWhere('content', 'like', $str)
+            ->orWhereHas('store', function($query) use($str) {
+                $query->where('title', 'like', $str)
+                    ->orWhere('description', 'like', $str);
+            });
+
+        return $query;
     }
 
     public function scopeTypeCoupons($query)

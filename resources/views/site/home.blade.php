@@ -20,141 +20,57 @@
                         <div class="col-xs-12 col-md-8 col-lg-9">
                             <div class="header-deals-slider flexslider" id="header-deals-slider">
                                 <ul class="slides">
-                                    <li>
-                                        <div class="deal-single panel item">
-                                            <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="/f/assets/images/deals/deal_01.jpg">
-                                                <div class="label-discount top-10 right-10">-50%</div>
-                                                <ul class="deal-actions top-10 left-10">
-                                                    <li class="like-deal">
-                                                            <span>
-                                                                <i class="fa fa-heart"></i>
-                                                            </span>
-                                                    </li>
-                                                    <li class="share-btn">
-                                                        <div class="share-tooltip fade">
-                                                            <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
-                                                            <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
-                                                            <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
-                                                            <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
+                                    @foreach($slider as $image)
+                                        <li>
+                                            <div class="deal-single panel item">
+                                                <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="{{ starts_with($image->image, ['http://', 'https://']) ? '' : '/upload/thumb/800/' }}{{ $image->image }}">
+{{--
+                                                    <div class="label-discount top-10 right-10">-50%</div>
+                                                    <ul class="deal-actions top-10 left-10">
+                                                        <li class="like-deal">
+                                                                <span>
+                                                                    <i class="fa fa-heart"></i>
+                                                                </span>
+                                                        </li>
+                                                        <li class="share-btn">
+                                                            <div class="share-tooltip fade">
+                                                                <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
+                                                                <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
+                                                                <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
+                                                                <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
+                                                            </div>
+                                                            <span><i class="fa fa-share-alt"></i></span>
+                                                        </li>
+                                                        <li>
+                                                                <span>
+                                                                    <i class="fa fa-camera"></i>
+                                                                </span>
+                                                        </li>
+                                                    </ul>
+--}}
+                                                    <div class="deal-about p-20 pos-a bottom-0 left-0">
+{{--
+                                                        <div class="rating mb-10">
+                                                                <span class="rating-stars" data-rating="5">
+                                                                    <i class="fa fa-star-o star-active"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                    <i class="fa fa-star-o"></i>
+                                                                </span>
+                                                            <span class="rating-reviews color-light">
+                                                                    ( <span class="rating-count">241</span> Reviews )
+                                                                </span>
                                                         </div>
-                                                        <span><i class="fa fa-share-alt"></i></span>
-                                                    </li>
-                                                    <li>
-                                                            <span>
-                                                                <i class="fa fa-camera"></i>
-                                                            </span>
-                                                    </li>
-                                                </ul>
-                                                <div class="deal-about p-20 pos-a bottom-0 left-0">
-                                                    <div class="rating mb-10">
-                                                            <span class="rating-stars" data-rating="5">
-                                                                <i class="fa fa-star-o star-active"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                            </span>
-                                                        <span class="rating-reviews color-light">
-                                                                ( <span class="rating-count">241</span> Reviews )
-                                                            </span>
+--}}
+                                                        <h3 class="deal-title mb-10 ">
+                                                            <a target="_blank" href="{{ $image->url}}" class="color-light color-h-lighter">{{$image->title}}</a>
+                                                        </h3>
                                                     </div>
-                                                    <h3 class="deal-title mb-10 ">
-                                                        <a href="{{ route('static-page','coupon-single')}}" class="color-light color-h-lighter">The Crash Bad Instant Folding Twin Bed</a>
-                                                    </h3>
-                                                </div>
-                                            </figure>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="deal-single panel item">
-                                            <figure class="deal-thumbnail embed-responsive embed-responsive-16by9"  data-bg-img="/f/assets/images/deals/deal_01.jpg">
-                                                <div class="label-discount top-10 right-10">-30%</div>
-                                                <ul class="deal-actions top-10 left-10">
-                                                    <li class="like-deal">
-                                                            <span>
-                                                                <i class="fa fa-heart"></i>
-                                                            </span>
-                                                    </li>
-                                                    <li class="share-btn">
-                                                        <div class="share-tooltip fade">
-                                                            <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
-                                                            <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
-                                                            <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
-                                                            <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
-                                                        </div>
-                                                        <span><i class="fa fa-share-alt"></i></span>
-                                                    </li>
-                                                    <li>
-                                                            <span>
-                                                                <i class="fa fa-camera"></i>
-                                                            </span>
-                                                    </li>
-                                                </ul>
-                                                <div class="deal-about p-20 pos-a bottom-0 left-0">
-                                                    <div class="rating mb-10">
-                                                            <span class="rating-stars" data-rating="5">
-                                                                <i class="fa fa-star-o star-active"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                            </span>
-                                                        <span class="rating-reviews color-light">
-                                                            ( <span class="rating-count">132</span> Reviews )
-                                                            </span>
-                                                    </div>
-                                                    <h3 class="deal-title mb-10 ">
-                                                        <a href="{{ route('static-page','coupon-single')}}" class="color-light color-h-lighter">Western Digital USB 3.0 Hard Drives</a>
-                                                    </h3>
-                                                </div>
-                                            </figure>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="deal-single panel item">
-                                            <figure class="deal-thumbnail embed-responsive embed-responsive-16by9"  data-bg-img="/f/assets/images/deals/deal_03.jpg">
-                                                <div class="label-discount top-10 right-10">-30%</div>
-                                                <ul class="deal-actions top-10 left-10">
-                                                    <li class="like-deal">
-                                                            <span>
-                                                                <i class="fa fa-heart"></i>
-                                                            </span>
-                                                    </li>
-                                                    <li class="share-btn">
-                                                        <div class="share-tooltip fade">
-                                                            <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
-                                                            <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
-                                                            <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
-                                                            <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
-                                                        </div>
-                                                        <span><i class="fa fa-share-alt"></i></span>
-                                                    </li>
-                                                    <li>
-                                                            <span>
-                                                                <i class="fa fa-camera"></i>
-                                                            </span>
-                                                    </li>
-                                                </ul>
-                                                <div class="deal-about p-20 pos-a bottom-0 left-0">
-                                                    <div class="rating mb-10">
-                                                            <span class="rating-stars" data-rating="5">
-                                                                <i class="fa fa-star-o star-active"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                                <i class="fa fa-star-o"></i>
-                                                            </span>
-                                                        <span class="rating-reviews color-light">
-                                                            ( <span class="rating-count">160</span> Reviews )
-                                                            </span>
-                                                    </div>
-                                                    <h3 class="deal-title mb-10 ">
-                                                        <a href="{{ route('static-page','coupon-single')}}" class="color-light color-h-lighter">Hampton Bay LED Light Ceiling Exhaust Fan</a>
-                                                    </h3>
-                                                </div>
-                                            </figure>
-                                        </div>
-                                    </li>
+                                                </figure>
+                                            </div>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -222,8 +138,8 @@
                 <section class="section subscribe-area ptb-40 t-center">
                     <div class="newsletter-form">
                         <h4 class="mb-20"><i class="fa fa-envelope-o color-green mr-10"></i>Sign up for our weekly email newsletter</h4>
-                        <p class="mb-20 color-mid">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi animi magni accusantium architecto possimus.</p>
-                        <form method="post" action="#">
+                        {{--<p class="mb-20 color-mid">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi animi magni accusantium architecto possimus.</p>--}}
+                        <form method="get" action="">
                             <div class="input-group mb-10">
                                 <input type="email" class="form-control bg-white" placeholder="Email Address" required="required">
                                 <span class="input-group-btn">

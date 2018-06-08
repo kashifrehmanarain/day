@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Coupons;
+use App\Models\Slider;
 use App\Models\Stores;
 use Illuminate\Database\QueryException;
 use Title;
@@ -16,43 +17,23 @@ class HomeController extends Controller
         Title::prepend(Conf::get('app.sitename'));
     }
 
-    public function index($slug = '')
+    public function index()
     {
-        if ($slug != '') {
-            $category = Categories::i()->getBySlug($slug);
-            if (empty($category)) {
-                abort(404);
-            }
-            $category_id = $category->id;
-            view()->share('active_category', $category_id);
-            view()->share('seo_title', 'Категория: '.$category->seo_title);
-            view()->share('seo_description', $category->seo_description);
-            view()->share('seo_keywords', $category->seo_keywords);
-
-            Title::prepend('Категория');
-            Title::prepend($category->seo_title);
-        } else {
-            Title::append(Conf::get('seo.default.seo_title'));
-            $category = null;
-            $category_id = null;
-        }
-
+        Title::prepend('Promo, Discount & Coupons');
         $q = request('q', null);
 
-        if (!empty($q)) {
-        }
-
         $latest_coupons = Coupons::i()->getLatestCoupons();
-        //echo "<pre>"; print_r($latest_coupons); echo "</pre>";die;
         $featured_coupons = Coupons::i()->getLatestFeaturedCoupons();
         $categories_with_count = Categories::i()->topWithCouponsCount();
         $featured_stores = Stores::i()->featured()->get();
+        $slider = Slider::i()->all();
+//echo "<pre>"; print_r($slider); echo "</pre>";die;
         $data = [
             'coupons'    => $latest_coupons,
             'featured_coupons'    => $featured_coupons,
             'featured_stores'  => $featured_stores,
-            'category' => $category,
             'categories_with_count' => $categories_with_count,
+            'slider' => $slider,
             'q' => $q,
             'title' => Title::renderr(' : ', true),
         ];
