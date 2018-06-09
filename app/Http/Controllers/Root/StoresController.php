@@ -141,6 +141,9 @@ class StoresController extends Controller
         $img->resize(222, 148);
         $img->save(sprintf($thumb_path.'/222/%s', $filename));
 
+        $img->resize(200, 200);
+        $img->save(sprintf($thumb_path.'/200/%s', $filename));
+
         return $filename;
     }
 

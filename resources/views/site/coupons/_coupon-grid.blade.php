@@ -9,7 +9,7 @@
             <div class="text-center p-20">
                 <a href="{{ route('store', ['slug' => $coupon->store->slug]) }}">
                 @if(!empty($coupon) && !empty($coupon->store->store_logo))
-                    <img class="store-logo" src="{{ starts_with($coupon->store->store_logo, ['http://', 'https://']) ? '' : '/upload/thumb/222/' }}{{ $coupon->store->store_logo }}" alt="{{$coupon->store->title}} Logo">
+                    <img class="store-logo" src="{{ starts_with($coupon->store->store_logo, ['http://', 'https://']) ? '' : '/upload/thumb/300/' }}{{ $coupon->store->store_logo }}" alt="{{$coupon->store->title}} Logo">
                 @else
                     <img src="/f/assets/images/coupons/coupon_02.jpg">
                 @endif

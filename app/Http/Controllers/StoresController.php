@@ -55,6 +55,6 @@ class StoresController extends Controller
             'q' => '',
             ];
 
-        return view('site.stores.view', $data);
+        return view('site.stores.view2', $data);
     }
 }
