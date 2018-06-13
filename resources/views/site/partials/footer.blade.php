@@ -27,45 +27,7 @@
             <div class="col-sm-12 col-md-5">
                 <div class="row row-tb-20">
                     @include('site.partials.bottom-nav')
-                    <div class="footer-col col-sm-6">
-                        <div class="footer-top-instagram instagram-widget">
-                            <h2>Instagram Widget</h2>
-                            <div class="row row-tb-5 row-rl-5">
-
-
-                                <div class="instagram-widget__item col-xs-4">
-                                    <img src="/f/assets/images/instagram/instagram_01.jpg" alt="">
-                                </div>
-
-
-                                <div class="instagram-widget__item col-xs-4">
-                                    <img src="/f/assets/images/instagram/instagram_02.jpg" alt="">
-                                </div>
-
-
-                                <div class="instagram-widget__item col-xs-4">
-                                    <img src="/f/assets/images/instagram/instagram_03.jpg" alt="">
-                                </div>
-
-
-                                <div class="instagram-widget__item col-xs-4">
-                                    <img src="/f/assets/images/instagram/instagram_04.jpg" alt="">
-                                </div>
-
-
-                                <div class="instagram-widget__item col-xs-4">
-                                    <img src="/f/assets/images/instagram/instagram_05.jpg" alt="">
-                                </div>
-
-
-                                <div class="instagram-widget__item col-xs-4">
-                                    <img src="/f/assets/images/instagram/instagram_06.jpg" alt="">
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
+                    @include('site.partials.bottom-stores')
                 </div>
             </div>
             <div class="col-xs-12">

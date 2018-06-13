@@ -18,6 +18,7 @@ class ComposerServiceProvider extends ServiceProvider
         view()->composer('site.partials.social-links', \App\Http\ViewComposers\SocialLinksComposer::class);
         view()->composer('site.partials.top-nav', \App\Http\ViewComposers\TopNavComposer::class);
         view()->composer('site.partials.bottom-nav', \App\Http\ViewComposers\BottomNavComposer::class);
+        view()->composer('site.partials.bottom-stores', \App\Http\ViewComposers\BottomStoresComposer::class);
 
         //ROOT
         view()->composer('root.partials.top-nav', \App\Http\ViewComposers\Root\TopNavComposer::class);

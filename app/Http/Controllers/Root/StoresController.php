@@ -129,20 +129,29 @@ class StoresController extends Controller
 
         $img = Image::make(sprintf($path.'/%s', $filename));
 
+        // backup status
+        $img->backup();
+
         $img->resize(600, 400);
-        $img->save(sprintf($thumb_path.'/600/%s', $filename));
+        $img->save(sprintf($thumb_path.'/600/%s', $filename),100);
+        // reset image (return to backup state)
+        $img->reset();
 
         $img->resize(300, 200);
-        $img->save(sprintf($thumb_path.'/300/%s', $filename));
-
-        $img->resize(150, 100);
-        $img->save(sprintf($thumb_path.'/150/%s', $filename));
+        $img->save(sprintf($thumb_path.'/300/%s', $filename),100);
+        $img->reset();
 
         $img->resize(222, 148);
-        $img->save(sprintf($thumb_path.'/222/%s', $filename));
+        $img->save(sprintf($thumb_path.'/222/%s', $filename),100);
+        $img->reset();
 
         $img->resize(200, 200);
-        $img->save(sprintf($thumb_path.'/200/%s', $filename));
+        $img->save(sprintf($thumb_path.'/200/%s', $filename),100);
+        $img->reset();
+
+        $img->resize(150, 100);
+        $img->save(sprintf($thumb_path.'/150/%s', $filename),100);
+        $img->reset();
 
         return $filename;
     }
