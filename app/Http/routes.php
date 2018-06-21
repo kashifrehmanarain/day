@@ -307,6 +307,58 @@ Route::group(['middleware' => 'web'], function () {
             'roles' => ['admin']
         ]);
 
+        //=======BANNERS=======//
+
+        Route::get('/banners', [
+            'as'   => 'root-banners',
+            'uses' => 'Root\BannersController@index',
+            'middleware' => 'roles',
+            'roles' => ['user', 'author','admin']
+        ]);
+
+        Route::get('/banners/new', [
+            'as'   => 'root-banners-new',
+            'uses' => 'Root\BannersController@newBanner',
+            'middleware' => 'roles',
+            'roles' => ['author','admin']
+        ]);
+
+        Route::get('/banners/edit/{banner_id}', [
+            'as'             => 'root-banner-edit',
+            'uses'           => 'Root\BannersController@edit',
+            'middleware' => 'roles',
+            'roles' => ['author','admin']
+        ])->where(['banner_id' => '[0-9]+']);
+
+        Route::post('/banners/store/{banner_id?}', [
+            'as'             => 'root-banners-store',
+            'uses'           => 'Root\BannersController@store',
+            'middleware' => 'roles',
+            'roles' => ['author','admin']
+        ])->where(['banner_id' => '[0-9]+']);
+
+        Route::get('/banners/to-draft/{banner_id}', [
+            'as'             => 'root-banner-to-draft',
+            'uses'           => 'Root\BannersController@toDraft',
+            'middleware' => 'roles',
+            'roles' => ['author','admin']
+        ])->where(['banner_id' => '[0-9]+']);
+
+        Route::get('/banners/to-active/{banner_id}', [
+            'as'             => 'root-banner-to-active',
+            'uses'           => 'Root\BannersController@toActive',
+            'middleware' => 'roles',
+            'roles' => ['author','admin']
+        ])->where(['banner_id' => '[0-9]+']);
+
+        Route::get('/banners/to-deleted/{banner_id}', [
+            'as'             => 'root-banner-to-deleted',
+            'uses'           => 'Root\BannersController@toDeleted',
+            'middleware' => 'roles',
+            'roles' => ['admin']
+        ])->where(['banner_id' => '[0-9]+']);
+
+
         //=======SETTINGS=======//
 
         Route::get('/settings', [

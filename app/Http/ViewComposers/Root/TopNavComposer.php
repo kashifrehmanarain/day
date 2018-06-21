@@ -66,11 +66,22 @@ class TopNavComposer
             ],
             [
                 'url'   => route('root-slider-images'),
-                'title' => 'Slider Images',
+                'title' => 'Slider',
                 'route' => 'root-slider-images',
                 'item'  => 'slider-images',
                 'class' => '',
                 'icon'  => 'fa fa-image',
+                'id'    => '',
+                'blank' => false,
+                'role_required' => ['user', 'author','admin'],
+            ],
+            [
+                'url'   => route('root-banners'),
+                'title' => 'Banners',
+                'route' => 'root-banners',
+                'item'  => 'banners',
+                'class' => '',
+                'icon'  => 'fa fa-buysellads',
                 'id'    => '',
                 'blank' => false,
                 'role_required' => ['user', 'author','admin'],
@@ -111,7 +122,7 @@ class TopNavComposer
         ];
 
         $menu_items_right = [
-            [
+/*            [
                 'url'   => route('index'),
                 'title' => 'Index Page',
                 'route' => 'index',
@@ -121,6 +132,7 @@ class TopNavComposer
                 'id'    => '',
                 'blank' => true,
             ],
+*/
             [
                 'url'   => route('logout'),
                 'title' => 'Log Out',
