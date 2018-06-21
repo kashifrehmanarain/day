@@ -115,7 +115,7 @@
                                             <!-- End Banner Widegt -->
                                         </div>
                                     @endif
-                                    <div class="col-xs-12">
+                                    {{--<div class="col-xs-12">
                                         <!-- Best Rated Deals -->
                                         <div class="widget best-rated-deals panel pt-20 prl-20">
                                             <h3 class="widget-title h-title">Best Rated Deals</h3>
@@ -231,7 +231,7 @@
                                             </div>
                                         </div>
                                         <!-- Best Rated Deals -->
-                                    </div>
+                                    </div>--}}
                                     <div class="col-xs-12">
                                         <!-- Subscribe Widget -->
                                         <div class="widget subscribe-widget panel pt-20 prl-20">
