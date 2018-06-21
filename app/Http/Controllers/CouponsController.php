@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banners;
 use App\Models\Categories;
 use App\Models\Coupons;
 use App\Models\Stores;
@@ -26,10 +27,12 @@ class CouponsController extends Controller
         }
 
         $coupons = Coupons::i()->search($q)->active()->sort()->paginate(10);
+        $banners = Banners::i()->get();
 
         $data = [
             'coupons'    => $coupons,
             'q' => $q,
+            'banners' => $banners,
             'title' => Title::renderr(' : ', true),
         ];
 
@@ -63,11 +66,13 @@ class CouponsController extends Controller
         view()->share('seo_keywords', $tag->seo_keywords);
 
         $coupons = Coupons::i()->getCouponsByTag($tag->id,10);
+        $banners = Banners::i()->where('tag_id',$tag->id)->get();
 
         $data = [
             'coupons' => $coupons,
             'title' => Title::renderr(' : ', true),
             'q' => '',
+            'banners' => $banners,
         ];
 
         view()->share('seo_title', $data['title']);
@@ -91,11 +96,13 @@ class CouponsController extends Controller
         view()->share('seo_keywords', $category->seo_keywords);
 
         $coupons = Coupons::i()->where('category_id',$category->id);
+        $banners = Banners::i()->where('category_id',$category->id)->get();
 
         $data = [
             'coupons' => $coupons->active()->sort()->paginate(10),
             'title' => Title::renderr(' : ', true),
             'q' => '',
+            'banners' => $banners,
         ];
 
         view()->share('seo_title', $data['title']);
@@ -106,10 +113,12 @@ class CouponsController extends Controller
     public function coupons()
     {
         $coupons = Coupons::i()->typeCoupons()->active()->sort()->paginate(10);
+        $banners = Banners::i()->get();
 
         $data = [
             'coupons'    => $coupons,
             'q' => '',
+            'banners' => $banners,
             'title' => Title::renderr(' : ', true),
         ];
 
@@ -119,10 +128,12 @@ class CouponsController extends Controller
     public function deals()
     {
         $coupons = Coupons::i()->typeDeals()->active()->sort()->paginate(10);
+        $banners = Banners::i()->get();
 
         $data = [
             'coupons'    => $coupons,
             'q' => '',
+            'banners' => $banners,
             'title' => Title::renderr(' : ', true),
         ];
 

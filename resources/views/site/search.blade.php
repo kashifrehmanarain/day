@@ -11,189 +11,10 @@
                         <!-- Blog Sidebar -->
                         <aside class="sidebar blog-sidebar">
                             <div class="row row-tb-10">
-                                <div class="col-xs-12">
-                                    <!-- Latest Deals Widegt -->
-                                    <div class="widget latest-deals-widget panel prl-20">
-                                        <div class="widget-body ptb-20">
-                                            <div class="owl-slider" data-loop="true" data-autoplay="true" data-autoplay-timeout="10000" data-smart-speed="1000" data-nav-speed="false" data-nav="true" data-xxs-items="1" data-xxs-nav="true" data-xs-items="1" data-xs-nav="true" data-sm-items="1" data-sm-nav="true" data-md-items="1" data-md-nav="true" data-lg-items="1" data-lg-nav="true">
-                                                <div class="latest-deals__item item">
-                                                    <figure class="deal-thumbnail embed-responsive embed-responsive-4by3" data-bg-img="/f/assets/images/deals/deal_02.jpg">
-                                                        <div class="label-discount top-10 right-10">-30%</div>
-                                                        <ul class="deal-actions top-10 left-10">
-                                                            <li class="like-deal">
-                                                                    <span>
-                                                               <i class="fa fa-heart"></i>
-                                                               </span>
-                                                            </li>
-                                                            <li class="share-btn">
-                                                                <div class="share-tooltip fade">
-                                                                    <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
-                                                                    <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
-                                                                    <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
-                                                                    <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
-                                                                </div>
-                                                                <span><i class="fa fa-share-alt"></i></span>
-                                                            </li>
-                                                            <li>
-                                                                    <span>
-                                                               <i class="fa fa-camera"></i>
-                                                               </span>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="deal-about p-10 pos-a bottom-0 left-0">
-                                                            <div class="rating mb-10">
-                                                                    <span class="rating-stars rate-allow" data-rating="4">
-                                                               <i class="fa fa-star-o"></i>
-                                                               <i class="fa fa-star-o"></i>
-                                                               <i class="fa fa-star-o"></i>
-                                                               <i class="fa fa-star-o"></i>
-                                                               <i class="fa fa-star-o"></i>
-                                                               </span>
-                                                                <span class="rating-reviews color-lighter">
-                                                               (<span class="rating-count">160</span> Reviews)
-                                                                    </span>
-                                                            </div>
-                                                            <h5 class="deal-title mb-10">
-                                                                <a href="deal_single.html" class="color-lighter">Hampton Bay LED Light Ceiling Exhaust Fan</a>
-                                                            </h5>
-                                                        </div>
-                                                    </figure>
-                                                </div>
-                                                <div class="latest-deals__item item">
-                                                    <figure class="deal-thumbnail embed-responsive embed-responsive-4by3" data-bg-img="/f/assets/images/deals/deal_03.jpg">
-                                                        <div class="label-discount top-10 right-10">-15%</div>
-                                                        <ul class="deal-actions top-10 left-10">
-                                                            <li class="like-deal">
-                                                                    <span>
-                                                               <i class="fa fa-heart"></i>
-                                                               </span>
-                                                            </li>
-                                                            <li class="share-btn">
-                                                                <div class="share-tooltip fade">
-                                                                    <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
-                                                                    <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
-                                                                    <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
-                                                                    <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
-                                                                </div>
-                                                                <span><i class="fa fa-share-alt"></i></span>
-                                                            </li>
-                                                            <li>
-                                                                    <span>
-                                                               <i class="fa fa-camera"></i>
-                                                               </span>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="deal-about p-10 pos-a bottom-0 left-0">
-                                                            <div class="rating mb-10">
-                                                                    <span class="rating-stars rate-allow" data-rating="2">
-                                                               <i class="fa fa-star-o"></i>
-                                                               <i class="fa fa-star-o"></i>
-                                                               <i class="fa fa-star-o"></i>
-                                                               <i class="fa fa-star-o"></i>
-                                                               <i class="fa fa-star-o"></i>
-                                                               </span>
-                                                                <span class="rating-reviews color-lighter">
-                                                               (<span class="rating-count">100</span> Reviews)
-                                                                    </span>
-                                                            </div>
-                                                            <h5 class="deal-title mb-10">
-                                                                <a href="deal_single.html" class="color-lighter">Timberland Men's Thorton Waterproof Boots</a>
-                                                            </h5>
-                                                        </div>
-                                                    </figure>
-                                                </div>
-                                                <div class="latest-deals__item item">
-                                                    <figure class="deal-thumbnail embed-responsive embed-responsive-4by3" data-bg-img="/f/assets/images/deals/deal_04.jpg">
-                                                        <div class="label-discount top-10 right-10">-60%</div>
-                                                        <ul class="deal-actions top-10 left-10">
-                                                            <li class="like-deal">
-                                                                    <span>
-                                                               <i class="fa fa-heart"></i>
-                                                               </span>
-                                                            </li>
-                                                            <li class="share-btn">
-                                                                <div class="share-tooltip fade">
-                                                                    <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
-                                                                    <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
-                                                                    <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
-                                                                    <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
-                                                                </div>
-                                                                <span><i class="fa fa-share-alt"></i></span>
-                                                            </li>
-                                                            <li>
-                                                                    <span>
-                                                               <i class="fa fa-camera"></i>
-                                                               </span>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="deal-about p-10 pos-a bottom-0 left-0">
-                                                            <div class="rating mb-10">
-                                                                    <span class="rating-stars rate-allow" data-rating="3">
-                                                               <i class="fa fa-star-o"></i>
-                                                               <i class="fa fa-star-o"></i>
-                                                               <i class="fa fa-star-o"></i>
-                                                               <i class="fa fa-star-o"></i>
-                                                               <i class="fa fa-star-o"></i>
-                                                               </span>
-                                                                <span class="rating-reviews color-lighter">
-                                                               (<span class="rating-count">32</span> Reviews)
-                                                                    </span>
-                                                            </div>
-                                                            <h5 class="deal-title mb-10">
-                                                                <a href="deal_single.html" class="color-lighter">New and Refurbished Lenovo Laptops</a>
-                                                            </h5>
-                                                        </div>
-                                                    </figure>
-                                                </div>
-                                                <div class="latest-deals__item item">
-                                                    <figure class="deal-thumbnail embed-responsive embed-responsive-4by3" data-bg-img="/f/assets/images/deals/deal_05.jpg">
-                                                        <div class="label-discount top-10 right-10">-60%</div>
-                                                        <ul class="deal-actions top-10 left-10">
-                                                            <li class="like-deal">
-                                                                    <span>
-                                                               <i class="fa fa-heart"></i>
-                                                               </span>
-                                                            </li>
-                                                            <li class="share-btn">
-                                                                <div class="share-tooltip fade">
-                                                                    <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
-                                                                    <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
-                                                                    <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
-                                                                    <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
-                                                                </div>
-                                                                <span><i class="fa fa-share-alt"></i></span>
-                                                            </li>
-                                                            <li>
-                                                                    <span>
-                                                               <i class="fa fa-camera"></i>
-                                                               </span>
-                                                            </li>
-                                                        </ul>
-                                                        <div class="deal-about p-10 pos-a bottom-0 left-0">
-                                                            <div class="rating mb-10">
-                                                                    <span class="rating-stars rate-allow" data-rating="5">
-                                                               <i class="fa fa-star-o"></i>
-                                                               <i class="fa fa-star-o"></i>
-                                                               <i class="fa fa-star-o"></i>
-                                                               <i class="fa fa-star-o"></i>
-                                                               <i class="fa fa-star-o"></i>
-                                                               </span>
-                                                                <span class="rating-reviews color-lighter">
-                                                               (<span class="rating-count">29</span> Reviews)
-                                                                    </span>
-                                                            </div>
-                                                            <h5 class="deal-title mb-10">
-                                                                <a href="deal_single.html" class="color-lighter">Buying a TV Is Easy When You Know These Terms</a>
-                                                            </h5>
-                                                        </div>
-                                                    </figure>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Latest Deals Widegt -->
-                                </div>
-                                <div class="col-xs-12">
+                            <!-- Banner Widegt -->
+                            @include('site.partials.right-banners', ['banners' => $banners])
+                            <!-- End Banner Widegt -->
+                                {{--<div class="col-xs-12">
                                     <!-- Best Rated Deals -->
                                     <div class="widget best-rated-deals panel pt-20 prl-20">
                                         <h3 class="widget-title h-title">Best Rated Deals</h3>
@@ -297,14 +118,44 @@
                                         </div>
                                     </div>
                                     <!-- Best Rated Deals -->
+                                </div>--}}
+                                <div class="col-xs-12">
+                                    <!-- Instagram Widget -->
+                                    <div class="widget instagram-widget panel pt-20 prl-20">
+                                        <h3 class="widget-title h-title">Trending Stores</h3>
+                                        <div class="widget-body ptb-30">
+                                            <div class="row row-tb-5 row-rl-5">
+                                                <div class="instagram-widget__item col-xs-4">
+                                                    <img src="/f/assets/images/instagram/instagram_01.jpg" alt="">
+                                                </div>
+                                                <div class="instagram-widget__item col-xs-4">
+                                                    <img src="/f/assets/images/instagram/instagram_02.jpg" alt="">
+                                                </div>
+                                                <div class="instagram-widget__item col-xs-4">
+                                                    <img src="/f/assets/images/instagram/instagram_03.jpg" alt="">
+                                                </div>
+                                                <div class="instagram-widget__item col-xs-4">
+                                                    <img src="/f/assets/images/instagram/instagram_04.jpg" alt="">
+                                                </div>
+                                                <div class="instagram-widget__item col-xs-4">
+                                                    <img src="/f/assets/images/instagram/instagram_05.jpg" alt="">
+                                                </div>
+                                                <div class="instagram-widget__item col-xs-4">
+                                                    <img src="/f/assets/images/instagram/instagram_06.jpg" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Instagram Widget -->
                                 </div>
+
                                 <div class="col-xs-12">
                                     <!-- Subscribe Widget -->
                                     <div class="widget subscribe-widget panel pt-20 prl-20">
                                         <h3 class="widget-title h-title">Subscribe to mail</h3>
                                         <div class="widget-content ptb-30">
                                             <p class="color-mid mb-20">Get our Daily email newsletter with Special Services, Updates, Offers and more!</p>
-                                            <form method="post" action="#">
+                                            <form method="post" action="">
                                                 <div class="input-group">
                                                     <input type="email" class="form-control" placeholder="Your Email Address" required="required">
                                                     <span class="input-group-btn">
@@ -316,7 +167,7 @@
                                     </div>
                                     <!-- End Subscribe Widget -->
                                 </div>
-                                <div class="col-xs-12">
+                                {{--<div class="col-xs-12">
                                     <!-- Trending Stores -->
                                     <div class="widget trend-store-widget panel pt-20 prl-20">
                                         <h3 class="widget-title h-title">Trending Stores</h3>
@@ -390,37 +241,8 @@
                                         </div>
                                     </div>
                                     <!-- End Trending Stores -->
-                                </div>
-                                <div class="col-xs-12">
-                                    <!-- Instagram Widget -->
-                                    <div class="widget instagram-widget panel pt-20 prl-20">
-                                        <h3 class="widget-title h-title">Instagram</h3>
-                                        <div class="widget-body ptb-30">
-                                            <div class="row row-tb-5 row-rl-5">
-                                                <div class="instagram-widget__item col-xs-4">
-                                                    <img src="/f/assets/images/instagram/instagram_01.jpg" alt="">
-                                                </div>
-                                                <div class="instagram-widget__item col-xs-4">
-                                                    <img src="/f/assets/images/instagram/instagram_02.jpg" alt="">
-                                                </div>
-                                                <div class="instagram-widget__item col-xs-4">
-                                                    <img src="/f/assets/images/instagram/instagram_03.jpg" alt="">
-                                                </div>
-                                                <div class="instagram-widget__item col-xs-4">
-                                                    <img src="/f/assets/images/instagram/instagram_04.jpg" alt="">
-                                                </div>
-                                                <div class="instagram-widget__item col-xs-4">
-                                                    <img src="/f/assets/images/instagram/instagram_05.jpg" alt="">
-                                                </div>
-                                                <div class="instagram-widget__item col-xs-4">
-                                                    <img src="/f/assets/images/instagram/instagram_06.jpg" alt="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Instagram Widget -->
-                                </div>
-                                <div class="col-xs-12">
+                                </div>--}}
+                                {{--<div class="col-xs-12">
                                     <!-- Instagram Widget -->
                                     <div class="widget subscribe-widget panel pt-20 prl-20">
                                         <h3 class="widget-title h-title">Latest tweets</h3>
@@ -458,8 +280,8 @@
                                         </div>
                                     </div>
                                     <!-- End Instagram Widget -->
-                                </div>
-                                <div class="col-xs-12">
+                                </div>--}}
+                                {{--<div class="col-xs-12">
                                     <!-- Latest Reviews -->
                                     <div class="widget posted-reviews-widget panel pt-20 prl-20">
                                         <h3 class="widget-title h-title">Recent Reviews</h3>
@@ -563,7 +385,7 @@
                                         </div>
                                     </div>
                                     <!-- End Latest Reviews -->
-                                </div>
+                                </div>--}}
                                 <div class="col-xs-12">
                                     <!-- Contact Us Widget -->
                                     <div class="widget contact-us-widget panel pt-20 prl-20">
