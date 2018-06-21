@@ -16,7 +16,10 @@ class CreateBannersTable extends Migration
             $table->increments('id');
             $table->enum('banner_position', ['right','bottom','top']);
             $table->string('title');
-            $table->text('iframe_code');
+            $table->enum('banner_type', ['html','custom']);
+            $table->text('html_code');
+            $table->string('custom_url', 255);
+            $table->string('custom_image', 255);
             $table->longText('content');
             $table->integer('store_id')->unsigned();
             $table->integer('category_id')->unsigned();

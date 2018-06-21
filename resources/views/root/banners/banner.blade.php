@@ -9,17 +9,16 @@
             {!! csrf_field() !!}
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-lg-8">
-{{--
                     <div class="form-group">
                         <label for="inputCategory">Banner Type</label>
                         <select name="banner_type" id="inputType" class="form-control">
-                            <option value="iframe" {{ (!empty($banner) && $banner->banner_type == "iframe") ? 'selected' : '' }}>iFrame</option>
+                            <option value="html" {{ (!empty($banner) && $banner->banner_type == "html") ? 'selected' : '' }}>HTML</option>
+                            <option value="custom" {{ (!empty($banner) && $banner->banner_type == "custom") ? 'selected' : '' }}>Custom</option>
                         </select>
                     </div>
---}}
                     <div class="form-group">
                         <label for="inputCategory">Banner Position</label>
-                        <select name="banner_position" id="inputType" class="form-control">
+                        <select name="banner_position" id="inputPosition" class="form-control">
                             <option value="right" {{ (!empty($banner) && $banner->banner_position == "right") ? 'selected' : '' }}>Right</option>
                             <option value="bottom" {{ (!empty($banner) && $banner->banner_position == "bottom") ? 'selected' : '' }}>Bottom</option>
                             <option value="top" {{ (!empty($banner) && $banner->banner_position == "top") ? 'selected' : '' }}>Top</option>
@@ -29,10 +28,22 @@
                         <label for="inputTitle">Title</label>
                         <input id="inputTitle" type="text" value="{{ $banner->title or old('title') }}" class="form-control" name="title">
                     </div>
-                    <div class="form-group">
-                        <label for="inputCode">iFrame Code</label>
+                    <div class="form-group type_html" @if(!is_null($banner) && $banner->banner_type == "custom") style="display: none" @endif>
+                        <label for="inputCode">HTML Code</label>
                         <textarea id="inputCode"
-                                  name="iframe_code" rows="12" class="form-control">{!! $banner->iframe_code or old('iframe_code')  !!} </textarea>
+                                  name="html_code" rows="12" class="form-control">{!! $banner->html_code or old('html_code')  !!} </textarea>
+                    </div>
+                    <div class="form-group type_custom" @if((!is_null($banner) && $banner->banner_type != "custom") || is_null($banner)) style="display: none" @endif>
+                        <label for="inputTitle">Custom URL</label>
+                        <input type="url" name="custom_url" value="{{ $banner->custom_url or old('custom_url', '') }}" class="form-control" id="inputTitle">
+                    </div>
+                    <div class="form-group type_custom" @if((!is_null($banner) && $banner->banner_type != "custom") || is_null($banner)) style="display: none" @endif>
+                        <label for="inputImg">Custom Image</label>
+                        @if(!empty($banner) && !empty($banner->custom_image))
+                            <br />
+                            <img src="/upload/thumb/150/{{ $banner->custom_image }}" alt="">
+                        @endif
+                        <input type="file" id="inputImg" name="custom_image" class="" >
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-12 col-lg-4">
@@ -118,6 +129,19 @@
     </div>
 @stop
 @section('js-bottom')
+    <script>
+        $(function() {
+            $('#inputType').change(function(){
+                if($(this).val() == 'custom') {
+                    $('.type_custom').show();
+                    $('.type_html').hide();
+                } else {
+                    $('.type_html').show();
+                    $('.type_custom').hide();
+                }
+            });
+        });
+    </script>
     <script src="/plugins/moment/moment.min.js"></script>
     <script src="/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
     <script src="/plugins/bootstrap-tokenfield/bootstrap-tokenfield.min.js"></script>

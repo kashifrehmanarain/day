@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banners;
 use App\Models\Coupons;
 use App\Models\Stores;
 use Illuminate\Database\QueryException;
@@ -44,6 +45,7 @@ class StoresController extends Controller
         $coupons = Coupons::i()->where('store_id',$store->id);
         $deal_count = Coupons::i()->where('store_id',$store->id)->typeDeals()->count();
         $coupon_count = Coupons::i()->where('store_id',$store->id)->typeCoupons()->count();
+        $banners = Banners::i()->where('store_id',$store->id)->get();
 
         $data = [
             'coupons' => $coupons->active()->sort()->paginate(20),
@@ -51,6 +53,7 @@ class StoresController extends Controller
             'store_id'    => $store_id,
             'coupon_count' => $coupon_count,
             'deal_count' => $deal_count,
+            'banners' => $banners,
             'title' => Title::renderr(' : ', true),
             'q' => '',
             ];

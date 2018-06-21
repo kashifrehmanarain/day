@@ -51,7 +51,7 @@
                                         </h4></div>
                                 </div>
                                 <div class="col-lg-5">
-
+                                    {{$banner->banner_type}}
                                 </div>
                                 <div class="col-lg-2 text-right">
                                     <a href="{{ route('root-banner-edit', ['banner_id' => $banner->id]) }}"

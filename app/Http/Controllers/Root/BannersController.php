@@ -9,6 +9,7 @@ use App\Models\Banners;
 //use App\Models\BannerTag;
 use App\Models\Stores;
 use App\Models\Tags;
+use Intervention\Image\Facades\Image;
 use Notifications;
 use Pinger;
 use Redirect;
@@ -80,9 +81,16 @@ class BannersController extends Controller
             redirect()->back()->withInput();
         }
 
+        if ($request->hasFile('custom_image')) {
+            $filename = $this->_uploadMiniature($request->file('custom_image'));
+            $banner->custom_image = $filename;
+        }
+
+        $banner->banner_type = $request->get('banner_type');
         $banner->banner_position = $request->get('banner_position');
         $banner->title = $request->get('title');
-        $banner->iframe_code = $request->get('iframe_code');
+        $banner->html_code = $request->get('html_code');
+        $banner->custom_url = $request->get('custom_url');
         $banner->store_id = $request->get('store_id');
         $banner->category_id = $request->get('category_id');
         $banner->tag_id = $request->get('tag_id');
@@ -147,5 +155,42 @@ class BannersController extends Controller
         $banner->save();
 
         return $banner;
+    }
+
+    private function _uploadMiniature($file)
+    {
+        $path = public_path('upload');
+        $thumb_path = public_path('upload/thumb');
+        $filename = generate_filename($path, $file->getClientOriginalExtension());
+//        $thumbfilename = generate_filename($thumb_path, $file->getClientOriginalExtension());
+        $file->move($path, $filename);
+
+        $img = Image::make(sprintf($path.'/%s', $filename));
+
+        // backup status
+        $img->backup();
+
+        $img->resize(800, 500);
+        $img->save(sprintf($thumb_path.'/800/%s', $filename),100);
+        // reset image (return to backup state)
+        $img->reset();
+
+        $img->resize(327, 245);
+        $img->save(sprintf($thumb_path.'/327/%s', $filename),100);
+        $img->reset();
+
+        $img->resize(300, 250);
+        $img->save(sprintf($thumb_path.'/300/%s', $filename),100);
+        $img->reset();
+
+        $img->resize(250, 250);
+        $img->save(sprintf($thumb_path.'/250/%s', $filename),100);
+        $img->reset();
+
+        $img->resize(150, 100);
+        $img->save(sprintf($thumb_path.'/150/%s', $filename),100);
+        $img->reset();
+
+        return $filename;
     }
 }
