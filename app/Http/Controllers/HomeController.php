@@ -25,9 +25,9 @@ class HomeController extends Controller
         $latest_coupons = Coupons::i()->getLatestCoupons();
         $featured_coupons = Coupons::i()->getLatestFeaturedCoupons();
         $categories_with_count = Categories::i()->topWithCouponsCount();
-        $featured_stores = Stores::i()->featured()->get();
+        $featured_stores = Stores::i()->featured()->limit(20)->get();
         $slider = Slider::i()->all();
-//echo "<pre>"; print_r($slider); echo "</pre>";die;
+
         $data = [
             'coupons'    => $latest_coupons,
             'featured_coupons'    => $featured_coupons,
