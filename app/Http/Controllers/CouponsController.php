@@ -28,11 +28,13 @@ class CouponsController extends Controller
 
         $coupons = Coupons::i()->search($q)->active()->sort()->paginate(10);
         $banners = Banners::i()->get();
+        $latest_coupons = Coupons::i()->with(['store'])->active()->sort()->limit(10)->get();
 
         $data = [
             'coupons'    => $coupons,
             'q' => $q,
             'banners' => $banners,
+            'latest_coupons'    => $latest_coupons,
             'title' => Title::renderr(' : ', true),
         ];
 
@@ -67,12 +69,14 @@ class CouponsController extends Controller
 
         $coupons = Coupons::i()->getCouponsByTag($tag->id,10);
         $banners = Banners::i()->where('tag_id',$tag->id)->get();
+        $latest_coupons = Coupons::i()->with(['store'])->active()->sort()->limit(10)->get();
 
         $data = [
             'coupons' => $coupons,
             'title' => Title::renderr(' : ', true),
             'q' => '',
             'banners' => $banners,
+            'latest_coupons'    => $latest_coupons,
         ];
 
         view()->share('seo_title', $data['title']);
@@ -97,12 +101,14 @@ class CouponsController extends Controller
 
         $coupons = Coupons::i()->where('category_id',$category->id);
         $banners = Banners::i()->where('category_id',$category->id)->get();
+        $latest_coupons = Coupons::i()->with(['store'])->active()->sort()->limit(10)->get();
 
         $data = [
             'coupons' => $coupons->active()->sort()->paginate(10),
             'title' => Title::renderr(' : ', true),
             'q' => '',
             'banners' => $banners,
+            'latest_coupons'    => $latest_coupons,
         ];
 
         view()->share('seo_title', $data['title']);
@@ -114,11 +120,13 @@ class CouponsController extends Controller
     {
         $coupons = Coupons::i()->typeCoupons()->active()->sort()->paginate(10);
         $banners = Banners::i()->get();
+        $latest_coupons = Coupons::i()->with(['store'])->active()->sort()->limit(10)->get();
 
         $data = [
             'coupons'    => $coupons,
             'q' => '',
             'banners' => $banners,
+            'latest_coupons'    => $latest_coupons,
             'title' => Title::renderr(' : ', true),
         ];
 
@@ -129,11 +137,13 @@ class CouponsController extends Controller
     {
         $coupons = Coupons::i()->typeDeals()->active()->sort()->paginate(10);
         $banners = Banners::i()->get();
+        $latest_coupons = Coupons::i()->with(['store'])->active()->sort()->limit(10)->get();
 
         $data = [
             'coupons'    => $coupons,
             'q' => '',
             'banners' => $banners,
+            'latest_coupons'    => $latest_coupons,
             'title' => Title::renderr(' : ', true),
         ];
 
