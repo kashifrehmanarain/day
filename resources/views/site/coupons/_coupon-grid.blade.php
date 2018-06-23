@@ -23,12 +23,12 @@
             <div class="panel-body">
                 <ul class="deal-meta list-inline mb-10">
                     <li class="color-green"><i class="ico lnr lnr-checkmark-circle mr-5"></i>Verifed</li>
-                    <li class="color-muted"><a href="{{ route('store', ['slug' => $coupon->store->slug]) }}"><i class="ico lnr lnr-cart mr-5"></i>{{$coupon->store->title}}</a></li>
+                    <li class="color-muted"><a href="{{ route('store', ['slug' => $coupon->store->slug]) }}"><i class="ico lnr lnr-cart mr-5"></i>{{str_limit($coupon->store->title, 15)}}</a></li>
                     {{--<li class="color-muted"><i class="ico lnr lnr-users mr-5"></i>125 Used</li>--}}
                 </ul>
-                <h4 class="color-green mb-10 t-uppercase line-clamp-1">{!! highlight_str($coupon->title, $q) !!}</h4>
-                <h5 class="deal-title mb-10">
-                    <a class="line-clamp-2" href="{{ route('view', ['slug' => $coupon->slug]) }}">{!! nl2br(highlight_str(strip_tags($coupon->excerpt), $q)) !!}</a>
+                <h4 class="color-black mb-10 line-clamp-1"><a class="fw-500" href="{{ route('view', ['slug' => $coupon->slug]) }}">{!! highlight_str($coupon->title, $q) !!}</a></h4>
+                <h5 class="deal-title mb-10 line-clamp-2">
+                    {!! nl2br(highlight_str(strip_tags($coupon->excerpt), $q)) !!}
                 </h5>
                 <p class="mb-15 color-muted mb-20 font-12"><i class="lnr lnr-clock mr-10"></i>Expires On {{date('jS \of M Y', strtotime($coupon->expiry_date))}}</p>
                 @if($coupon->coupon_type == "code")

@@ -10,17 +10,20 @@
                         <div class="media-left">
                             <a href="{{ route('store', ['slug' => $coupon->store->slug]) }}">
                                 @if(!empty($coupon->store->store_logo))
-                                    <img class="media-object" src="{{ starts_with($coupon->store->store_logo, ['http://', 'https://']) ? '' : '/upload/thumb/150/' }}{{ $coupon->store->store_logo }}" alt="{{$coupon->store->title}} Logo" width="30">
+                                    <img class="media-object" src="{{ starts_with($coupon->store->store_logo, ['http://', 'https://']) ? '' : '/upload/thumb/150/' }}{{ $coupon->store->store_logo }}" alt="{{$coupon->store->title}} Logo" width="80">
                                 @else
                                     <img class="media-object"
                                          src="/f/assets/images/deals/thumb_01.jpg" alt="Thumb"
-                                         width="50">
+                                         width="80">
                                 @endif
                             </a>
                         </div>
                         <div class="media-body">
-                            <h6 class="mb-5">
-                                <a href="#">{{$coupon->title}}</a>
+                            <h5 class="mb-5">
+                                <a class="fw-500 line-clamp-1" href="{{ route('view', ['slug' => $coupon->slug]) }}">{{$coupon->title}}</a>
+                            </h5>
+                            <h6 class="mb-5 line-clamp-2">
+                                {{$coupon->title}}
                             </h6>
                         </div>
                     </div>

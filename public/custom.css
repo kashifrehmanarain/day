@@ -40,7 +40,7 @@
     -webkit-box-orient: vertical;
     min-height: 20px;
     display:-webkit-box;
-    max-height: 1.5rem;
+    max-height: 2.5rem;
 }
 
 .line-clamp-2 {
@@ -52,4 +52,7 @@
     min-height: 40px;
     display:-webkit-box;
     max-height: 3rem;
+}
+.fw-500 {
+    font-weight: 500;
 }

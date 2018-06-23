@@ -21,9 +21,9 @@
         <!-- end col -->
         <div class="col-sm-8">
             <div class="panel-body">
-                <h4 class="color-green mb-10 t-uppercase line-clamp-1">{!! highlight_str($coupon->title, $q) !!}</h4>
-                <h5 class="deal-title mb-10">
-                    <a class="line-clamp-2" href="{{ route('view', ['slug' => $coupon->slug]) }}">{!! highlight_str($coupon->excerpt, $q) !!}</a>
+                <h4 class="color-black mb-10 line-clamp-1"><a class="fw-500" href="{{ route('view', ['slug' => $coupon->slug]) }}">{!! highlight_str($coupon->title, $q) !!}</a></h4>
+                <h5 class="deal-title mb-10 line-clamp-2">
+                    {!! nl2br(highlight_str(strip_tags($coupon->excerpt), $q)) !!}
                 </h5>
                 <ul class="deal-meta list-inline mb-10">
                     <li title="Verified" class="color-green"><i class="ico lnr lnr-checkmark-circle mr-5"></i>Verifed</li>
