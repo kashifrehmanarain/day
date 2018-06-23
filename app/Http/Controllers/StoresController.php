@@ -46,6 +46,7 @@ class StoresController extends Controller
         $deal_count = Coupons::i()->where('store_id',$store->id)->typeDeals()->count();
         $coupon_count = Coupons::i()->where('store_id',$store->id)->typeCoupons()->count();
         $banners = Banners::i()->where('store_id',$store->id)->get();
+        $latest_coupons = Coupons::i()->with(['store'])->active()->sort()->limit(10)->get();
 
         $data = [
             'coupons' => $coupons->active()->sort()->paginate(20),
@@ -54,6 +55,7 @@ class StoresController extends Controller
             'coupon_count' => $coupon_count,
             'deal_count' => $deal_count,
             'banners' => $banners,
+            'latest_coupons'    => $latest_coupons,
             'title' => Title::renderr(' : ', true),
             'q' => '',
             ];

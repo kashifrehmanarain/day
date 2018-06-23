@@ -31,7 +31,7 @@
                     @foreach($coupon->tags as $tag)
                         <li title="Tag" class="color-muted"><a href="{{ route('tag', ['slug' => $tag->slug]) }}"><i class="ico lnr lnr-tag mr-5"></i>{{$tag->tag}}</a></li>
                     @endforeach
-                    <li title="Expiry" class="color-muted"><i class="ico lnr lnr-clock mr-5"></i>Expires on {{date('jS \of F Y', strtotime($coupon->expiry_date))}}</li>
+                    <li title="Expiry" class="color-muted"><i class="ico lnr lnr-clock mr-5"></i>Expires on {{date('jS \of M Y', strtotime($coupon->expiry_date))}}</li>
                     <li title="Used" class="color-muted"><i class="ico lnr lnr-users mr-5"></i>{{$coupon->views}}</li>
                 </ul>
                 {{--<p class="mb-15 color-muted font-12"><i class="lnr lnr-clock mr-10"></i>Expires on {{date('jS \of F Y', strtotime($coupon->expiry_date))}}</p>--}}

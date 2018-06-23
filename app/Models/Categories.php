@@ -55,6 +55,7 @@ class Categories extends Model implements SluggableInterface
     public function topWithCouponsCount()
     {
         return static::leftJoin('coupons', 'coupons.category_id', '=', 'categories.id')
+            ->where("categories.id","<>",1)
             ->groupBy('categories.id')
             ->get(['categories.*', DB::raw('COUNT(coupons.id) as num')])
             ->take(9)
