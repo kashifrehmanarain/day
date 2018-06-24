@@ -142,7 +142,8 @@ class BannersController extends Controller
 
     public function toDeleted($banner_id)
     {
-        $this->_setBannerStatus($banner_id, 'deleted');
+        //$this->_setBannerStatus($banner_id, 'deleted');
+        Banners::find($banner_id)->delete();
         Notifications::add('Banner deleted', 'success');
 
         return Redirect::back();
