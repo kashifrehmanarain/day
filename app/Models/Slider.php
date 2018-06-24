@@ -18,4 +18,10 @@ class Slider extends Model
 
         return static::$_instance;
     }
+
+    public function scopeSort($query)
+    {
+        return $query->orderBy('sort', 'asc');
+    }
+
 }

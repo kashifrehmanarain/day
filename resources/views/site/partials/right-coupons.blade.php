@@ -2,7 +2,7 @@
     <div class="col-xs-12">
         <!-- Best Rated Deals -->
         <div class="widget best-rated-deals panel pt-20 prl-20">
-            <h3 class="widget-title h-title">Latest Deals & Coupons</h3>
+            <h3 class="widget-title h-title">Popular Deals & Coupons</h3>
 
             <div class="widget-body ptb-30">
                 @foreach($latest_coupons as $coupon)

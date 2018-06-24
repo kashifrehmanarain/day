@@ -1,5 +1,5 @@
 @if($items->count() > 0)
-    <div class="footer-col col-sm-6">
+    <div class="footer-col col-sm-4">
         <div class="footer-links">
             <h2 class="color-lighter">Quick Links</h2>
             <ul>

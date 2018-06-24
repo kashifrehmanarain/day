@@ -28,7 +28,7 @@ class CouponsController extends Controller
 
         $coupons = Coupons::i()->search($q)->active()->sort()->paginate(10);
         $banners = Banners::i()->get();
-        $latest_coupons = Coupons::i()->with(['store'])->active()->sort()->limit(10)->get();
+        $latest_coupons = Coupons::i()->getLatestFeaturedCoupons();
 
         $data = [
             'coupons'    => $coupons,
@@ -69,7 +69,7 @@ class CouponsController extends Controller
 
         $coupons = Coupons::i()->getCouponsByTag($tag->id,10);
         $banners = Banners::i()->where('tag_id',$tag->id)->get();
-        $latest_coupons = Coupons::i()->with(['store'])->active()->sort()->limit(10)->get();
+        $latest_coupons = Coupons::i()->getLatestFeaturedCoupons();
 
         $data = [
             'coupons' => $coupons,
@@ -101,7 +101,7 @@ class CouponsController extends Controller
 
         $coupons = Coupons::i()->where('category_id',$category->id);
         $banners = Banners::i()->where('category_id',$category->id)->get();
-        $latest_coupons = Coupons::i()->with(['store'])->active()->sort()->limit(10)->get();
+        $latest_coupons = Coupons::i()->getLatestFeaturedCoupons();
 
         $data = [
             'coupons' => $coupons->active()->sort()->paginate(10),
@@ -120,7 +120,7 @@ class CouponsController extends Controller
     {
         $coupons = Coupons::i()->typeCoupons()->active()->sort()->paginate(10);
         $banners = Banners::i()->get();
-        $latest_coupons = Coupons::i()->with(['store'])->active()->sort()->limit(10)->get();
+        $latest_coupons = Coupons::i()->getLatestFeaturedCoupons();
 
         $data = [
             'coupons'    => $coupons,
@@ -137,7 +137,7 @@ class CouponsController extends Controller
     {
         $coupons = Coupons::i()->typeDeals()->active()->sort()->paginate(10);
         $banners = Banners::i()->get();
-        $latest_coupons = Coupons::i()->with(['store'])->active()->sort()->limit(10)->get();
+        $latest_coupons = Coupons::i()->getLatestFeaturedCoupons();
 
         $data = [
             'coupons'    => $coupons,

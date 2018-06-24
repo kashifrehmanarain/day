@@ -1,33 +1,30 @@
 <section class="footer-top-area pt-70 pb-30 pos-r bg-blue">
     <div class="container">
         <div class="row row-tb-20">
-            <div class="col-sm-12 col-md-7">
-                <div class="row row-tb-20">
-                    <div class="footer-col col-sm-6">
-                        <div class="footer-about">
-                            <img class="mb-40" src="/f/assets/images/logo_light.png" width="250" alt="">
-                            <p class="color-light">{!! nl2br(e(Conf::get('app.description'))) !!}</p>
-                        </div>
-                    </div>
-                    <div class="footer-col col-sm-6">
-                        <div class="footer-top-twitter">
-                            <h2 class="color-lighter">Twitter Feed</h2>
-                            <ul class="twitter-list">
-                                <li class="single-twitter">
-                                    <p class="color-light"><i class="ico fa fa-twitter"></i><a href="#">@masum_rana :</a> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore in reprehenderit.</p>
-                                </li>
-                                <li class="single-twitter">
-                                    <p class="color-light"><i class="ico fa fa-twitter"></i><a href="#">@masum_rana :</a> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione id corrupti iusto cupiditate omnis.</p>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-5">
+            <div class="col-sm-12 col-md-6">
                 <div class="row row-tb-20">
                     @include('site.partials.bottom-nav')
                     @include('site.partials.bottom-stores')
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div class="footer-col">
+                    <div class="footer-links">
+                        <h2 class="color-lighter">Subscribe to mail</h2>
+                        <div class="!newsletter-form">
+                            <h4 class="mb-20 color-lighter"><i class="fa fa-envelope-o color-green mr-10"></i>Sign up for our weekly email newsletter</h4>
+                            {{--<p class="mb-20 color-mid">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi animi magni accusantium architecto possimus.</p>--}}
+                            <form method="get" action="">
+                                <div class="input-group mb-10">
+                                    <input type="email" class="form-control bg-white" placeholder="Email Address" required="required">
+                                <span class="input-group-btn">
+                                        <button class="btn" type="submit">Subscribe</button>
+                                    </span>
+                                </div>
+                            </form>
+                            <p class="color-muted"><small>We’ll never share your email address with any third-party.</small> </p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-xs-12">

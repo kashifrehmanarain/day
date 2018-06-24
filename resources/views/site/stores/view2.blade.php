@@ -18,7 +18,7 @@
                         </div>
                         <div class="col-sm-5 col-md-8">
                             <div class="store-about ptb-30">
-                                <h3 class="mb-10">{{$store->title}}</h3>
+                                <h2 class="mb-10 fw-1000">{{$store->title}} Coupons & Promo Codes</h2>
 
                                 <p class="mb-15">{{$store->description}}</p>
 
@@ -82,44 +82,6 @@
                                     @include('site.partials.right-banners', ['banners' => $banners])
                                     <!-- End Banner Widegt -->
                                     @include('site.partials.right-coupons', ['latest_coupons' => $latest_coupons])
-
-                                    <div class="col-xs-12">
-                                        <!-- Subscribe Widget -->
-                                        <div class="widget subscribe-widget panel pt-20 prl-20">
-                                            <h3 class="widget-title h-title">Subscribe to mail</h3>
-
-                                            <div class="widget-content ptb-30">
-                                                <p class="color-mid mb-20">Get our Daily email newsletter with Special
-                                                    Services, Updates, Offers and more!</p>
-
-                                                <form method="post" action="#">
-                                                    <div class="input-group">
-                                                        <input type="email" class="form-control"
-                                                               placeholder="Your Email Address" required="required">
-                                                        <span class="input-group-btn">
-<button class="btn" type="submit">Sign Up</button>
-</span>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <!-- End Subscribe Widget -->
-                                    </div>
-                                    <div class="col-xs-12">
-                                        <!-- Contact Us Widget -->
-                                        <div class="widget contact-us-widget panel pt-20 prl-20">
-                                            <h3 class="widget-title h-title">Got any questions?</h3>
-
-                                            <div class="widget-body ptb-30">
-                                                <p class="mb-20 color-mid">If you are having any questions, please feel
-                                                    free to ask.</p>
-                                                <a href="contact_us_01.html" class="btn btn-block"><i
-                                                            class="mr-10 font-15 fa fa-envelope-o"></i>Drop Us a
-                                                    Line</a>
-                                            </div>
-                                        </div>
-                                        <!-- End Contact Us Widget -->
-                                    </div>
                                 </div>
                             </aside>
                             <!-- End Blog Sidebar -->

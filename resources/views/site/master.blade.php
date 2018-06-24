@@ -56,7 +56,7 @@
     <!-- Template Stylesheet -->
     <link href="/f/assets/css/base.css" rel="stylesheet">
     <link href="/f/assets/css/style.css" rel="stylesheet">
-    <link href="/custom.css?1" rel="stylesheet">
+    <link href="/custom.css?2" rel="stylesheet">
     @yield('css')
     @yield('js-top')
 </head>
