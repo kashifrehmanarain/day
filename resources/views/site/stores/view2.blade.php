@@ -6,7 +6,7 @@
             <div class="container">
                 <section class="store-header-area panel t-xs-center t-sm-left">
                     <div class="row row-rl-10">
-                        <div class="col-sm-3 col-md-4 t-center">
+                        <div class="col-sm-3 col-md-3 t-center">
                             <figure class="pt-30 pb-30">
                                 @if(!empty($store) && !empty($store->store_logo))
                                     <img src="{{ starts_with($store->store_logo, ['http://', 'https://']) ? '' : '/upload/thumb/300/' }}{{ $store->store_logo }}"
@@ -16,7 +16,7 @@
                                 @endif
                             </figure>
                         </div>
-                        <div class="col-sm-5 col-md-8">
+                        <div class="col-sm-5 col-md-9">
                             <div class="store-about ptb-30">
                                 <h2 class="mb-10 fw-1000">{{$store->title}} Coupons & Promo Codes</h2>
 
