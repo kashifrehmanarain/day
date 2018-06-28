@@ -26,6 +26,12 @@
                                     <a class="btn btn-info" target="_blank"
                                        href="{{!empty($store->store_url)?$store->store_url:"#"}}">Go To Store</a>
                                 </div>
+                                @if(Auth::check() && Auth::User()->hasRole('admin'))
+                                <div class="col-md-2 mb-15 pl-0">
+                                    <a class="btn btn-success" target="_blank"
+                                       href="{{route('root-stores-edit',$store->id)}}">Edit</a>
+                                </div>
+                                @endif
                                 <div class="col-md-8 mt-5 mb-15">
                                     <ul class="list-inline social-icons social-icons--colored">
                                         @if(!empty($store->facebook_url))

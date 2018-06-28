@@ -22,6 +22,9 @@
         <div class="col-xs-12">
             <div class="panel-body">
                 <ul class="deal-meta list-inline mb-10">
+                    @if(Auth::check() && Auth::User()->hasRole('admin'))
+                        <li title="Edit" class="color-muted"><a target="_blank" href="{{route('root-coupon-edit', $coupon->id)}}"><i class="ico lnr lnr-pencil mr-5"></i>Edit</a></li>
+                    @endif
                     <li class="color-green"><i class="ico lnr lnr-checkmark-circle mr-5"></i>Verifed</li>
                     <li class="color-muted"><a href="{{ route('store', ['slug' => $coupon->store->slug]) }}"><i class="ico lnr lnr-cart mr-5"></i>{{str_limit($coupon->store->title, 15)}}</a></li>
                     {{--<li class="color-muted"><i class="ico lnr lnr-users mr-5"></i>125 Used</li>--}}

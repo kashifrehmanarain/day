@@ -26,6 +26,9 @@
                     {!! nl2br(highlight_str(strip_tags($coupon->excerpt), $q)) !!}
                 </h5>
                 <ul class="deal-meta list-inline mb-10">
+                    @if(Auth::check() && Auth::User()->hasRole('admin'))
+                        <li title="Edit" class="color-muted"><a target="_blank" href="{{route('root-coupon-edit', $coupon->id)}}"><i class="ico lnr lnr-pencil mr-5"></i>Edit</a></li>
+                    @endif
                     <li title="Verified" class="color-green"><i class="ico lnr lnr-checkmark-circle mr-5"></i>Verifed</li>
                     <li title="Store" class="color-muted"><a href="{{ route('store', ['slug' => $coupon->store->slug]) }}"><i class="ico lnr lnr-cart mr-5"></i>{{$coupon->store->title}}</a></li>
                     @foreach($coupon->tags as $tag)

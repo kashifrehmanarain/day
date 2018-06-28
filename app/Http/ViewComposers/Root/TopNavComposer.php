@@ -122,9 +122,9 @@ class TopNavComposer
         ];
 
         $menu_items_right = [
-/*            [
+            [
                 'url'   => route('index'),
-                'title' => 'Index Page',
+                'title' => 'Home',
                 'route' => 'index',
                 'item'  => '',
                 'class' => '',
@@ -132,7 +132,7 @@ class TopNavComposer
                 'id'    => '',
                 'blank' => true,
             ],
-*/
+
             [
                 'url'   => route('logout'),
                 'title' => 'Log Out',

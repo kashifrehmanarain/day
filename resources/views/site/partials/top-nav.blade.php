@@ -23,7 +23,12 @@
                 </ul>
             </div>
             <div class="nav-menu nav-menu-fixed">
-                <a href="/coupons">Black Friday</a>
+                @if(Auth::check() && Auth::User()->hasRole('admin'))
+                    <a href="{{route('root-index')}}">Admin</a>
+                @endif
+{{--
+                    <a href="/coupons">Black Friday</a>
+--}}
             </div>
         </nav>
     </div>
