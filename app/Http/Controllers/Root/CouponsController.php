@@ -25,7 +25,7 @@ class CouponsController extends Controller
     public function index($store_id="")
     {
         if(isset($store_id) && !empty($store_id))
-            $coupons = Coupons::with('category')->where('id',$store_id);
+            $coupons = Coupons::with('category')->where('store_id',$store_id);
         else
             $coupons = Coupons::with('category');
 
