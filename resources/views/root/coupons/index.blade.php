@@ -14,8 +14,9 @@
                             @foreach($url_params as $url_key=>$url_param)
                                 <input type="hidden" name="{{ $url_key }}" value="{{ $url_param }}"/>
                             @endforeach
-                            <input type="text" name="q" value="{{ $q }}" placeholder="Search Coupon..."
+                            <input type="text" name="q" value="{{ $q }}" placeholder="Search by Store..."
                                    class="form-control"/>
+                                <input type="submit" value="Search" class="btn btn-block" >
                         </form>
                     </div>
                     <br/>

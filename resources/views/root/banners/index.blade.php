@@ -16,6 +16,7 @@
                             @endforeach
                             <input type="text" name="q" value="{{ $q }}" placeholder="Search Banner..."
                                    class="form-control"/>
+                                <input type="submit" value="Search" class="btn btn-block" >
                         </form>
                     </div>
                     <br/>

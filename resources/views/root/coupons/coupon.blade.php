@@ -73,7 +73,10 @@
                         <label for="inputUrlTitle">URL</label>
                         <input id="inputUrlTitle" type="text" value="{{ $coupon->url or old('url') }}" class="form-control" name="url">
                     </div>
-
+                    <div class="form-group">
+                        <label for="inputTitle">Position</label>
+                        <input type="text" name="sort_by" value="{{ $coupon->sort_by or old('sort_by', '') }}" class="form-control" id="inputTitle">
+                    </div>
                     <div class="form-group">
                         <label for="inputSEOTitle">SEO Title</label>
                         <input id="inputSEOTitle" type="text" value="{{ $coupon->seo_title or old('seo_title') }}" class="form-control" name="seo_title">

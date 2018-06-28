@@ -81,7 +81,7 @@ Route::group(['middleware' => 'web'], function () {
             'roles' => ['user', 'author','admin']
         ]);
 
-        Route::get('/coupons', [
+        Route::get('/coupons/{store_id?}', [
             'as'   => 'root-coupons',
             'uses' => 'Root\CouponsController@index',
             'middleware' => 'roles',

@@ -22,9 +22,13 @@ class CouponsController extends Controller
         Title::prepend('Admin');
     }
 
-    public function index()
+    public function index($store_id="")
     {
-        $coupons = Coupons::with('category');
+        if(isset($store_id) && !empty($store_id))
+            $coupons = Coupons::with('category')->where('id',$store_id);
+        else
+            $coupons = Coupons::with('category');
+
         if (request()->has('status')) {
             $coupons->byStatus(request('status'));
         } else {
@@ -41,7 +45,7 @@ class CouponsController extends Controller
         }
 
         $data = [
-            'coupons' => $coupons->sort()->paginate(20),
+            'coupons' => $coupons->orderBy('id','desc')->paginate(20),
             'url_params' => request()->except(['q']),
             'q' => $q,
             'status' => request('status', 'all'),
@@ -95,6 +99,7 @@ class CouponsController extends Controller
         $coupon->coupon_type = $request->get('coupon_type');
         $coupon->code = $request->get('code');
         $coupon->url = $request->get('url');
+        $coupon->sort_by = $request->get('sort_by');
         $coupon->seo_title = strip_tags($seo_title);
         $coupon->seo_description = strip_tags($request->get('seo_description'));
         $coupon->seo_keywords = mb_strtolower(strip_tags($request->get('seo_keywords')));

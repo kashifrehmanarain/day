@@ -23,7 +23,9 @@
                                     @foreach($slider as $image)
                                         <li>
                                             <div class="deal-single panel item">
+                                                <a target="_blank" href="{{ $image->url}}" class="color-light color-h-lighter">
                                                 <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="{{ starts_with($image->image, ['http://', 'https://']) ? '' : '/upload/thumb/800/' }}{{ $image->image }}">
+
 {{--
                                                     <div class="label-discount top-10 right-10">-50%</div>
                                                     <ul class="deal-actions top-10 left-10">
@@ -64,10 +66,11 @@
                                                         </div>
 --}}
                                                         <h3 class="deal-title mb-10 ">
-                                                            <a target="_blank" href="{{ $image->url}}" class="color-light color-h-lighter">{{$image->title}}</a>
+                                                            {{$image->title}}
                                                         </h3>
                                                     </div>
                                                 </figure>
+                                                </a>
                                             </div>
                                         </li>
                                     @endforeach
