@@ -49,7 +49,7 @@ class StoresController extends Controller
         $latest_coupons = Coupons::i()->getLatestFeaturedCoupons();
 
         $data = [
-            'coupons' => $coupons->active()->sort()->paginate(20),
+            'coupons' => $coupons->active()->sortByPosition()->paginate(20),
             'store'    => $store,
             'store_id'    => $store_id,
             'coupon_count' => $coupon_count,

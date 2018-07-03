@@ -110,6 +110,11 @@ class Coupons extends Model implements SluggableInterface
         return $query->orderBy('id', 'desc');
     }
 
+    public function scopeSortByPosition($query)
+    {
+        return $query->orderBy('sort_by', 'asc');
+    }
+
     public function scopeByStatus($query, $statuses)
     {
         if (is_array($statuses)) {
