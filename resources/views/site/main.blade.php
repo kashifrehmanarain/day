@@ -38,5 +38,17 @@
     {{--<script src="/plugins/flat-ui/js/flat-ui.min.js"></script>--}}
     <script src="{{ elixir('t/site/js/site.js') }}"></script>
     @yield('js-bottom')
+    <script type="text/javascript">
+        var vglnk = { key: '87ea49da04e35c7403c14f8c543b6f73' };
+
+        (function(d, t) {
+            var s = d.createElement(t);
+            s.type = 'text/javascript';
+            s.async = true;
+            s.src = '//cdn.viglink.com/api/vglnk.js';
+            var r = d.getElementsByTagName(t)[0];
+            r.parentNode.insertBefore(s, r);
+        }(document, 'script'));
+    </script>
 </body>
 </html>
