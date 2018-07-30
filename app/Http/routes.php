@@ -81,13 +81,6 @@ Route::group(['middleware' => 'web'], function () {
             'roles' => ['user', 'author','admin']
         ]);
 
-        Route::get('/coupons/{store_id?}', [
-            'as'   => 'root-coupons',
-            'uses' => 'Root\CouponsController@index',
-            'middleware' => 'roles',
-            'roles' => ['user', 'author','admin']
-        ]);
-
         Route::get('/coupons/new', [
             'as'   => 'root-coupons-new',
             'uses' => 'Root\CouponsController@newCoupon',
@@ -150,6 +143,13 @@ Route::group(['middleware' => 'web'], function () {
             'middleware' => 'roles',
             'roles' => ['author','admin']
         ])->where(['coupon_id' => '[0-9]+', 'category_id' => '[0-9]+']);
+
+        Route::get('/coupons/{store_id?}', [
+            'as'   => 'root-coupons',
+            'uses' => 'Root\CouponsController@index',
+            'middleware' => 'roles',
+            'roles' => ['user', 'author','admin']
+        ]);
 
         //=======CATEGORIES=======//
 
