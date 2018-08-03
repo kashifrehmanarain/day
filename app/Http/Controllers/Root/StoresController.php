@@ -21,7 +21,7 @@ class StoresController extends Controller
     {
         Title::prepend('Stores');
         $q = request()->get('q', null);
-        $stores = Stores::i();
+        $stores = Stores::i()->active();
 
         if (!empty($q)) {
             Title::prepend('Search: ' . $q);

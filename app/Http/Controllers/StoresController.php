@@ -18,7 +18,7 @@ class StoresController extends Controller
 
     public function index()
     {
-        $stores = Stores::i();
+        $stores = Stores::i()->active();
 
         $data = [
             'stores'    => $stores->asort()->paginate(24),
