@@ -101,7 +101,7 @@ class Coupons extends Model implements SluggableInterface
 
     public function scopeActive($query)
     {
-        return $query->where('status', 'active');
+        return $query->where('store_id','!=', 1)->where('status', 'active');
     }
 
     public function scopeSort($query)
