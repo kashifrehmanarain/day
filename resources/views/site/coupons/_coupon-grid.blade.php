@@ -26,7 +26,7 @@
                         <li title="Edit" class="color-muted"><a target="_blank" href="{{route('root-coupon-edit', $coupon->id)}}"><i class="ico lnr lnr-pencil mr-5"></i>Edit</a></li>
                     @endif
                     <li class="color-green"><i class="ico lnr lnr-checkmark-circle mr-5"></i>Verifed</li>
-                    <li class="color-muted"><a href="{{ route('store', ['slug' => $coupon->store->slug]) }}"><i class="ico lnr lnr-cart mr-5"></i>{{str_limit($coupon->store->title, 15)}}</a></li>
+                    <li class="color-muted"><a href="{{ route('store', ['slug' => $coupon->store->slug]) }}"><i class="ico lnr lnr-cart mr-5"></i>{{str_limit($coupon->store->title, 9)}}</a></li>
                     {{--<li class="color-muted"><i class="ico lnr lnr-users mr-5"></i>125 Used</li>--}}
                 </ul>
                 <h4 class="color-black mb-10 line-clamp-1"><a class="fw-500" href="{{ route('view', ['slug' => $coupon->slug]) }}">{!! highlight_str($coupon->title, $q) !!}</a></h4>
