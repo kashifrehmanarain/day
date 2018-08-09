@@ -159,6 +159,7 @@
 <script type="text/javascript">
     $( "#trigger_{{request()->get('cp')}}" ).trigger( "click" );
     $.ajax({url: "{{ route('increment', ['id' => request()->get('cp')]) }}"});
+    $(".copy-button").hide();
 </script>
 @endif
 @yield('js-bottom')
