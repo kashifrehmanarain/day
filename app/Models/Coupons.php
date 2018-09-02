@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Cache;
+use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\SluggableInterface;
 use Cviebrock\EloquentSluggable\SluggableTrait;
 
@@ -101,7 +102,8 @@ class Coupons extends Model implements SluggableInterface
 
     public function scopeActive($query)
     {
-        return $query->where('store_id','!=', 1)->where('status', 'active');
+        $date = new Carbon;
+        return $query->where('store_id','!=', 1)->where('status', 'active')->where('expiry_date','>',$date);
     }
 
     public function scopeSort($query)
