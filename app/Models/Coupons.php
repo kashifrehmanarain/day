@@ -106,6 +106,12 @@ class Coupons extends Model implements SluggableInterface
         return $query->where('store_id','!=', 1)->where('status', 'active')->where('expiry_date','>',$date);
     }
 
+    public function scopeExpired($query)
+    {
+        $date = new Carbon;
+        return $query->where('store_id','!=', 1)->where('status', 'active')->where('expiry_date','<',$date);
+    }
+
     public function scopeSort($query)
     {
         //return $query->orderBy('is_pinned', 'desc')->orderBy('published_at', 'desc');

@@ -50,6 +50,7 @@ class StoresController extends Controller
 
         $data = [
             'coupons' => $coupons->active()->sortByPosition()->paginate(20),
+            'unpopular_coupons' => $coupons->expired()->sortByPosition()->paginate(20),
             'store'    => $store,
             'store_id'    => $store_id,
             'coupon_count' => $coupon_count,

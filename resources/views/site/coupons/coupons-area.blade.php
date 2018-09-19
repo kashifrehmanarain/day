@@ -29,4 +29,16 @@
     @if($coupons->lastPage() > 1)
         {!! $coupons->appends(['q' => $q])->render() !!}
     @endif
+
+    @if($unpopular_coupons->count() > 0)
+    <!-- unpopular coupons -->
+    <h3 class="h-title">Unpopular Coupons</h3>
+    <div class="row row-masnory row-tb-20">
+        @foreach($unpopular_coupons as $unpopular)
+            <div class="col-xs-12">
+                @include('site.coupons._coupon-list', ['coupon' => $unpopular])
+            </div>
+        @endforeach
+    </div>
+    @endif
 </section>
