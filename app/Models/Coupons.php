@@ -65,6 +65,12 @@ class Coupons extends Model implements SluggableInterface
         return $coupons->active()->sort()->paginate($limit);
     }
 
+    public function getExpiredCoupons($limit=12)
+    {
+        $date = new Carbon;
+        return $this->where('store_id','!=', 1)->where('status', 'active')->where('expiry_date','<',$date)->paginate($limit);;
+    }
+
     public function getCouponsByCategoryId($category_id)
     {
         if (!empty($category_id)) {

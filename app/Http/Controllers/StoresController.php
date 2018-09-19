@@ -47,10 +47,11 @@ class StoresController extends Controller
         $coupon_count = Coupons::i()->where('store_id',$store->id)->typeCoupons()->count();
         $banners = Banners::i()->where('store_id',$store->id)->get();
         $latest_coupons = Coupons::i()->getLatestFeaturedCoupons();
+        $unpopular_coupons = Coupons::i()->getExpiredCoupons(12);
 
         $data = [
             'coupons' => $coupons->active()->sortByPosition()->paginate(20),
-            'unpopular_coupons' => $coupons->expired()->sortByPosition()->paginate(20),
+            'unpopular_coupons' => $unpopular_coupons,
             'store'    => $store,
             'store_id'    => $store_id,
             'coupon_count' => $coupon_count,
