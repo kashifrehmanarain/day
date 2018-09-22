@@ -121,13 +121,14 @@ class CouponsController extends Controller
         $coupons = Coupons::i()->typeCoupons()->active()->sort()->paginate(10);
         $banners = Banners::i()->get();
         $latest_coupons = Coupons::i()->getLatestFeaturedCoupons();
+        $unpopular_coupons = Coupons::i()->where('store_id','dirty_hack')->expired()->get();
 
         $data = [
             'coupons'    => $coupons,
             'q' => '',
             'banners' => $banners,
             'latest_coupons'    => $latest_coupons,
-            'unpopular_coupons' => '{}',
+            'unpopular_coupons' => $unpopular_coupons,
             'title' => Title::renderr(' : ', true),
         ];
 
