@@ -127,6 +127,7 @@ class CouponsController extends Controller
             'q' => '',
             'banners' => $banners,
             'latest_coupons'    => $latest_coupons,
+            'unpopular_coupons' => [],
             'title' => Title::renderr(' : ', true),
         ];
 
