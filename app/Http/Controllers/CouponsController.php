@@ -29,12 +29,14 @@ class CouponsController extends Controller
         $coupons = Coupons::i()->search($q)->active()->sort()->paginate(10);
         $banners = Banners::i()->get();
         $latest_coupons = Coupons::i()->getLatestFeaturedCoupons();
+        $unpopular_coupons = Coupons::i()->where('store_id','dirty_hack')->expired()->get();
 
         $data = [
             'coupons'    => $coupons,
             'q' => $q,
             'banners' => $banners,
             'latest_coupons'    => $latest_coupons,
+            'unpopular_coupons' => $unpopular_coupons,
             'title' => Title::renderr(' : ', true),
         ];
 
@@ -70,6 +72,7 @@ class CouponsController extends Controller
         $coupons = Coupons::i()->getCouponsByTag($tag->id,10);
         $banners = Banners::i()->where('tag_id',$tag->id)->get();
         $latest_coupons = Coupons::i()->getLatestFeaturedCoupons();
+        $unpopular_coupons = Coupons::i()->where('store_id','dirty_hack')->expired()->get();
 
         $data = [
             'coupons' => $coupons,
@@ -77,6 +80,7 @@ class CouponsController extends Controller
             'q' => '',
             'banners' => $banners,
             'latest_coupons'    => $latest_coupons,
+            'unpopular_coupons' => $unpopular_coupons,
         ];
 
         view()->share('seo_title', $data['title']);
@@ -102,6 +106,7 @@ class CouponsController extends Controller
         $coupons = Coupons::i()->where('category_id',$category->id);
         $banners = Banners::i()->where('category_id',$category->id)->get();
         $latest_coupons = Coupons::i()->getLatestFeaturedCoupons();
+        $unpopular_coupons = Coupons::i()->where('store_id','dirty_hack')->expired()->get();
 
         $data = [
             'coupons' => $coupons->active()->sort()->paginate(10),
@@ -109,6 +114,7 @@ class CouponsController extends Controller
             'q' => '',
             'banners' => $banners,
             'latest_coupons'    => $latest_coupons,
+            'unpopular_coupons' => $unpopular_coupons,
         ];
 
         view()->share('seo_title', $data['title']);
@@ -140,12 +146,14 @@ class CouponsController extends Controller
         $coupons = Coupons::i()->typeDeals()->active()->sort()->paginate(10);
         $banners = Banners::i()->get();
         $latest_coupons = Coupons::i()->getLatestFeaturedCoupons();
+        $unpopular_coupons = Coupons::i()->where('store_id','dirty_hack')->expired()->get();
 
         $data = [
             'coupons'    => $coupons,
             'q' => '',
             'banners' => $banners,
             'latest_coupons'    => $latest_coupons,
+            'unpopular_coupons' => $unpopular_coupons,
             'title' => Title::renderr(' : ', true),
         ];
 
