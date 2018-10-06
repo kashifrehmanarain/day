@@ -3,6 +3,7 @@
     <main id="mainContent" class="main-content">
         <div class="page-container ptb-10">
             <div class="container">
+{{--
                 <div class="section deals-header-area ptb-30">
                     <div class="row row-tb-20">
                         <div class="col-xs-12 col-md-4 col-lg-3">
@@ -26,6 +27,7 @@
                                                 <a target="_blank" href="{{ $image->url}}" class="color-light color-h-lighter">
                                                 <figure class="deal-thumbnail embed-responsive embed-responsive-16by9" data-bg-img="{{ starts_with($image->image, ['http://', 'https://']) ? '' : '/upload/thumb/800/' }}{{ $image->image }}">
 
+--}}
 {{--
                                                     <div class="label-discount top-10 right-10">-50%</div>
                                                     <ul class="deal-actions top-10 left-10">
@@ -49,8 +51,10 @@
                                                                 </span>
                                                         </li>
                                                     </ul>
---}}
+--}}{{--
+
                                                     <div class="deal-about p-20 pos-a bottom-0 left-0">
+--}}
 {{--
                                                         <div class="rating mb-10">
                                                                 <span class="rating-stars" data-rating="5">
@@ -64,7 +68,8 @@
                                                                     ( <span class="rating-count">241</span> Reviews )
                                                                 </span>
                                                         </div>
---}}
+--}}{{--
+
                                                         <h3 class="deal-title mb-10 ">
                                                             {{$image->title}}
                                                         </h3>
@@ -79,6 +84,7 @@
                         </div>
                     </div>
                 </div>
+--}}
 
                 <section class="section stores-area stores-area-v1 ptb-30">
                     <header class="panel ptb-15 prl-20 pos-r mb-30">
