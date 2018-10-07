@@ -21,7 +21,7 @@ class StoresController extends Controller
     {
         Title::prepend('Stores');
         $q = request()->get('q', null);
-        $stores = Stores::i()->active();
+        $stores = Stores::i()->nondelete();
 
         if (!empty($q)) {
             Title::prepend('Search: ' . $q);
@@ -83,6 +83,7 @@ class StoresController extends Controller
         $store->description = $request->get('description');
         $store->store_url = $request->get('store_url');
         $store->is_pinned = $request->has('is_pinned');
+        $store->status = $request->get('status');
         $seo_title = strip_tags($request->get('seo_title'));
         $store->seo_title = (trim($seo_title) == '') ? $store->title : $seo_title;
         $store->seo_description = strip_tags($request->get('seo_description'));

@@ -38,6 +38,7 @@
                                                     class="label label-{{ $store->num == 0 ? 'danger' : 'success' }}">{{ $store->num }}</span>
                                         </h4></div>
                                     <div><a target="_blank" href="{{ route('store', ['slug' => $store->slug]) }}">{{ route('store', ['slug' => $store->slug]) }}</a></div>
+                                    <div>{{ucwords($store->status)}}</div>
                                 </div>
                                 <div class="col-lg-2 text-right">
                                     <a href="{{ route('root-stores-edit', ['store_id' => $store->id]) }}"

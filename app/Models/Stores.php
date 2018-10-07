@@ -76,6 +76,11 @@ class Stores extends Model implements SluggableInterface
 
     public function scopeActive($query)
     {
+        return $query->where('id','!=',1)->where('status','active');
+    }
+
+    public function scopeNondelete($query)
+    {
         return $query->where('id','!=',1);
     }
 

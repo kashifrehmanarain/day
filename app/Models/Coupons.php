@@ -53,14 +53,18 @@ class Coupons extends Model implements SluggableInterface
 
     public function getLatestCoupons($limit=12)
     {
-        $coupons = $this->with(['category', 'store']);
+        $coupons = $this->whereHas('store', function ($query) {
+            $query->where('status','active');
+        })->with(['category', 'store']);
         $coupons->where('is_pinned', 0);
         return $coupons->active()->sort()->paginate($limit);
     }
 
     public function getLatestFeaturedCoupons($limit=12)
     {
-        $coupons = $this->with(['category', 'store']);
+        $coupons = $this->whereHas('store', function ($query) {
+            $query->where('status','active');
+        })->with(['category', 'store']);
         $coupons->where('is_pinned', 1);
         return $coupons->active()->sort()->paginate($limit);
     }
@@ -154,11 +158,15 @@ class Coupons extends Model implements SluggableInterface
 
     public function scopeTypeCoupons($query)
     {
-        return $query->where('coupon_type', 'code');
+        return $query->whereHas('store', function ($query) {
+            $query->where('status','active');
+        })->where('coupon_type', 'code');
     }
 
     public function scopeTypeDeals($query)
     {
-        return $query->where('coupon_type', 'deal');
+        return $query->whereHas('store', function ($query) {
+            $query->where('status','active');
+        })->where('coupon_type', 'deal');
     }
 }
