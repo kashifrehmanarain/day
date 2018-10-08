@@ -42,12 +42,12 @@ class StoresController extends Controller
 
         Title::prepend($store->seo_title);
 
-        $coupons = Coupons::i()->where('store_id',$store->id);
-        $deal_count = Coupons::i()->where('store_id',$store->id)->typeDeals()->count();
-        $coupon_count = Coupons::i()->where('store_id',$store->id)->typeCoupons()->count();
+        $coupons = Coupons::i()->active()->where('store_id',$store->id);
+        $deal_count = Coupons::i()->active()->where('store_id',$store->id)->typeDeals()->count();
+        $coupon_count = Coupons::i()->active()->where('store_id',$store->id)->typeCoupons()->count();
         $banners = Banners::i()->where('store_id',$store->id)->get();
         $latest_coupons = Coupons::i()->getLatestFeaturedCoupons();
-        $unpopular_coupons = Coupons::i()->where('store_id',$store->id)->expired()->get();
+        $unpopular_coupons = Coupons::i()->active()->where('store_id',$store->id)->expired()->get();
 
         $data = [
             'coupons' => $coupons->active()->sortByPosition()->paginate(20),
