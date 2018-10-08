@@ -113,7 +113,9 @@ class Coupons extends Model implements SluggableInterface
     public function scopeActive($query)
     {
         $date = new Carbon;
-        return $query->where('store_id','!=', 1)->where('status', 'active')->where('expiry_date','>',$date);
+        return $query->whereHas('store', function ($query) {
+            $query->where('status','active');
+        })->where('store_id','!=', 1)->where('status', 'active')->where('expiry_date','>',$date);
     }
 
     public function scopeExpired($query)
