@@ -66,7 +66,7 @@ class Stores extends Model implements SluggableInterface
 
     public function getBySlug($slug)
     {
-        return static::where('slug', 'like', $slug)->first();
+        return static::where('slug', 'like', $slug)->where('status','active')->first();
     }
 
     public function scopeSort($query)

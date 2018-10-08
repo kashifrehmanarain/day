@@ -30,7 +30,7 @@ class StoresController extends Controller
 
     public function view($slug)
     {
-        $store = Stores::i()->active()->getBySlug($slug);
+        $store = Stores::i()->getBySlug($slug);
         if (empty($store))
             abort(404);
 
