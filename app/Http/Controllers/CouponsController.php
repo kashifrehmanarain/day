@@ -27,7 +27,7 @@ class CouponsController extends Controller
         }
 
         $coupons = Coupons::i()->search($q)->active()->sort()->paginate(10);
-        $banners = Banners::i()->get();
+        $banners = Banners::i()->active()->get();
         $latest_coupons = Coupons::i()->getLatestFeaturedCoupons();
         $unpopular_coupons = Coupons::i()->where('store_id','dirty_hack')->expired()->get();
 
@@ -70,7 +70,7 @@ class CouponsController extends Controller
         view()->share('seo_keywords', $tag->seo_keywords);
 
         $coupons = Coupons::i()->getCouponsByTag($tag->id,10);
-        $banners = Banners::i()->where('tag_id',$tag->id)->get();
+        $banners = Banners::i()->active()->where('tag_id',$tag->id)->get();
         $latest_coupons = Coupons::i()->getLatestFeaturedCoupons();
         $unpopular_coupons = Coupons::i()->where('store_id','dirty_hack')->expired()->get();
 
@@ -104,7 +104,7 @@ class CouponsController extends Controller
         view()->share('seo_keywords', $category->seo_keywords);
 
         $coupons = Coupons::i()->where('category_id',$category->id);
-        $banners = Banners::i()->where('category_id',$category->id)->get();
+        $banners = Banners::i()->active()->where('category_id',$category->id)->get();
         $latest_coupons = Coupons::i()->getLatestFeaturedCoupons();
         $unpopular_coupons = Coupons::i()->where('store_id','dirty_hack')->expired()->get();
 
@@ -125,7 +125,7 @@ class CouponsController extends Controller
     public function coupons()
     {
         $coupons = Coupons::i()->typeCoupons()->active()->sort()->paginate(10);
-        $banners = Banners::i()->get();
+        $banners = Banners::i()->active()->get();
         $latest_coupons = Coupons::i()->getLatestFeaturedCoupons();
         $unpopular_coupons = Coupons::i()->where('store_id','dirty_hack')->expired()->get();
 
@@ -144,7 +144,7 @@ class CouponsController extends Controller
     public function deals()
     {
         $coupons = Coupons::i()->typeDeals()->active()->sort()->paginate(10);
-        $banners = Banners::i()->get();
+        $banners = Banners::i()->active()->get();
         $latest_coupons = Coupons::i()->getLatestFeaturedCoupons();
         $unpopular_coupons = Coupons::i()->where('store_id','dirty_hack')->expired()->get();
 
