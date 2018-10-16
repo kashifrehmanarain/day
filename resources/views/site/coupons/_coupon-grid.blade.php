@@ -23,17 +23,17 @@
             <div class="panel-body">
                 <ul class="deal-meta list-inline mb-10">
                     @if(Auth::check() && Auth::User()->hasRole('admin'))
-                        <li title="Edit" class="color-muted"><a target="_blank" href="{{route('root-coupon-edit', $coupon->id)}}"><i class="ico lnr lnr-pencil mr-5"></i>Edit</a></li>
+                        <li title="Edit"><a target="_blank" href="{{route('root-coupon-edit', $coupon->id)}}"><i class="ico lnr lnr-pencil mr-5"></i>Edit</a></li>
                     @endif
-                    <li class="color-green"><i class="ico lnr lnr-checkmark-circle mr-5"></i>Verifed</li>
-                    <li class="color-muted"><a href="{{ route('store', ['slug' => $coupon->store->slug]) }}"><i class="ico lnr lnr-cart mr-5"></i>{{str_limit($coupon->store->title, 8)}}</a></li>
-                    {{--<li class="color-muted"><i class="ico lnr lnr-users mr-5"></i>125 Used</li>--}}
+                    <li><i class="ico lnr lnr-checkmark-circle mr-5"></i>Verifed</li>
+                    <li><a href="{{ route('store', ['slug' => $coupon->store->slug]) }}"><i class="ico lnr lnr-cart mr-5"></i>{{str_limit($coupon->store->title, 8)}}</a></li>
+                    {{--<li><i class="ico lnr lnr-users mr-5"></i>125 Used</li>--}}
                 </ul>
-                <h4 class="color-black mb-10 line-clamp-1"><a class="fw-500" href="{{ route('view', ['slug' => $coupon->slug]) }}">{!! highlight_str($coupon->title, $q) !!}</a></h4>
-                <h5 class="deal-title mb-10 line-clamp-2">
+                <h4 class="color-black mb-10 line-clamp-1"><a class="fw-700" href="{{ route('view', ['slug' => $coupon->slug]) }}">{!! highlight_str($coupon->title, $q) !!}</a></h4>
+                <p class="deal-title mb-10 line-clamp-2">
                     {!! nl2br(highlight_str(strip_tags($coupon->excerpt), $q)) !!}
-                </h5>
-                <p class="mb-15 color-muted mb-20 font-12"><i class="lnr lnr-clock mr-10"></i>Expires On {{date('jS \of M Y', strtotime($coupon->expiry_date))}}</p>
+                </p>
+                <p class="mb-15 mb-20 font-12"><i class="lnr lnr-clock mr-10"></i>Expires On {{date('jS \of M Y', strtotime($coupon->expiry_date))}}</p>
                 @if($coupon->coupon_type == "code")
                     <div class="showcode" {{--data-toggle-class="coupon-showen" data-toggle-event="click"--}}>
                         <button id="trigger_{{$coupon->id}}" class="show-code btn btn-sm btn-block copy-button" data-toggle="modal" data-target="#coupon_{{$coupon->id}}" data-clipboard-target="#clip_{{$coupon->id}}" data-ref-url="{{$coupon->url}}" data-href="{{url()->current()}}?cp={{$coupon->id}}">Get Coupon Code</button>

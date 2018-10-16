@@ -20,11 +20,11 @@
                         </div>
                         <div class="media-body">
                             <h5 class="mb-5">
-                                <a class="fw-500 line-clamp-1" href="{{ route('view', ['slug' => $coupon->slug]) }}">{{$coupon->title}}</a>
+                                <a class="fw-700 line-clamp-1" href="{{ route('view', ['slug' => $coupon->slug]) }}">{{$coupon->title}}</a>
                             </h5>
-                            <h6 class="mb-5 line-clamp-2">
+                            <p class="mb-5 line-clamp-2">
                                 {{$coupon->title}}
-                            </h6>
+                            </p>
                         </div>
                     </div>
                 @endforeach

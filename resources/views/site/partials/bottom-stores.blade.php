@@ -1,7 +1,7 @@
 @if($top_stores->count() > 0)
     <div class="footer-col col-sm-7">
         <div class="footer-top-instagram instagram-widget">
-            <h2>Top Stores</h2>
+            <h2 class="color-lighter">Top Stores</h2>
             <div class="row row-tb-5 row-rl-5">
                 @foreach($top_stores as $tstore)
                 <div class="instagram-widget__item col-xs-3">

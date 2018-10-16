@@ -29,7 +29,7 @@ body {
   font-size: 13px;
   line-height: 1.8;
   background-color: #fff;
-  color: #384047;
+  color: #666;
   font-weight: 500;
   position: relative;
   padding: 0;
@@ -100,11 +100,11 @@ a:visited {
   outline-offset: 0 !important;
 }
 a {
-  color: #314555;
+  color: #666;
 }
 a:hover,
 a:focus {
-  color: #26cc71;
+  color: #666;
   text-decoration: none;
 }
 a,
@@ -172,9 +172,10 @@ h6,
 .h6 {
   display: block;
   line-height: 1.4;
-  font-weight: 400;
+  font-weight: 700;
   margin: 0;
   text-rendering: optimizeLegibility;
+  color: black !important;
 }
 h1 {
   font-size: 36px;
@@ -183,10 +184,10 @@ h2 {
   font-size: 28px;
 }
 h3 {
-  font-size: 20px;
+  font-size: 22px;
 }
 h4 {
-  font-size: 18px;
+  font-size: 20px;
 }
 h5 {
   font-size: 16px;
@@ -211,6 +212,9 @@ h6 {
 }
 .h6 {
   font-size: 14px;
+}
+h1 a,h2 a,h3 a,h4 a,h5 a,h6 a {
+  color: black !important;
 }
 b,
 strong {

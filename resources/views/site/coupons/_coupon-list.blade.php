@@ -21,23 +21,23 @@
         <!-- end col -->
         <div class="col-sm-8">
             <div class="panel-body">
-                <h4 class="color-black mb-10"><a class="fw-500" href="{{ route('view', ['slug' => $coupon->slug]) }}">{!! highlight_str($coupon->title, $q) !!}</a></h4>
-                <h5 class="deal-title mb-10">
+                <h4 class="color-black mb-10"><a class="fw-700" href="{{ route('view', ['slug' => $coupon->slug]) }}">{!! highlight_str($coupon->title, $q) !!}</a></h4>
+                <p class="deal-title mb-10">
                     {!! nl2br(highlight_str(strip_tags($coupon->excerpt), $q)) !!}
-                </h5>
+                </p>
                 <ul class="deal-meta list-inline mb-10">
                     @if(Auth::check() && Auth::User()->hasRole('admin'))
-                        <li title="Edit" class="color-muted"><a target="_blank" href="{{route('root-coupon-edit', $coupon->id)}}"><i class="ico lnr lnr-pencil mr-5"></i>Edit</a></li>
+                        <li title="Edit"><a target="_blank" href="{{route('root-coupon-edit', $coupon->id)}}"><i class="ico lnr lnr-pencil mr-5"></i>Edit</a></li>
                     @endif
-                    <li title="Verified" class="color-green"><i class="ico lnr lnr-checkmark-circle mr-5"></i>Verifed</li>
-                    <li title="Store" class="color-muted"><a href="{{ route('store', ['slug' => $coupon->store->slug]) }}"><i class="ico lnr lnr-cart mr-5"></i>{{$coupon->store->title}}</a></li>
+                    <li title="Verified"><i class="ico lnr lnr-checkmark-circle mr-5"></i>Verifed</li>
+                    <li title="Store"><a href="{{ route('store', ['slug' => $coupon->store->slug]) }}"><i class="ico lnr lnr-cart mr-5"></i>{{$coupon->store->title}}</a></li>
                     @foreach($coupon->tags as $tag)
-                        <li title="Tag" class="color-muted"><a href="{{ route('tag', ['slug' => $tag->slug]) }}"><i class="ico lnr lnr-tag mr-5"></i>{{$tag->tag}}</a></li>
+                        <li title="Tag"><a href="{{ route('tag', ['slug' => $tag->slug]) }}"><i class="ico lnr lnr-tag mr-5"></i>{{$tag->tag}}</a></li>
                     @endforeach
-                    <li title="Expiry" class="color-muted"><i class="ico lnr lnr-clock mr-5"></i>Expires on {{date('jS \of M Y', strtotime($coupon->expiry_date))}}</li>
-                    <li title="Used" class="color-muted"><i class="ico lnr lnr-users mr-5"></i>{{$coupon->views}}</li>
+                    <li title="Expiry"><i class="ico lnr lnr-clock mr-5"></i>Expires on {{date('jS \of M Y', strtotime($coupon->expiry_date))}}</li>
+                    <li title="Used"><i class="ico lnr lnr-users mr-5"></i>{{$coupon->views}}</li>
                 </ul>
-                {{--<p class="mb-15 color-muted font-12"><i class="lnr lnr-clock mr-10"></i>Expires on {{date('jS \of F Y', strtotime($coupon->expiry_date))}}</p>--}}
+                {{--<p class="mb-15 font-12"><i class="lnr lnr-clock mr-10"></i>Expires on {{date('jS \of F Y', strtotime($coupon->expiry_date))}}</p>--}}
                 @if($coupon->coupon_type == "code")
                     <div class="showcode" {{--data-toggle-class="coupon-showen" data-toggle-event="click"--}}>
                         <button id="trigger_{{$coupon->id}}" class="show-code btn btn-sm btn-block copy-button" data-toggle="modal" data-target="#coupon_{{$coupon->id}}" data-clipboard-target="#clip_{{$coupon->id}}" data-ref-url="{{$coupon->url}}" data-href="{{url()->current()}}?cp={{$coupon->id}}">Show Code</button>
