@@ -89,7 +89,7 @@
                 <section class="section stores-area stores-area-v1 ptb-10">
                     <header class="panel ptb-15 prl-20 pos-r mb-30">
                         <h3 class="section-title font-18">Popular Stores</h3>
-                        <a href="{{ route('stores')}}" class="btn btn-o btn-xs pos-a right-10 pos-tb-center">All Stores</a>
+                        <a href="{{ route('stores')}}" class="btn  btn-xs pos-a right-10 pos-tb-center">All Stores</a>
                     </header>
                     <div class="popular-stores-slider owl-slider" data-loop="true" data-autoplay="true" data-smart-speed="1000" data-autoplay-timeout="10000" data-margin="20" data-items="2" data-xxs-items="2" data-xs-items="2" data-sm-items="3" data-md-items="5" data-lg-items="6">
                         @foreach($featured_stores as $store)
@@ -113,7 +113,7 @@
                 <section class="section latest-coupons-area ptb-30">
                     <header class="panel ptb-15 prl-20 pos-r mb-30">
                         <h3 class="section-title font-18">Featured Deals</h3>
-                        <a class="btn btn-o btn-xs pos-a right-10 pos-tb-center">View All</a>
+                        <a class="btn  btn-xs pos-a right-10 pos-tb-center">View All</a>
                     </header>
 
                     <div class="latest-coupons-slider owl-slider" data-autoplay-hover-pause="true" data-loop="true" data-autoplay="true" data-smart-speed="1000" data-autoplay-timeout="10000" data-margin="30" data-nav-speed="false" data-items="1" data-xxs-items="1" data-xs-items="2" data-sm-items="2" data-md-items="3" data-lg-items="4">
@@ -130,7 +130,7 @@
                 <section class="section latest-deals-area ptb-30">
                     <header class="panel ptb-15 prl-20 pos-r mb-30">
                         <h3 class="section-title font-18">Latest Deals</h3>
-                        <a class="btn btn-o btn-xs pos-a right-10 pos-tb-center">View All</a>
+                        <a class="btn  btn-xs pos-a right-10 pos-tb-center">View All</a>
                     </header>
 
                     <div class="row row-masnory row-tb-20">

@@ -12,7 +12,7 @@
                     <div class="footer-links">
                         <h2 class="color-lighter">Subscribe to mail</h2>
                         <div class="!newsletter-form">
-                            <h4 class="mb-20 color-lighter"><i class="fa fa-envelope-o color-green mr-10"></i>Sign up for our weekly email newsletter</h4>
+                            <h4 class="mb-20 color-lighter">Sign up for our weekly email newsletter</h4>
                             {{--<p class="mb-20 color-mid">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi animi magni accusantium architecto possimus.</p>--}}
                             <form method="get" action="">
                                 <div class="input-group mb-10">

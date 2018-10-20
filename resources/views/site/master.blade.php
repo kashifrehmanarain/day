@@ -163,7 +163,7 @@
 </script>
 @endif
 @yield('js-bottom')
-<script type="text/javascript">
+{{--<script type="text/javascript">
     var vglnk = { key: '87ea49da04e35c7403c14f8c543b6f73' };
 
     (function(d, t) {
@@ -174,7 +174,7 @@
         var r = d.getElementsByTagName(t)[0];
         r.parentNode.insertBefore(s, r);
     }(document, 'script'));
-</script>
+</script>--}}
 </body>
 
 </html>
