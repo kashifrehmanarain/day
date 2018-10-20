@@ -603,8 +603,8 @@
 
 /* |–––––––––––––––––[ Header Header ]–––––––––––––––| */
 .header-header {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .header-search .search-input {
   border-right: 1px solid #ddd;
@@ -793,8 +793,8 @@
 }
 .nav-menu > li > a,
 .nav-menu > a {
-  height: 60px;
-  line-height: 60px;
+  height: 30px;
+  line-height: 30px;
 }
 .nav-menu > li ul li a {
   height: 40px;

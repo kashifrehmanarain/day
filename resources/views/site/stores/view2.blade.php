@@ -2,7 +2,7 @@
 @section('body')
     <main id="mainContent" class="main-content">
         <!-- Page Container -->
-        <div class="page-container store-page ptb-60">
+        <div class="page-container store-page ptb-20">
             <div class="container">
                 <section class="store-header-area panel t-xs-center t-sm-left">
                     <div class="row row-rl-10">
@@ -75,7 +75,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="section deals-area ptb-30">
+                <section class="section deals-area ptb-20">
                     <div class="row row-rl-10 row-tb-20">
                         <div class="page-content col-xs-12 col-md-8">
                             @include('site.coupons.coupons-area', ['coupons' => $coupons, 'unpopular_coupons'=>$unpopular_coupons])

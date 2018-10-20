@@ -2,7 +2,7 @@
 @section('body')
     <main id="mainContent" class="main-content">
         <!-- Page Container -->
-        <div class="page-container ptb-60">
+        <div class="page-container ptb-20">
             <div class="container">
                 <div class="row row-rl-10 row-tb-20">
                     <div class="page-content col-xs-12 col-sm-7 col-md-8">

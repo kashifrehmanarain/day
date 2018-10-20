@@ -86,7 +86,7 @@
                 </div>
 --}}
 
-                <section class="section stores-area stores-area-v1 ptb-30">
+                <section class="section stores-area stores-area-v1 ptb-10">
                     <header class="panel ptb-15 prl-20 pos-r mb-30">
                         <h3 class="section-title font-18">Popular Stores</h3>
                         <a href="{{ route('stores')}}" class="btn btn-o btn-xs pos-a right-10 pos-tb-center">All Stores</a>

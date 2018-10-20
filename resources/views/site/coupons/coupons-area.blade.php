@@ -1,5 +1,6 @@
 <section class="section coupons-area coupons-area-list">
     <!-- Page Control -->
+{{--
     <header class="page-control panel ptb-15 prl-20 pos-r mb-30">
         <!-- List Control View -->
         <ul class="list-control-view list-inline">
@@ -18,10 +19,11 @@
             </select>
         </div>
     </header>
+--}}
     <!-- End Page Control -->
     <div class="row row-masnory row-tb-20">
         @foreach($coupons as $coupon)
-            <div class="col-xs-12">
+            <div class="col-xs-12 pb-0">
                 @include('site.coupons._coupon-list', ['coupon' => $coupon])
             </div>
         @endforeach

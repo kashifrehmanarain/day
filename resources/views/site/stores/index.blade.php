@@ -2,7 +2,7 @@
 @section('body')
     <main id="mainContent" class="main-content">
         <!-- Page Container -->
-        <div class="page-container ptb-60">
+        <div class="page-container ptb-20">
             <div class="container">
                 <section class="stores-area stores-area-v1">
                     <h3 class="mb-40 t-uppercase">View deals by stores</h3>

@@ -3724,7 +3724,7 @@ fieldset[disabled] .btn {
 }
 /* |–––––––––––––[ Default Button ]––––––––––––| */
 .btn {
-  background-color: #2ed87b;
+  background-color: #03A9F4;
   color: #fff;
 }
 .btn.btn-link,
@@ -3742,8 +3742,8 @@ fieldset[disabled] .btn {
 .btn:active,
 .btn.active {
   color: #fff;
-  background-color: #25c76f;
-  border-color: #25c76f;
+  background-color: #0398db;
+  border-color: #0398db;
 }
 .btn.btn-link:hover,
 .btn.btn-link.hover,
